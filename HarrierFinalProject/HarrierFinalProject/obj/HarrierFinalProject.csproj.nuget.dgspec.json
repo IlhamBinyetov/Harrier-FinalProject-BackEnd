@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\binye\\source\\repos\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj": {}
+    "C:\\Users\\binye\\Desktop\\Harrier-FinalProject-BackEnd\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\binye\\source\\repos\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj": {
+    "C:\\Users\\binye\\Desktop\\Harrier-FinalProject-BackEnd\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\binye\\source\\repos\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\binye\\Desktop\\Harrier-FinalProject-BackEnd\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj",
         "projectName": "HarrierFinalProject",
-        "projectPath": "C:\\Users\\binye\\source\\repos\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj",
+        "projectPath": "C:\\Users\\binye\\Desktop\\Harrier-FinalProject-BackEnd\\HarrierFinalProject\\HarrierFinalProject\\HarrierFinalProject.csproj",
         "packagesPath": "C:\\Users\\binye\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\binye\\source\\repos\\HarrierFinalProject\\HarrierFinalProject\\obj\\",
+        "outputPath": "C:\\Users\\binye\\Desktop\\Harrier-FinalProject-BackEnd\\HarrierFinalProject\\HarrierFinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\binye\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,24 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
