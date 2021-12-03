@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HarrierFinalProject.Models
+namespace HarrierFinalProject.Data.Models
 {
-    public class Slider
+    public class FuelType
     {
         public int Id { get; set; }
-        public string Image { get; set; }
+        public string Name { get; set; }
     }
 }

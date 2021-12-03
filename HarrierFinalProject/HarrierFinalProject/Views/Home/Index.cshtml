@@ -445,21 +445,23 @@
 
 <section class="testimonial-section">
     <div class="slideshow-container">
-       
-        <div class="mySlides">
-            <div>
-                <img src="~/assets/./images/member1.png" alt="" />
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="mySlides">
+                <div>
+                    <img src="~/assets/./images/@comment.Image" alt="" />
+                </div>
+                <p class="desc">
+                    @comment.Description
+                </p>
+                <p class="author"><span>@comment.Name</span> Happy Customer</p>
             </div>
-            <p class="desc">
-                Code, template and others are very good. The support has served me
-                immediately and solved my problems when I need help. Are to be
-                congratulated.
-            </p>
-            <p class="author"><span>Smith John</span> Happy Customer</p>
-        </div>
-        
-        
-        <div class="mySlides">
+        }
+
+
+
+
+        @*<div class="mySlides">
             <div>
                 <img src="~/assets/./images/member2png.png" alt="" />
             </div>
@@ -480,9 +482,10 @@
                 pleasure to work with them!
             </p>
             <p class="author"><span>Smith John</span> Happy Customer</p>
-        </div>
+        </div>*@
+
         <div class="dot-container">
-            <span class="dot active"  onclick="currentSlide(1)"></span>
+            <span class="dot active" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>

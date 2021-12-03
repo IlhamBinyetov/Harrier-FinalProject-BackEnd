@@ -1,4 +1,5 @@
-﻿using HarrierFinalProject.Models;
+﻿using HarrierFinalProject.Data.Models;
+using HarrierFinalProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

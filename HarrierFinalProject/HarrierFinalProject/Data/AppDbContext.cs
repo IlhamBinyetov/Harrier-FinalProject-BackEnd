@@ -1,4 +1,5 @@
-﻿using HarrierFinalProject.Models;
+﻿using HarrierFinalProject.Configurations;
+using HarrierFinalProject.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -29,11 +30,21 @@ namespace HarrierFinalProject.Data
 
 
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+           
+        //}
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             ApplyDbSeedData(builder);
+
+
+
+            builder.ApplyConfigurationsFromAssembly(typeof(BrandConfiguration).Assembly);
+            base.OnModelCreating(builder);
         }
         public static void ApplyDbSeedData(ModelBuilder builder)
         {

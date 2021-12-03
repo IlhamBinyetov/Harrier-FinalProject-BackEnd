@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HarrierFinalProject.Models
+namespace HarrierFinalProject.Data.Models
 {
-    public class City
+    public class Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public Brand Brand { get; set; }
+        public int BrandId { get; set; }
     }
 }

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\CarTag.cs" />
+    <Compile Remove="Data\Models\CarTag.cs" />
   </ItemGroup>
 
   <ItemGroup>

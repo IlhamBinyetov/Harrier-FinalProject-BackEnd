@@ -21,7 +21,8 @@ namespace HarrierFinalProject.Controllers
             homeVM = new HomeViewModel()
             {
                 Sliders = _context.Sliders.ToList(),
-                CarTypes = _context.CarTypes.ToList()
+                CarTypes = _context.CarTypes.ToList(),
+                Comments = _context.Comments.ToList()
             };
 
             return View(homeVM);
