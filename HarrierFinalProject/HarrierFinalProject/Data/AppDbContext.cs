@@ -18,11 +18,23 @@ namespace HarrierFinalProject.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<CarType> CarTypes { get; set; }
+        public DbSet<FuelType> FuelTypes { get; set; }
+        public DbSet<Transmission> Transmissions { get; set; }
+        public DbSet<Gearbox> Gearboxes { get; set; }
+        public DbSet<CarColor> CarColors { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
 
 
 
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            ApplyDbSeedData(builder);
+        }
         public static void ApplyDbSeedData(ModelBuilder builder)
         {
             builder.Entity<Brand>()
@@ -77,8 +89,6 @@ namespace HarrierFinalProject.Data
                 new Model { Id=34, Name="Mazda5", BrandId=10}
                 );
 
-
-
             builder.Entity<City>()
                 .HasData( 
             new City { Id=1, Name="Baku"},
@@ -87,9 +97,83 @@ namespace HarrierFinalProject.Data
             new City { Id=4, Name="Sumgayit"},
             new City { Id=5, Name="Shaki"},
             new City { Id=6, Name="Siyezen"},
-            new City { Id=6, Name="Lenkeran"},
-            new City { Id=6, Name="Kurdemir"}
+            new City { Id=7, Name="Lenkeran"},
+            new City { Id=8, Name="Kurdemir"}
             );
+
+            builder.Entity<CarType>()
+                .HasData(
+                new CarType { Id=1, Name="SUV", Image= "car-type7.png" },
+                new CarType { Id=2, Name="PickUp", Image= "car-type12.png" },
+                new CarType { Id=3, Name="Sedan", Image= "car-type1.png" },
+                new CarType { Id=4, Name="Hybrid", Image= "car-type5.png" },
+                new CarType { Id=5, Name="Hatchback", Image= "car-type9.png" },
+                new CarType { Id=6, Name="Luxury", Image= "car-type10.png" },
+                new CarType { Id=7, Name="Coupe", Image="car-type6.png"},
+                new CarType { Id=8, Name="Offroader", Image= "car-type12.png" },
+                new CarType { Id=9, Name="Minivan", Image= "car-type8.png" },
+                new CarType { Id=10, Name="Universal", Image= "car-type7.png" },
+                new CarType { Id=11, Name="Truck", Image="car-type2.png"}
+                );
+
+            builder.Entity<FuelType>()
+                .HasData(
+                new FuelType { Id=1, Name="Benzin"},
+                new FuelType { Id=2, Name="Dizel"},
+                new FuelType { Id=3, Name="Qaz"},
+                new FuelType { Id=4, Name="Hibrid"}
+                );
+
+            builder.Entity<Transmission>()
+                .HasData(
+                new Transmission { Id=1, Name="Back"},
+                new Transmission { Id=2, Name="Front"},
+                new Transmission { Id=3, Name="Full"}
+                );
+
+            builder.Entity<Gearbox>()
+                .HasData(
+                new Gearbox { Id=1, Name="Automatic"},
+                new Gearbox { Id=2, Name="Manual"},
+                new Gearbox { Id=3, Name="Robotic"},
+                new Gearbox { Id=4, Name="Variator"}
+                );
+
+            builder.Entity<CarColor>()
+              .HasData(
+              new CarColor { Id = 1, Name = "Red" },
+              new CarColor { Id = 2, Name = "White" },
+              new CarColor { Id = 3, Name = "Green" },
+              new CarColor { Id = 4, Name = "Black" },
+              new CarColor { Id = 5, Name = "Beige" },
+              new CarColor { Id = 6, Name = "Blue" },
+              new CarColor { Id = 7, Name = "Orange" },
+              new CarColor { Id = 8, Name = "Yellow" },
+              new CarColor { Id = 9, Name = "Gray" },
+              new CarColor { Id = 10, Name = "Dark Gray" },
+              new CarColor { Id = 11, Name = "Violet" }
+              );
+
+            builder.Entity<Feature>()
+                .HasData(
+                new Feature {Id = 1, Name = "ABS" },
+                new Feature {Id = 2, Name = "Bluetooth" },
+                new Feature {Id = 3, Name = "Central Locking" },
+                new Feature {Id = 4, Name = "Air Conditioner" },
+                new Feature {Id = 5, Name = "Leather Seats" },
+                new Feature {Id = 6, Name = "CD Player" },
+                new Feature {Id = 7, Name = "Lyuk" },
+                new Feature {Id = 8, Name = "Parking radar" },
+                new Feature {Id = 9, Name = "Rain Sensor" },
+                new Feature {Id = 10, Name = "Heating of seats" },
+                new Feature {Id = 11, Name = "Rear View Camera" }
+                );
+
+            builder.Entity<Slider>()
+                .HasData(
+                new Slider { Id=1, Image="slider-1.jpg"},
+                new Slider { Id=2, Image="slider-2.jpg"}
+                );
 
         }
 

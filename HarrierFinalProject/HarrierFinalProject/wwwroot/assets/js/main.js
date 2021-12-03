@@ -3,6 +3,16 @@
 $(document).ready(function () {
 
 
+    $('.carousel-inner .item').each(function (i) {
+        if (i === 0) {
+            $(this).addClass('active');
+        }
+    });
+
+
+
+
+
     $('.search-button').click(function (e) {
         e.preventDefault();
         $('.search-section').show();
@@ -75,10 +85,7 @@ $(document).ready(function () {
     });
 
 
-    if ("#sel1") {
-
-    }
-
+    
     $('.car-pics').slick({
         dots: false,
         slidesToShow: 5,
@@ -188,6 +195,8 @@ $(document).ready(function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
+
+
 
 
 

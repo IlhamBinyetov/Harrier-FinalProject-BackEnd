@@ -4,14 +4,16 @@ using HarrierFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HarrierFinalProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211203062342_ImageRowAddedToCarTypeTable")]
+    partial class ImageRowAddedToCarTypeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,67 +181,56 @@ namespace HarrierFinalProject.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "car-type7.png",
                             Name = "SUV"
                         },
                         new
                         {
                             Id = 2,
-                            Image = "car-type12.png",
                             Name = "PickUp"
                         },
                         new
                         {
                             Id = 3,
-                            Image = "car-type1.png",
                             Name = "Sedan"
                         },
                         new
                         {
                             Id = 4,
-                            Image = "car-type5.png",
                             Name = "Hybrid"
                         },
                         new
                         {
                             Id = 5,
-                            Image = "car-type9.png",
                             Name = "Hatchback"
                         },
                         new
                         {
                             Id = 6,
-                            Image = "car-type10.png",
                             Name = "Luxury"
                         },
                         new
                         {
                             Id = 7,
-                            Image = "car-type6.png",
                             Name = "Coupe"
                         },
                         new
                         {
                             Id = 8,
-                            Image = "car-type12.png",
                             Name = "Offroader"
                         },
                         new
                         {
                             Id = 9,
-                            Image = "car-type8.png",
                             Name = "Minivan"
                         },
                         new
                         {
                             Id = 10,
-                            Image = "car-type7.png",
                             Name = "Universal"
                         },
                         new
                         {
                             Id = 11,
-                            Image = "car-type2.png",
                             Name = "Truck"
                         });
                 });
@@ -299,30 +290,6 @@ namespace HarrierFinalProject.Migrations
                             Id = 8,
                             Name = "Kurdemir"
                         });
-                });
-
-            modelBuilder.Entity("HarrierFinalProject.Models.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("PostDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("HarrierFinalProject.Models.Feature", b =>

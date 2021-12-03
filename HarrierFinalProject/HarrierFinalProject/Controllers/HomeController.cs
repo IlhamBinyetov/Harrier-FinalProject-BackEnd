@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HarrierFinalProject.Data;
+using HarrierFinalProject.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,21 @@ namespace HarrierFinalProject.Controllers
 {
     public class HomeController:Controller
     {
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public HomeController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+        public IActionResult Index(HomeViewModel homeVM)
+        {
+            homeVM = new HomeViewModel()
+            {
+                Sliders = _context.Sliders.ToList(),
+                CarTypes = _context.CarTypes.ToList()
+            };
+
+            return View(homeVM);
         }
     }
 }
