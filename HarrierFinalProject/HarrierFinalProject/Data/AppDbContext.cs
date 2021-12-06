@@ -1,5 +1,6 @@
-﻿using HarrierFinalProject.Configurations;
-using HarrierFinalProject.Models;
+﻿
+using HarrierFinalProject.Data.Configurations;
+using HarrierFinalProject.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -27,13 +28,17 @@ namespace HarrierFinalProject.Data
         public DbSet<Feature> Features { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
+       public DbSet<CarStatus> CarStatuses { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<CarFeature> CarFeatures { get; set; }
+        public DbSet<Partner> Partners { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
 
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-           
-        //}
+
+        
 
 
         protected override void OnModelCreating(ModelBuilder builder)

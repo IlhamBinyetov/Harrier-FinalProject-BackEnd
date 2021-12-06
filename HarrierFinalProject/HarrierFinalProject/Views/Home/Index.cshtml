@@ -1,6 +1,7 @@
 ﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Index";
+    List<Car> cars = Model?.Cars;
 }
 
 
@@ -19,7 +20,7 @@
 
         <div class="carousel-inner">
 
-            @foreach (var slider in Model.Sliders)
+            @foreach (var slider in Model?.Sliders)
             {
                 <div class="item">
                     <img src="~/assets/images/@slider.Image"
@@ -210,30 +211,33 @@
             </div>
         </div>
         <div class="deals-footer">
-            <div class="car-item col-3">
+            @foreach (var car in cars)
+            {
+            <div class="car-item col-3 @(car.CarSituationId == 0 ? "sold-car": "")">
                 <div class="item-info">
-                    <img src="~/assets/images/car1.jpg" alt="" />
-                    <span>Used</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
+                    <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" />
+                    <span>@car.CarStatus?.Name</span>
+                    <p><a href="">@car.Brand?.Name @car.Model?.Name</a></p>
                 </div>
                 <div class="seperator"></div>
                 <div class="item-price">
-                    <p>$ 95000</p>
+                    <p>$ @car.Price</p>
                 </div>
 
                 <div class="other-info d-flex justify-content-evenly">
                     <div class="infos">
                         <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
+                        <p>@car.Mileage</p>
                     </div>
                     <div class="infos">
                         <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
+                        <p>@car.Gearbox.Name</p>
                     </div>
                     <div class="infos">
                         <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
+                        <p>@car.DateOfProduct.Year</p>
                     </div>
+                   
                 </div>
                 <div class="hover-items">
                     <div class="rhombus col-4">
@@ -254,191 +258,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="car-item col-3 sold-car">
-                <div class="item-info">
-                    <img src="~/assets/images/car2.jpg" alt="" />
-                    <span>Used</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
+                @if(car.CarSituationId == 0)
+                {
+                    <div class="sold-pic">
+                        <img src="~/assets/images/sold.png" alt="" />
+                    </div>
+                }
 
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
-
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="sold-pic">
-                    <img src="~/assets/images/sold.png" alt="" />
-                </div>
             </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car3.jpg" alt="" />
-                    <span>Used</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
+            }
+       
 
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car4.jpg" alt="" />
-                    <span>New</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
-
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car5.jpg" alt="" />
-                    <span>Used</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
-
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -461,28 +291,7 @@
 
 
 
-        @*<div class="mySlides">
-            <div>
-                <img src="~/assets/./images/member2png.png" alt="" />
-            </div>
-            <p class="desc">
-                Code, template and others are very good. The support has served me
-                immediately and solved my problems when I need help. Are to be
-                congratulated.
-            </p>
-            <p class="author"><span>Smith John</span> Happy Customer</p>
-        </div>
-        <div class="mySlides">
-            <div>
-                <img src="~/assets/./images/member3.png" alt="" />
-            </div>
-            <p class="desc">
-                Our support and response has been amazing, helping me with several
-                issues I came across and got them solved almost the same day. A
-                pleasure to work with them!
-            </p>
-            <p class="author"><span>Smith John</span> Happy Customer</p>
-        </div>*@
+       
 
         <div class="dot-container">
             <span class="dot active" onclick="currentSlide(1)"></span>
@@ -496,236 +305,61 @@
     <div class="deals">
         <div class="deals-header">
             <div class="col-4 first-element">
-                <h2>BEST SELLER CARS</h2>
+                <h2>VERY EXPENSIVE CARS</h2>
             </div>
         </div>
         <div class="deals-footer">
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car12.webp" alt="" />
-                    <span>New</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
+            @foreach (var car in cars)
+            {
 
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
+                <div class="car-item col-3">
+                    <div class="item-info">
+                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" />
+                        <span>@car.CarStatus.Name</span>
+                        <p><a href="">@car.Brand.Name @car.Model.Name</a></p>
                     </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
+                    <div class="seperator"></div>
+                    <div class="item-price">
+                        <p>$ @car.Price</p>
                     </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car13.webp" alt="" />
-                    <span>New</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
 
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
+                    <div class="other-info d-flex justify-content-evenly">
+                        <div class="infos">
+                            <i class="bi bi-speedometer2"></i>
+                            <p>@car.Mileage</p>
+                        </div>
+                        <div class="infos">
+                            <i class="bi bi-gear-fill"></i>
+                            <p>@car.Gearbox.Name</p>
+                        </div>
+                        <div class="infos">
+                            <div><i class="bi bi-calendar3"></i></div>
+                            <p>@car.DateOfProduct.Year</p>
+                        </div>
+                    </div>
+                    <div class="hover-items">
+                        <div class="rhombus col-4">
+                            <div>
+                                <a href=""><i class="bi bi-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="rhombus col-4">
+                            <div>
+                                <a href=""><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                        <div class="rhombus col-4">
+                            <div>
+                                <a href="" title="add to wishlist">
+                                    <i class="bi bi-suit-heart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            }
 
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car14.webp" alt="" />
-                    <span>Used</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
-
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car15.webp" alt="" />
-                    <span>New</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
-
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item col-3">
-                <div class="item-info">
-                    <img src="~/assets/images/car16.jpg" alt="" />
-                    <span>New</span>
-                    <p><a href="">Mercedes-Benz M-Class</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ 95000</p>
-                </div>
-
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>85000</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>Automatic</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>2015</p>
-                    </div>
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="bi bi-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href=""><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+         
         </div>
     </div>
 </section>
@@ -817,27 +451,12 @@
             </div>
         </div>
         <div class="brand-pics">
-            <div>
-                <a href=""><img src="~/assets/images/brand1.png" alt="" /></a>
-            </div>
-            <div>
-                <a href=""><img src="~/assets/images/brand2.png" alt="" /></a>
-            </div>
-            <div>
-                <a href=""><img src="~/assets/images/brand3.png" alt="" /></a>
-            </div>
-            <div>
-                <a href=""><img src="~/assets/images/brand4.png" alt="" /></a>
-            </div>
-            <div>
-                <a href=""><img src="~/assets/images/brand5.png" alt="" /></a>
-            </div>
-            <div>
-                <a href=""><img src="~/assets/images/brand6.png" alt="" /></a>
-            </div>
-            <div>
-                <a href=""><img src="~/assets/images/brand6.png" alt="" /></a>
-            </div>
+            @foreach (var partner in Model.Partners)
+            {
+                <div>
+                    <a href=""><img src="~/assets/images/@partner.Logo" alt="" /></a>
+                </div>
+            }
         </div>
     </div>
 </section>

@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Compile Remove="Data\Models\CarTag.cs" />
+    <Compile Remove="Migrations\20211205134308_BlogTableCreated.cs" />
+    <Compile Remove="Migrations\20211205134308_BlogTableCreated.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

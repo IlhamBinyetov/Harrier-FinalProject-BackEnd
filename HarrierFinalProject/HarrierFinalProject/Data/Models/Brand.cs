@@ -1,4 +1,4 @@
-﻿using HarrierFinalProject.Models;
+﻿using HarrierFinalProject.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +11,6 @@ namespace HarrierFinalProject.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public List<Model> Models { get; set; }
+        public  List<Car> Cars { get; set; }
     }
 }

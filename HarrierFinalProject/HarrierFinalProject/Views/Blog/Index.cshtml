@@ -1,0 +1,158 @@
+﻿@model BlogViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section class="blog-section">
+        <div class="left-sidebar col-3">
+            <div class="search-bar">
+                <form action=" ">
+                    <input type="text" placeholder="Search for" />
+                    <div>
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="posts-list">
+                <h2>Popular Posts</h2>
+                @foreach (var blog in Model.Blogs)
+                {
+                    <div class="posts-item">
+                        <div>
+                            <a href="">
+                                <img src="./assets/images/@blog.Image" alt="" />
+                            </a>
+                        </div>
+                        <p><a href="">@blog.Name</a></p>
+                        <span>@blog.PostDate.ToString("MMMM dd, yyyy")</span>
+                    </div>
+                }
+
+                @*<div class="posts-item">
+                    <div>
+                        <a href="">
+                            <img src="./assets/images/blog-img3.jpg" alt="" />
+                        </a>
+                    </div>
+                    <p><a href="">Posts with gallery</a></p>
+                    <span>January 7, 2019</span>
+                </div>
+                <div class="posts-item">
+                    <div>
+                        <a href="">
+                            <img src="./assets/images/blog-img2.jpg" alt="" />
+                        </a>
+                    </div>
+                    <p><a href="">Posts with gallery</a></p>
+                    <span>January 7, 2019</span>
+                </div>*@
+            </div>
+        </div>
+        <div class="main-blogs col-8">
+            @foreach (var blog in Model.Blogs)
+            {
+
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="./assets/images/@blog.Image" alt="" />
+                    </div>
+                    <h2><a href="">@blog.Name</a></h2>
+                    <p class="date-content">
+                        <i class="far fa-clock"></i>
+                        <span>@blog.PostDate.ToString("MMMM dd, yyyy ")</span>
+                    </p>
+
+                    <p class="blog-mini-info">
+                    @blog.Description
+                    </p>
+                    <div class="button">
+                        <a href="" class="detail-btn">Read More</a>
+                    </div>
+                </div>
+            }
+            
+            <div class="pagination">
+                <nav aria-label="Page navigation example ">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features d-flex">
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/world-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">World`s #1</p>
+                    <p class="feature-second-p">Largest Auto Portal</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/car-sold-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Car sold</p>
+                    <p class="feature-second-p">Every 4 minute</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/tag-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Offers</p>
+                    <p class="feature-second-p">Stay updated pay less</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/compare-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Compare</p>
+                    <p class="feature-second-p">Decode the right car</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+</main>
+

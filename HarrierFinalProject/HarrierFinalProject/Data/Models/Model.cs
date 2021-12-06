@@ -11,5 +11,7 @@ namespace HarrierFinalProject.Data.Models
         public string Name { get; set; }
         public Brand Brand { get; set; }
         public int BrandId { get; set; }
+        public List<Car> Cars { get; set; }
+
     }
 }

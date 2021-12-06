@@ -1,5 +1,4 @@
 ﻿using HarrierFinalProject.Data.Models;
-using HarrierFinalProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +11,8 @@ namespace HarrierFinalProject.ViewModels
         public List<Slider> Sliders { get; set; }
         public List<CarType> CarTypes { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<Car> Cars { get; set; }
+        public List<Partner> Partners { get; set; }
+        public BlogViewModel BlogViewModel { get; set; }
     }
 }

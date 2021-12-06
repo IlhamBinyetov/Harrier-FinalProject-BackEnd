@@ -233,7 +233,6 @@ C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierF
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.csproj.AssemblyReference.cache
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.AssemblyInfoInputs.cache
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.AssemblyInfo.cs
@@ -258,3 +257,5 @@ C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierF
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.dll
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.pdb
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.genruntimeconfig.cache
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.csproj.AssemblyReference.cache
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs

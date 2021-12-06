@@ -10,9 +10,6 @@ $(document).ready(function () {
     });
 
 
-
-
-
     $('.search-button').click(function (e) {
         e.preventDefault();
         $('.search-section').show();
@@ -85,7 +82,10 @@ $(document).ready(function () {
     });
 
 
-    
+    if ("#sel1") {
+
+    }
+
     $('.car-pics').slick({
         dots: false,
         slidesToShow: 5,
@@ -194,9 +194,15 @@ $(document).ready(function () {
     function backToTop() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }
+    };
 
 
+
+
+    $.each($('.blog-item  .blog-mini-info'), function (i, v) {
+        if ($(v).html().length > 100)
+            $(v).html($(v).html().substr(0, 200) + "...");
+    });
 
 
 
@@ -224,12 +230,15 @@ function showSlides(n) {
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
+
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
+
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
+
 }
 
 

@@ -19,7 +19,34 @@ namespace HarrierFinalProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Brand", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PostDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PostedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Brand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -27,7 +54,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -86,7 +115,88 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.CarColor", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Car", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarColorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarSituationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateOfProduct")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DoorCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FuelTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GearboxId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HorsePower")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Mileage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ModelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MotorPower")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TransmissionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("CarColorId");
+
+                    b.HasIndex("CarStatusId");
+
+                    b.HasIndex("CarTypeId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("FuelTypeId");
+
+                    b.HasIndex("GearboxId");
+
+                    b.HasIndex("ModelId");
+
+                    b.HasIndex("TransmissionId");
+
+                    b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarColor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,7 +204,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -158,7 +270,67 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.CarType", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarFeature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FeatureId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("FeatureId");
+
+                    b.ToTable("CarFeatures");
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPoster")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("CarImages");
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarStatuses");
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -166,10 +338,13 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -244,7 +419,7 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.City", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +427,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -301,7 +478,7 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Comment", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -309,23 +486,28 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<DateTime>("PostDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.HasKey("Id");
 
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Feature", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Feature", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -333,7 +515,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -397,7 +581,7 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.FuelType", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.FuelType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -405,7 +589,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -434,7 +620,7 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Gearbox", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Gearbox", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -442,7 +628,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -471,7 +659,7 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Model", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Model", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -482,7 +670,9 @@ namespace HarrierFinalProject.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -697,7 +887,22 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Slider", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Partner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Partners");
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -705,7 +910,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
 
                     b.HasKey("Id");
 
@@ -724,7 +931,7 @@ namespace HarrierFinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Transmission", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Transmission", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -732,7 +939,9 @@ namespace HarrierFinalProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -952,12 +1161,93 @@ namespace HarrierFinalProject.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("HarrierFinalProject.Models.Model", b =>
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Car", b =>
                 {
-                    b.HasOne("HarrierFinalProject.Models.Brand", "Brand")
-                        .WithMany("Models")
+                    b.HasOne("HarrierFinalProject.Data.Models.Brand", "Brand")
+                        .WithMany("Cars")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.CarColor", "CarColor")
+                        .WithMany("Cars")
+                        .HasForeignKey("CarColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.CarStatus", "CarStatus")
+                        .WithMany("Cars")
+                        .HasForeignKey("CarStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.CarType", "CarType")
+                        .WithMany("Cars")
+                        .HasForeignKey("CarTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.City", "City")
+                        .WithMany("Cars")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.FuelType", "FuelType")
+                        .WithMany("Cars")
+                        .HasForeignKey("FuelTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.Gearbox", "Gearbox")
+                        .WithMany("Cars")
+                        .HasForeignKey("GearboxId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.Model", "Model")
+                        .WithMany("Cars")
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.Transmission", "Transmission")
+                        .WithMany("Cars")
+                        .HasForeignKey("TransmissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarFeature", b =>
+                {
+                    b.HasOne("HarrierFinalProject.Data.Models.Car", "Car")
+                        .WithMany("CarFeatures")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.Feature", "Feature")
+                        .WithMany("CarFeatures")
+                        .HasForeignKey("FeatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.CarImage", b =>
+                {
+                    b.HasOne("HarrierFinalProject.Data.Models.Car", "Car")
+                        .WithMany("CarImages")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HarrierFinalProject.Data.Models.Model", b =>
+                {
+                    b.HasOne("HarrierFinalProject.Data.Models.Brand", "Brand")
+                        .WithMany("Models")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 

@@ -7,7 +7,8 @@ namespace HarrierFinalProject.Data.Models.Enums
 {
     public enum CarSituation
     {
-        New = 0,
-        Used = 1    
+        Sold,
+        Selling
     }
 }
+    

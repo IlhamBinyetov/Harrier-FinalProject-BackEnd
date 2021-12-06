@@ -1,0 +1,150 @@
+﻿@model BlogDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+
+<main>
+    <section class="blog-detail">
+        <div class="detail-item">
+            <div class="detail-img">
+                <img src="./assets/images/@Model.BLog.Image" alt="">
+            </div>
+            <div class="detail-info">
+                <h2>@Model.BLog.Name</h2>
+                <p class="date-content">
+                    <i class="far fa-clock"></i>
+                    <span>@Model.BLog.PostDate.ToString("MMMM dd, yyyy")</span>
+                </p>
+            </div>
+            <div class="detail-description">
+                <p>@Model.BLog.Description</p>
+            </div>
+            <div></div>
+        </div>
+
+        <div class="detail-comments">
+            <div class="comment-header">
+                <h3>3 thoughts on “Post with gallery”</h3>
+            </div>
+            <div class="comment-list">
+                <div class="user-img col-1">
+                    <img src="./assets/images/user12.jpeg" alt="">
+                </div>
+                <div class="comment-info">
+                    <div>
+                        <strong>admin </strong>
+                        <span>- May 26, 2019</span>
+                    </div>
+
+                    <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                </div>
+
+
+
+            </div>
+            <div class="comment-list">
+                <div class="user-img col-1">
+                    <img src="./assets/images/user12.jpeg" alt="">
+                </div>
+                <div class="comment-info">
+                    <div>
+                        <strong>admin </strong>
+                        <span>- May 26, 2019</span>
+                    </div>
+                    <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+
+            <div class="reply-part">
+                <h3>Leave Reply</h3>
+                <p>Your email address will not be published. Required fields are marked <span>*</span> </p>
+
+                <form action="">
+                    <textarea name="" id="" placeholder="Comment" required></textarea>
+                    <input type="text" placeholder="Name *" required>
+                    <input type="email" placeholder="Email *" required>
+                    <input type="text" placeholder="Website">
+                    <div class="checkbox">
+                        <input type="checkbox"> <label>Save my name, email, and website in this browser for the next time I comment.</label>
+
+                    </div>
+
+                    <button type="submit">Post Comment</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="features-section">
+        <div class="features d-flex">
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/world-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">World`s #1</p>
+                    <p class="feature-second-p">Largest Auto Portal</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/car-sold-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Car sold</p>
+                    <p class="feature-second-p">Every 4 minute</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/tag-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Offers</p>
+                    <p class="feature-second-p">Stay updated pay less</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/compare-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Compare</p>
+                    <p class="feature-second-p">Decode the right car</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+</main>
