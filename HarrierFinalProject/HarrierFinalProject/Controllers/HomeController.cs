@@ -35,10 +35,18 @@ namespace HarrierFinalProject.Controllers
                 CarTypes = _context.CarTypes.ToList(),
                 Comments = _context.Comments.ToList(),
                 Cars = cars,
-                Partners = _context.Partners.ToList()
+                Partners = _context.Partners.ToList(),
+                Blogs = _context.Blogs.ToList(),
+                Advertisings = _context.Advertisings.ToList()
+            
             };
 
             return View(homeVM);
+        }
+
+        public IActionResult AdvancedSearch()
+        {
+            return View();
         }
     }
 }

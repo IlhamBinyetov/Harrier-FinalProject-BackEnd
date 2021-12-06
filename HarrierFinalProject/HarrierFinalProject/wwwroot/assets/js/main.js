@@ -205,6 +205,12 @@ $(document).ready(function () {
     });
 
 
+    $.each($('.blog-name p'), function (i, v) {
+        if ($(v).html().length > 200)
+            $(v).html($(v).html().substr(0, 300) + "...");
+    });
+
+
 
 
 

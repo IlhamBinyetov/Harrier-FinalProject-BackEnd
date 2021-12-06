@@ -20,33 +20,16 @@
                 {
                     <div class="posts-item">
                         <div>
-                            <a href="">
+                            <a asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id">
                                 <img src="./assets/images/@blog.Image" alt="" />
                             </a>
                         </div>
-                        <p><a href="">@blog.Name</a></p>
+                        <p><a  asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id">@blog.Name</a></p>
                         <span>@blog.PostDate.ToString("MMMM dd, yyyy")</span>
                     </div>
                 }
 
-                @*<div class="posts-item">
-                    <div>
-                        <a href="">
-                            <img src="./assets/images/blog-img3.jpg" alt="" />
-                        </a>
-                    </div>
-                    <p><a href="">Posts with gallery</a></p>
-                    <span>January 7, 2019</span>
-                </div>
-                <div class="posts-item">
-                    <div>
-                        <a href="">
-                            <img src="./assets/images/blog-img2.jpg" alt="" />
-                        </a>
-                    </div>
-                    <p><a href="">Posts with gallery</a></p>
-                    <span>January 7, 2019</span>
-                </div>*@
+             
             </div>
         </div>
         <div class="main-blogs col-8">
@@ -57,7 +40,7 @@
                     <div class="blog-img">
                         <img src="./assets/images/@blog.Image" alt="" />
                     </div>
-                    <h2><a href="">@blog.Name</a></h2>
+                    <h2><a asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id">@blog.Name</a></h2>
                     <p class="date-content">
                         <i class="far fa-clock"></i>
                         <span>@blog.PostDate.ToString("MMMM dd, yyyy ")</span>
@@ -67,7 +50,7 @@
                     @blog.Description
                     </p>
                     <div class="button">
-                        <a href="" class="detail-btn">Read More</a>
+                        <a asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id" class="detail-btn">Read More</a>
                     </div>
                 </div>
             }

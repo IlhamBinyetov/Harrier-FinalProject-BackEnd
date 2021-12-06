@@ -9,7 +9,7 @@
     <section class="blog-detail">
         <div class="detail-item">
             <div class="detail-img">
-                <img src="./assets/images/@Model.BLog.Image" alt="">
+                <img src="~/assets/images/@Model.BLog.Image" alt="" data-id="@Model.BLog.Id">
             </div>
             <div class="detail-info">
                 <h2>@Model.BLog.Name</h2>
@@ -26,11 +26,11 @@
 
         <div class="detail-comments">
             <div class="comment-header">
-                <h3>3 thoughts on “Post with gallery”</h3>
+                <h3>3 thoughts on “@Model.BLog.Name”</h3>
             </div>
             <div class="comment-list">
                 <div class="user-img col-1">
-                    <img src="./assets/images/user12.jpeg" alt="">
+                    <img src="~/assets/images/user12.jpeg" alt="">
                 </div>
                 <div class="comment-info">
                     <div>
@@ -41,13 +41,10 @@
                     <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                 </div>
-
-
-
             </div>
             <div class="comment-list">
                 <div class="user-img col-1">
-                    <img src="./assets/images/user12.jpeg" alt="">
+                    <img src="~/assets/images/user12.jpeg" alt="">
                 </div>
                 <div class="comment-info">
                     <div>

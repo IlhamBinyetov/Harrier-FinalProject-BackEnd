@@ -14,5 +14,7 @@ namespace HarrierFinalProject.ViewModels
         public List<Car> Cars { get; set; }
         public List<Partner> Partners { get; set; }
         public BlogViewModel BlogViewModel { get; set; }
+        public List<Blog> Blogs { get; set; }
+        public List<Advertising> Advertisings { get; set; }
     }
 }

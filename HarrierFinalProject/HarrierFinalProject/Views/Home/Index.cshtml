@@ -133,7 +133,7 @@
                 Search Vehicle
             </button>
             <div class="main-search">
-                <a href="./AdvancedSearch.html" class="advanced-search">
+                <a asp-action="advancedsearch" asp-controller="home" class="advanced-search">
                     Advanced Search
                 </a>
             </div>
@@ -371,75 +371,32 @@
         </div>
     </div>
     <div class="blog-footer d-flex">
-        <div class="footer-element col-4">
-            <div class="blog-img">
-                <img src="~/assets/images/blog-img1.jpg" alt="" />
-                <span class="blog-date">2018 25 Dec</span>
+        @foreach (var blog in Model.Blogs)
+        {
+            <div class="footer-element col-4">
+                <div class="blog-img">
+                    <img src="~/assets/images/@blog.Image" alt="" />
+                    <span class="blog-date">@blog.PostDate.ToString("yyyy dd MMM")</span>
+                </div>
+                <div class="pt-4 info">
+                    <i class="bi bi-person"></i>
+                    <span>Posted by</span>
+                    <span class="poster-name">@blog.PostedBy</span>
+                    <i class="bi bi-chat chat"></i>
+                    <a href="">0 comments </a>
+                </div>
+                <div class="blog-name">
+                    <h3>
+                        <a href="">@blog.Name</a>
+                    </h3>
+                    <p>
+                        @blog.Description   
+                    </p>
+                </div>
             </div>
-            <div class="pt-4 info">
-                <i class="bi bi-person"></i>
-                <span>Posted by</span>
-                <span class="poster-name">Sinan</span>
-                <i class="bi bi-chat chat"></i>
-                <a href="">0 comments </a>
-            </div>
-            <div class="blog-name">
-                <h3>
-                    <a href="">Powerful and flexible premium Ecommerce themes</a>
-                </h3>
-                <p>
-                    Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum
-                    facilisis sed non est. Ut mi metus, semper eu dictum nec,
-                    condimentum sed sapien.
-                </p>
-            </div>
-        </div>
-        <div class="footer-element col-4">
-            <div class="blog-img">
-                <img src="~/assets/images/blog-img2.jpg" alt="" />
-                <span class="blog-date">2018 25 Dec</span>
-            </div>
-            <div class="pt-4 info">
-                <i class="bi bi-person"></i>
-                <span>Posted by</span>
-                <span class="poster-name">Sinan</span>
-                <i class="bi bi-chat chat"></i>
-                <a href="">0 comments </a>
-            </div>
-            <div class="blog-name">
-                <h3>
-                    <a href="">Powerful and flexible premium Ecommerce themes</a>
-                </h3>
-                <p>
-                    Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum
-                    facilisis sed non est. Ut mi metus, semper eu dictum nec,
-                    condimentum sed sapien.
-                </p>
-            </div>
-        </div>
-        <div class="footer-element col-4">
-            <div class="blog-img">
-                <img src="~/assets/images/blog-img3.jpg" alt="" />
-                <span class="blog-date">2019 7 Jan</span>
-            </div>
-            <div class="pt-4 info">
-                <i class="bi bi-person"></i>
-                <span>Posted by</span>
-                <span class="poster-name">Sinan</span>
-                <i class="bi bi-chat chat"></i>
-                <a href="">0 comments </a>
-            </div>
-            <div class="blog-name">
-                <h3>
-                    <a href="">Powerful and flexible premium Ecommerce themes</a>
-                </h3>
-                <p>
-                    Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum
-                    facilisis sed non est. Ut mi metus, semper eu dictum nec,
-                    condimentum sed sapien.
-                </p>
-            </div>
-        </div>
+        }
+
+       
     </div>
 </section>
 
@@ -463,42 +420,19 @@
 
 <section class="features-section">
     <div class="features d-flex">
-        <div class="feature-element col-3 d-flex justify-content-evenly">
-            <div class="feature-icon">
-                <img src="~/assets/images/world-icon.png" alt="" />
+        @foreach (var advertising in Model.Advertisings)
+        {
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/@advertising.Logo" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">@advertising.Title</p>
+                    <p class="feature-second-p">@advertising.Description</p>
+                </div>
             </div>
-            <div>
-                <p class="feature-first-p">World`s #1</p>
-                <p class="feature-second-p">Largest Auto Portal</p>
-            </div>
-        </div>
-        <div class="feature-element col-3 d-flex justify-content-evenly">
-            <div class="feature-icon">
-                <img src="~/assets/images/car-sold-icon.png" alt="" />
-            </div>
-            <div>
-                <p class="feature-first-p">Car sold</p>
-                <p class="feature-second-p">Every 4 minute</p>
-            </div>
-        </div>
-        <div class="feature-element col-3 d-flex justify-content-evenly">
-            <div class="feature-icon">
-                <img src="~/assets/images/tag-icon.png" alt="" />
-            </div>
-            <div>
-                <p class="feature-first-p">Offers</p>
-                <p class="feature-second-p">Stay updated pay less</p>
-            </div>
-        </div>
-        <div class="feature-element col-3 d-flex justify-content-evenly">
-            <div class="feature-icon">
-                <img src="~/assets/images/compare-icon.png" alt="" />
-            </div>
-            <div>
-                <p class="feature-first-p">Compare</p>
-                <p class="feature-second-p">Decode the right car</p>
-            </div>
-        </div>
+        }
+
     </div>
 </section>
 
