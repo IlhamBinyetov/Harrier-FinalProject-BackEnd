@@ -210,6 +210,11 @@ $(document).ready(function () {
             $(v).html($(v).html().substr(0, 300) + "...");
     });
 
+    $.each($('.brand-name .description '), function (i, v) {
+        if ($(v).html().length > 100)
+            $(v).html($(v).html().substr(0, 250) + "...");
+    });
+
 
 
 

@@ -1,7 +1,146 @@
-﻿
+﻿@model CarViewModel
 @{
     ViewData["Title"] = "Index";
+    List<Car> cars = Model?.Cars;
+    List<Car> Popularcars = ViewBag.PopularCars;
 }
 
-<h1>Index</h1>
+<section class="bg-img-section">
+    <div>
+        <img src="~/assets/images/category-bg.jpg" alt="" />
+    </div>
+</section>
+
+<section class="list-section">
+    <div class="d-flex justify-content-between">
+        <div class="vehicles col-4">
+            <div class="car-categories">
+                <div class="category-name">
+                    <h3>Car Categories</h3>
+                </div>
+                <div>
+                    <ul>
+                        @foreach (var item in Model.CarTypes)
+                        {
+                            <li>
+                                <a href="" class="col-4">@item.Name</a>
+                                <img src="~/assets/images/@item.Image"
+                                     alt=""
+                                     class="col-8" />
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="popular-vehicles">
+                <div class="part-name">
+                    <h3>Popular Vehicles</h3>
+                </div>
+                @foreach (var item in Popularcars)
+                {
+                    <div class="d-flex justify-content-between pt-4 car-item">
+                        <div class="car-image col-4">
+                            <a asp-action="detail" asp-controller="car" asp-route-id="@item.Id"><img src="~/assets/images/@item.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" /></a>
+                        </div>
+                        <div class="car-details col-7">
+                            <p><a asp-action="detail" asp-controller="car" asp-route-id="@item.Id">@item.Brand.Name @item.Model.Name</a></p>
+                            <i class="fas fa-car"></i>
+                            <span class="car-brand">@item.Brand.Name</span>
+                            <p class="car-price">$@item.Price</p>
+                        </div>
+                    </div>
+
+                }
+              
+            </div>
+        </div>
+        <div class="col-7 carlists">
+            @foreach (var car in cars)
+            {
+                <div class="d-flex justify-content-between car-item">
+                    <div class="col-3">
+                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" />
+                    </div>
+                    <div class="brand-name col-8">
+                        <p>@car.Brand.Name @car.Model.Name </p>
+                        <div>
+                            <a href=""><i class="bi bi-telephone"></i><span>+18007890001</span></a>
+                            <a href="">
+                                <i class="bi bi-envelope"></i><span>info@klbtheme.com</span>
+                            </a>
+
+                            <p class="description">
+                               @car.Description
+                            </p>
+                            <p class="brand-price">$@car.Price</p>
+
+                            <a asp-action="detail" asp-controller="car" asp-route-id="@car.Id" class="view-more"><i class="bi bi-arrow-right"></i>View More</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+           
+
+            <div class="pagination">
+                <nav aria-label="Page navigation example ">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="features d-flex">
+        @foreach (var advertising in Model.Advertisings)
+        {
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/@advertising.Logo" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">@advertising.Title</p>
+                    <p class="feature-second-p">@advertising.Description</p>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="newsletter-section">
+    <h5>NEWSLETTER</h5>
+    <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+    <div class="form-elements">
+        <form action="email">
+            <input type="email"
+                   name="email"
+                   placeholder="Your email address"
+                   id="email" />
+            <button type="submit" class="subs-btn">
+                <span><i class="bi bi-envelope-fill envelope"></i></span>
+                Subscribe
+            </button>
+        </form>
+    </div>
+</section>
+
+<section class="scroll-section">
+    <button type="button"
+            class="btn btn-danger btn-floating btn-lg"
+            id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</section>
 
