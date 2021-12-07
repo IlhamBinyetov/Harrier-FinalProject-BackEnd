@@ -3,6 +3,7 @@ using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,40 @@ namespace HarrierFinalProject.Controllers
         public IActionResult AdvancedSearch()
         {
             return View();
+        }
+
+
+        public IActionResult AddToBasket(int id)
+        {
+            Car car = _context.Cars.Include(c=>c.Brand).Include(c => c.CarImages).FirstOrDefault(x => x.Id == id);
+
+            List<BasketViewModel> favorites = new List<BasketViewModel>();
+            string namesStr;
+            BasketViewModel favorite = null;
+
+            if (HttpContext.Request.Cookies["BasketCookie"] != null)
+            {
+                namesStr = HttpContext.Request.Cookies["BasketCookie"];
+                favorites = JsonConvert.DeserializeObject<List<BasketViewModel>>(namesStr);
+                favorite = favorites.FirstOrDefault(x => x.CarId == car.Id);
+            }
+
+            if (favorite == null)
+            {
+                favorite = new BasketViewModel
+                {
+                  CarName = car.Brand?.Name,
+                  CarPrice = car.Price,
+                  CarPosterImage = car.CarImages.FirstOrDefault(c=>c.IsPoster==true)?.Image
+                };
+                favorites.Add(favorite);
+
+            }
+
+            namesStr = JsonConvert.SerializeObject(favorites);
+            HttpContext.Response.Cookies.Append("BasketCookie", namesStr);
+
+            return PartialView("_BasketPartial", favorites);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<BasketViewModel>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -111,11 +113,11 @@
                                     <span class="basket-number">0</span>
                                 </a>
                                 <!-- Cart Menu START -->
-                                <div class="cart-menu">
+                                @*<div class="cart-menu">
                                     <div class="cart-header">
                                         <div>
                                             <span class="menu-count">1</span>
-                                            <span class="menu-title">item,</span>
+                                            <span class="menu-title">car</span>
                                         </div>
                                         <div class="d-flex">
                                             <span class="menu-price-currency">£</span>
@@ -151,7 +153,9 @@
                                             <a href="#">Checkout</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
+
+                                @await Html.PartialAsync("_BasketPartial", Model)
                             </div>
 
                             <div class="hamburger-section col-md-1 col-lg-1">

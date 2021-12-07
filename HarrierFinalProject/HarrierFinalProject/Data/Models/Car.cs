@@ -43,6 +43,7 @@ namespace HarrierFinalProject.Data.Models
         public List<CarFeature> CarFeatures { get; set; }
         public int CarStatusId { get; set; }
         public CarStatus CarStatus { get; set; }
+        public ICollection<Basket> Baskets { get; set; }
         
 
        
