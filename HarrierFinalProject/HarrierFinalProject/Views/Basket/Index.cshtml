@@ -1,0 +1,113 @@
+﻿@model BasketViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+
+
+    <section class="cart-section">
+        <form action="" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.Cars)
+                {
+                    <tbody>
+                        <tr>
+                            <td><img src="~/assets/images/@item.CarImages.FirstOrDefault(c=>c.IsPoster==true).Image" alt="" /></td>
+                            <td>@item.Brand.Name - @item.Model.Name</td>
+                            <td>£ @item.Price.ToString("0.##")</td>
+                            <td>£ @item.Price.ToString("0.##")</td>
+                            <td>
+                                <button><i class="far fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+
+                @*<tbody>
+                    <tr>
+                        <td><img src="./assets/images/car2.jpg" alt="" /></td>
+                        <td>Best Cell Phone Car TurboCharges Mercedes-Benz</td>
+                        <td>£ 36.00</td>
+                        <td>£36.00</td>
+                        <td>
+                            <button><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>*@
+            </table>
+
+            <div class="cart-totals">
+                <h2>Cart Totals</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Subtotal</th>
+                            <td>£505.00</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td>£505.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="checkout">
+                    <a href=""><i class="fas fa-check"></i>Proceed To Checkout</a>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="features-section">
+        <div class="features d-flex">
+            @foreach (var item in Model.Advertisings)
+            {
+                <div class="feature-element col-3 d-flex justify-content-evenly">
+                    <div class="feature-icon">
+                        <img src="~/assets/images/@item.Logo" alt="" />
+                    </div>
+                    <div>
+                        <p class="feature-first-p">@item.Title</p>
+                        <p class="feature-second-p">@item.Description</p>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+</main>
