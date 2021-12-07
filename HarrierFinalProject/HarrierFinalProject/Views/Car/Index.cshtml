@@ -47,7 +47,7 @@
                             <p><a asp-action="detail" asp-controller="car" asp-route-id="@item.Id">@item.Brand.Name @item.Model.Name</a></p>
                             <i class="fas fa-car"></i>
                             <span class="car-brand">@item.Brand.Name</span>
-                            <p class="car-price">$@item.Price</p>
+                            <p class="car-price">$@item.Price.ToString("0.##")</p>
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@
                             <p class="description">
                                @car.Description
                             </p>
-                            <p class="brand-price">$@car.Price</p>
+                            <p class="brand-price">$@car.Price.ToString("0.##")</p>
 
                             <a asp-action="detail" asp-controller="car" asp-route-id="@car.Id" class="view-more"><i class="bi bi-arrow-right"></i>View More</a>
                         </div>

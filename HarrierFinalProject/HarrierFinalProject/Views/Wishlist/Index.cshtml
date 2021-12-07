@@ -1,0 +1,94 @@
+﻿@model WishlistViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section class="wishlist-section">
+        <h2>My Wishlist</h2>
+        <div class="wishlist-part">
+            <form action="" method="post" autocomplete="off">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" /></th>
+                            <th></th>
+                            <th></th>
+                            <th class="product-name">Product Name</th>
+                            <th class="price">Price</th>
+                            <th class="date">Date Added</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var car in Model.Cars)
+                    {
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>
+                                    <button class="remove">
+                                        <i class="far fa-times-circle"></i>
+                                    </button>
+                                </td>
+                                <td><img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" /></td>
+                                <td>@car.Brand.Name @car.Model.Name</td>
+                                <td>$ @car.Price.ToString("0.##")</td>
+                                <td>November 27, 2021</td>
+                                <td><button class="add-cart">Add To Cart</button></td>
+                            </tr>
+                        </tbody>
+                    }
+
+                    
+                </table>
+
+                <button class="all-cart">Add All To Cart</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features d-flex">
+            @foreach (var item in Model.Advertisings)
+            {
+                <div class="feature-element col-3 d-flex justify-content-evenly">
+                    <div class="feature-icon">
+                        <img src="~/assets/images/@item.Logo" alt="" />
+                    </div>
+                    <div>
+                        <p class="feature-first-p">@item.Title  </p>
+                        <p class="feature-second-p">@item.Description</p>
+                    </div>
+                </div>
+            }
+
+         
+        </div>
+    </section>
+
+
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+</main>

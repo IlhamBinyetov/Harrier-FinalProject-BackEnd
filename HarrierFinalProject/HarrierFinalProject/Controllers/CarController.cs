@@ -55,6 +55,8 @@ namespace HarrierFinalProject.Controllers
                                         .Take(4)
                                         .ToList();
 
+            ViewBag.Advertisements = _context.Advertisings.ToList();
+
 
             Car car = _context.Cars.Include(c => c.CarImages)
                                    .Include(c => c.Model)

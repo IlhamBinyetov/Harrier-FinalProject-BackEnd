@@ -264,3 +264,4 @@ C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierF
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Car\Index.cshtml.g.cs
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Car\Detail.cshtml.g.cs
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Wishlist\Index.cshtml.g.cs
