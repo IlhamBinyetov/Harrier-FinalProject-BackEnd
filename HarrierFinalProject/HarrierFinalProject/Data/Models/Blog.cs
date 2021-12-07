@@ -13,5 +13,6 @@ namespace HarrierFinalProject.Data.Models
          public string PostedBy { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

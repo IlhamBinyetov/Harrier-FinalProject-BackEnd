@@ -1,0 +1,89 @@
+﻿@model ContactViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section class="bg">
+    <img src="~/assets/images/contact-bg.jpg" alt="" />
+    <h2>CONTACT US</h2>
+</section>
+
+<section class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2147.5636559089176!2d50.20617589285119!3d40.42848231172182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40305dc1541db69f%3A0x41b9f6db3bce3231!2sGala%2C%20Dubandi%2C%20Azerbaijan!5e0!3m2!1sen!2s!4v1637404860459!5m2!1sen!2s"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"></iframe>
+</section>
+
+<section class="contact">
+    <div class="contact-header">
+        <h2>CONTACT US</h2>
+    </div>
+    <div>
+        <form action="">
+            <div class="d-flex justify-content-between mb-4">
+                <div class="col-5">
+                    <label for="">Your Name(required)</label>
+                    <input type="text" />
+                    <span></span>
+                </div>
+                <div class="col-5">
+                    <label for="">Your Email(required)</label>
+                    <input type="email" />
+                    <span></span>
+                </div>
+            </div>
+            <div class="subject mb-4">
+                <label for="">Subject</label>
+                <input type="text" />
+            </div>
+            <div class="message">
+                <label for="">Your Message</label>
+                <br />
+                <textarea name="" id=""></textarea>
+            </div>
+
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="features d-flex">
+        @foreach (var item in Model.Advertisings)
+        {
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/@item.Logo" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">@item.Title</p>
+                    <p class="feature-second-p">@item.Description</p>
+                </div>
+            </div>
+
+        }
+        
+    </div>
+</section>
+
+<section class="newsletter-section">
+    <h5>NEWSLETTER</h5>
+    <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+    <div class="form-elements">
+        <form action="email">
+            <input type="email"
+                   name="email"
+                   placeholder="Your email address"
+                   id="email" />
+            <button type="submit" class="subs-btn">
+                <span><i class="bi bi-envelope-fill envelope"></i></span>
+                Subscribe
+            </button>
+        </form>
+    </div>
+</section>
+

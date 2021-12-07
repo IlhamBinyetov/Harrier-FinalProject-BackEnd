@@ -46,7 +46,7 @@ namespace HarrierFinalProject.Data.Models
         
 
        
-       // public List<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; }
 
         
 

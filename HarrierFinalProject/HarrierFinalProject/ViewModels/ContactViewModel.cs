@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HarrierFinalProject.ViewModels
 {
-    public class BlogViewModel
+    public class ContactViewModel
     {
-        public List<Blog> Blogs { get; set; }
+        public Contact Contact { get; set; }
         public List<Advertising> Advertisings { get; set; }
     }
 }

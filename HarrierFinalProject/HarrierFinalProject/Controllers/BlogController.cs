@@ -2,6 +2,7 @@
 using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,13 @@ namespace HarrierFinalProject.Controllers
         public IActionResult Index(BlogViewModel BlogVM)
         {
             List<Blog> blogs = _context.Blogs.ToList();
-
+            List<Advertising> advertisings = _context.Advertisings.ToList();
 
             BlogVM = new BlogViewModel()
             {
-                Blogs = blogs
+                Blogs = blogs,
+                Advertisings = advertisings
+                
             };
 
             return View(BlogVM);
@@ -35,7 +38,8 @@ namespace HarrierFinalProject.Controllers
         {
             BlogDetailViewModel detailVM = new BlogDetailViewModel()
             {
-                BLog = _context.Blogs.FirstOrDefault(x=>x.Id == id)
+                BLog = _context.Blogs.Include(x=>x.Comments).FirstOrDefault(x=>x.Id == id),
+                Advertisings = _context.Advertisings.ToList()
             }; 
 
             return View(detailVM);

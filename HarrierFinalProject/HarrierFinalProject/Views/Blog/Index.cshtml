@@ -75,42 +75,20 @@
 
     <section class="features-section">
         <div class="features d-flex">
-            <div class="feature-element col-3 d-flex justify-content-evenly">
-                <div class="feature-icon">
-                    <img src="./assets/images/world-icon.png" alt="" />
+            @foreach (var item in Model.Advertisings)
+            {
+                <div class="feature-element col-3 d-flex justify-content-evenly">
+                    <div class="feature-icon">
+                        <img src="./assets/images/@item.Logo" alt="" />
+                    </div>
+                    <div>
+                        <p class="feature-first-p">@item.Title</p>
+                        <p class="feature-second-p">@item.Description</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="feature-first-p">World`s #1</p>
-                    <p class="feature-second-p">Largest Auto Portal</p>
-                </div>
-            </div>
-            <div class="feature-element col-3 d-flex justify-content-evenly">
-                <div class="feature-icon">
-                    <img src="./assets/images/car-sold-icon.png" alt="" />
-                </div>
-                <div>
-                    <p class="feature-first-p">Car sold</p>
-                    <p class="feature-second-p">Every 4 minute</p>
-                </div>
-            </div>
-            <div class="feature-element col-3 d-flex justify-content-evenly">
-                <div class="feature-icon">
-                    <img src="./assets/images/tag-icon.png" alt="" />
-                </div>
-                <div>
-                    <p class="feature-first-p">Offers</p>
-                    <p class="feature-second-p">Stay updated pay less</p>
-                </div>
-            </div>
-            <div class="feature-element col-3 d-flex justify-content-evenly">
-                <div class="feature-icon">
-                    <img src="./assets/images/compare-icon.png" alt="" />
-                </div>
-                <div>
-                    <p class="feature-first-p">Compare</p>
-                    <p class="feature-second-p">Decode the right car</p>
-                </div>
-            </div>
+
+            }
+         
         </div>
     </section>
     <section class="newsletter-section">

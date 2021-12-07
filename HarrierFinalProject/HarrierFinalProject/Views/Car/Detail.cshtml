@@ -1,6 +1,8 @@
 ﻿@model Car
+
 @{
     ViewData["Title"] = "Detail";
+    List<Car> RelatedCars = ViewBag.RelatedCars;
 }
 
 <main>
@@ -190,27 +192,23 @@
                 </table>
             </div>
             <div id="menu3" class="tab-pane fade comments">
-                <h3>2 thoughts on “Mercedes-Benz M-Class”</h3>
-                <div class="comment-block">
-                    <div class="comment-img">
-                        <img src="~/assets/images/empty-user.png" alt="">
+                <h3>@Model.Comments.Count thoughts on “@Model.Brand.Name @Model.Model.Name”</h3>
+
+                @foreach (var item in Model.Comments)
+                {
+                    <div class="comment-block">
+                        <div class="comment-img">
+                            <img src="~/assets/images/@item.Image" alt="">
+                        </div>
+                        <div class="comment-info">
+                            <div><a href="">Reply</a></div>
+                            <b>John Doe</b> - <span>@item.PostDate.ToString("yyyy dd, MMMM")</span>
+                            <p>@item.Description</p>
+                        </div>
                     </div>
-                    <div class="comment-info">
-                        <div><a href="">Reply</a></div>
-                        <b>John Doe</b> - <span>May 20, 2019</span>
-                        <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div class="comment-block">
-                    <div class="comment-img">
-                        <img src="~/assets/images/empty-user.png" alt="">
-                    </div>
-                    <div class="comment-info">
-                        <div><a href="">Reply</a></div>
-                        <b>John Doe</b> - <span>May 20, 2019</span>
-                        <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
+                }
+
+            
 
                 <div class="comment-form">
                     <h3>Leave A Reply</h3>
@@ -249,187 +247,56 @@
                 </div>
             </div>
             <div class="cars-footer">
-                <div class="car-item col-3">
-                    <div class="item-info">
-                        <img src="~/assets/images/car12.webp" alt="" />
+                @foreach (var relatedCar in RelatedCars)
+                {
+                    <div class="car-item col-3">
+                        <div class="item-info">
+                            <img src="~/assets/images/@relatedCar.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" />
 
-                        <p><a href="">Mercedes-Benz M-Class</a></p>
-                    </div>
-                    <div class="seperator"></div>
-                    <div class="item-price">
-                        <p>$ 95000</p>
-                    </div>
+                            <p><a href="">@relatedCar.Brand.Name @relatedCar.Model.Name</a></p>
+                        </div>
+                        <div class="seperator"></div>
+                        <div class="item-price">
+                            <p>$ @relatedCar.Price</p>
+                        </div>
 
-                    <div class="other-info d-flex justify-content-evenly">
-                        <div class="infos">
-                            <i class="bi bi-speedometer2"></i>
-                            <p>85000</p>
+                        <div class="other-info d-flex justify-content-evenly">
+                            <div class="infos">
+                                <i class="bi bi-speedometer2"></i>
+                                <p>@relatedCar.Mileage</p>
+                            </div>
+                            <div class="infos">
+                                <i class="bi bi-gear-fill"></i>
+                                <p>@relatedCar.Gearbox.Name</p>
+                            </div>
+                            <div class="infos">
+                                <div><i class="bi bi-calendar3"></i></div>
+                                <p>@relatedCar.DateOfProduct.Date.Year</p>
+                            </div>
                         </div>
-                        <div class="infos">
-                            <i class="bi bi-gear-fill"></i>
-                            <p>Automatic</p>
-                        </div>
-                        <div class="infos">
-                            <div><i class="bi bi-calendar3"></i></div>
-                            <p>2015</p>
+                        <div class="hover-items">
+                            <div class="rhombus">
+                                <div>
+                                    <a href=""><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                            <div class="rhombus">
+                                <div>
+                                    <a href=""><i class="bi bi-search"></i></a>
+                                </div>
+                            </div>
+                            <div class="rhombus">
+                                <div>
+                                    <a href="" title="add to wishlist">
+                                        <i class="bi bi-suit-heart"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="hover-items">
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-search"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href="" title="add to wishlist">
-                                    <i class="bi bi-suit-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="car-item col-3">
-                    <div class="item-info">
-                        <img src="~/assets/images/car13.webp" alt="" />
+                }
 
-                        <p><a href="">Mercedes-Benz M-Class</a></p>
-                    </div>
-
-                    <div class="seperator"></div>
-                    <div class="item-price">
-                        <p>$ 95000</p>
-                    </div>
-
-                    <div class="other-info d-flex justify-content-evenly">
-                        <div class="infos">
-                            <i class="bi bi-speedometer2"></i>
-                            <p>85000</p>
-                        </div>
-                        <div class="infos">
-                            <i class="bi bi-gear-fill"></i>
-                            <p>Automatic</p>
-                        </div>
-                        <div class="infos">
-                            <div><i class="bi bi-calendar3"></i></div>
-                            <p>2015</p>
-                        </div>
-                    </div>
-                    <div class="hover-items">
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-search"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href="" title="add to wishlist">
-                                    <i class="bi bi-suit-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="car-item col-3">
-                    <div class="item-info">
-                        <img src="~/assets/images/car14.webp" alt="" />
-
-                        <p><a href="">Mercedes-Benz M-Class</a></p>
-                    </div>
-                    <div class="seperator"></div>
-                    <div class="item-price">
-                        <p>$ 95000</p>
-                    </div>
-
-                    <div class="other-info d-flex justify-content-evenly">
-                        <div class="infos">
-                            <i class="bi bi-speedometer2"></i>
-                            <p>85000</p>
-                        </div>
-                        <div class="infos">
-                            <i class="bi bi-gear-fill"></i>
-                            <p>Automatic</p>
-                        </div>
-                        <div class="infos">
-                            <div><i class="bi bi-calendar3"></i></div>
-                            <p>2015</p>
-                        </div>
-                    </div>
-                    <div class="hover-items">
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-search"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href="" title="add to wishlist">
-                                    <i class="bi bi-suit-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="car-item col-3">
-                    <div class="item-info">
-                        <img src="~/assets/images/car15.webp" alt="" />
-
-                        <p><a href="">Mercedes-Benz M-Class</a></p>
-                    </div>
-                    <div class="seperator"></div>
-                    <div class="item-price">
-                        <p>$ 95000</p>
-                    </div>
-
-                    <div class="other-info d-flex justify-content-evenly">
-                        <div class="infos">
-                            <i class="bi bi-speedometer2"></i>
-                            <p>85000</p>
-                        </div>
-                        <div class="infos">
-                            <i class="bi bi-gear-fill"></i>
-                            <p>Automatic</p>
-                        </div>
-                        <div class="infos">
-                            <div><i class="bi bi-calendar3"></i></div>
-                            <p>2015</p>
-                        </div>
-                    </div>
-                    <div class="hover-items">
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-link"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href=""><i class="bi bi-search"></i></a>
-                            </div>
-                        </div>
-                        <div class="rhombus">
-                            <div>
-                                <a href="" title="add to wishlist">
-                                    <i class="bi bi-suit-heart"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 
             </div>
         </div>

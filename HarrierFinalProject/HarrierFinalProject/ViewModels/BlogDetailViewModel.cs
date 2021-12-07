@@ -9,5 +9,7 @@ namespace HarrierFinalProject.ViewModels
     public class BlogDetailViewModel
     {
         public Blog BLog { get; set; }
+        public List<Advertising> Advertisings { get; set; }
+
     }
 }

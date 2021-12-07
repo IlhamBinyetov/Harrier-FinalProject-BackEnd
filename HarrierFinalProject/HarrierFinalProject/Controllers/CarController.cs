@@ -47,6 +47,15 @@ namespace HarrierFinalProject.Controllers
 
         public IActionResult Detail(int id)
         {
+
+
+            ViewBag.RelatedCars = _context.Cars.Include(c => c.Brand)
+                                        .Include(c => c.Model)
+                                        .Include(c => c.CarImages)
+                                        .Take(4)
+                                        .ToList();
+
+
             Car car = _context.Cars.Include(c => c.CarImages)
                                    .Include(c => c.Model)
                                    .Include(c => c.CarStatus)
@@ -59,6 +68,7 @@ namespace HarrierFinalProject.Controllers
                                    .Include(c => c.Brand)
                                    .Include(c => c.City)
                                    .Include(c => c.FuelType)
+                                   .Include(c=> c.Comments)
                                    .FirstOrDefault(x => x.Id == id);
 
 
