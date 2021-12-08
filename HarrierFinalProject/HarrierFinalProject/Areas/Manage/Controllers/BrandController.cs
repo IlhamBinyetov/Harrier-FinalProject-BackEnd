@@ -9,20 +9,19 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
-    public class CityController : Controller
+    public class BrandController : Controller
     {
         private readonly AppDbContext _context;
 
-        public CityController(AppDbContext context)
+        public BrandController(AppDbContext context )
         {
             _context = context;
         }
-
         public IActionResult Index()
         {
-            List<City> cities = _context.Cities.ToList();  
+            List<Brand> brands = _context.Brands.ToList();
 
-            return View(cities);
+            return View(brands);
         }
 
         [HttpGet]
@@ -33,41 +32,40 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(City city)
+        public IActionResult Create(Brand brand)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            _context.Cities.Add(city);
+            _context.Brands.Add(brand);
             _context.SaveChanges();
 
             return RedirectToAction("index");
         }
 
-
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            City city = _context.Cities.FirstOrDefault(c => c.Id == id);
+            Brand brand = _context.Brands.FirstOrDefault(c => c.Id == id);
 
-            if (city == null) return NotFound();
+            if (brand == null) return NotFound();
 
-            return View(city);
+            return View(brand);
         }
 
         [HttpPost]
-        public IActionResult Edit(City city)
+        public IActionResult Edit(Brand brand)
         {
             if (!ModelState.IsValid) return View();
 
-            City existCity = _context.Cities.FirstOrDefault(x => x.Id == city.Id);
+            Brand existBrand = _context.Brands.FirstOrDefault(x => x.Id == brand.Id);
 
-            if (existCity == null) return NotFound();
+            if (existBrand == null) return NotFound();
 
 
-            existCity.Name = city.Name;
+            existBrand.Name = brand.Name;
 
 
 
@@ -78,13 +76,13 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
         public IActionResult DeleteFetch(int id)
         {
-            City city = _context.Cities.FirstOrDefault(x => x.Id == id);
+            Brand brand = _context.Brands.FirstOrDefault(x => x.Id == id);
 
-            if (city == null) return Json(new { status = 404 });
+            if (brand == null) return Json(new { status = 404 });
 
             try
             {
-                _context.Cities.Remove(city);
+                _context.Brands.Remove(brand);
                 _context.SaveChanges();
             }
             catch (Exception)
