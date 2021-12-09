@@ -292,3 +292,6 @@ C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierF
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Gearbox\Index.cshtml.g.cs
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Gearbox\Create.cshtml.g.cs
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Gearbox\Edit.cshtml.g.cs
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Edit.cshtml.g.cs
