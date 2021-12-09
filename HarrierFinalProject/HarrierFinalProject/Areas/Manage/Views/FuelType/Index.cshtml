@@ -1,4 +1,4 @@
-﻿@model CarColorViewModel
+﻿@model FuelTypeViewModel
 @{
     ViewData["Title"] = "Index";
     int order = 0;
@@ -7,7 +7,7 @@
 <div class="container" style="width:100%;">
     <div class="d-flex justify-content-between align-items-center" style="padding-top:50px; display:flex; justify-content:space-between; align-items:center">
         <div>
-            <h1 class="col-6">CarColors</h1>
+            <h1 class="col-6">FuelTypes</h1>
 
         </div>
         <div>
@@ -23,15 +23,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var carColor in Model.CarColors)
+            @foreach (var fuelType in Model.FuelTypes)
             {
                 order++;
                 <tr>
                     <th scope="row">@order</th>
-                    <td>@carColor.Name</td>
+                    <td>@fuelType.Name</td>
                     <td>
-                        <a asp-action="edit" asp-route-id="@carColor.Id" class="btn btn-warning">Edit</a>
-                        <a asp-action="deletefetch" asp-route-id="@carColor.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                        <a asp-action="edit" asp-route-id="@fuelType.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="deletefetch" asp-route-id="@fuelType.Id" class="btn btn-danger btn-item-delete">Delete</a>
                     </td>
                 </tr>
             }
