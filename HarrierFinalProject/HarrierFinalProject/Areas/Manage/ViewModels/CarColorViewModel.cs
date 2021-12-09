@@ -10,5 +10,6 @@ namespace HarrierFinalProject.Areas.Manage.ViewModels
     {
         public List<CarColor> CarColors { get; set; }
         public string Name { get; set; }
+        public CarColor CarColor { get; set; }
     }
 }
