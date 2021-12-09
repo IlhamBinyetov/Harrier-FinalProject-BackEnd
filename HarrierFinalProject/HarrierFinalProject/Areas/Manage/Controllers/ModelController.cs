@@ -2,6 +2,7 @@
 using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,12 +65,65 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
 
         [HttpGet]
-        public IActionResult  Edit(ModelViewModel modelVM)
+        public IActionResult  Edit(int id)
 
         {
+            Model model = _context.Models.FirstOrDefault(m => m.Id == id);
 
+            List<Brand> brands = _context.Brands.ToList();
+
+            ModelViewModel modelVM = new ModelViewModel
+            {
+                Brands = brands,
+                Model = model
+                
+            };
+
+            if (model == null) return NotFound();
 
             return View(modelVM);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, ModelViewModel modelVM)
+        {
+            if (!ModelState.IsValid) return View();
+
+            Model existModel = _context.Models.FirstOrDefault(x => x.Id ==id);
+
+            if (existModel == null) return NotFound();
+
+
+            existModel.Name = modelVM.Name;
+            existModel.BrandId = modelVM.BrandId;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
+
+
+
+        public IActionResult DeleteFetch(int id)
+        {
+            Model model = _context.Models.FirstOrDefault(x => x.Id == id);
+
+            if (model == null) return Json(new { status = 404 });
+
+            try
+            {
+                _context.Models.Remove(model);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return Json(new { status = 500 });
+            }
+
+
+            return Json(new { status = 200 });
+
+
         }
     }
 }

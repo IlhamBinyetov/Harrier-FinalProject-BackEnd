@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace HarrierFinalProject.Areas.Manage.ViewModels
 {
-    public class ModelViewModel
+    public class CarColorViewModel
     {
-        public List<Model> Models { get; set; }
-        public List<Brand> Brands { get; set; }
+        public List<CarColor> CarColors { get; set; }
         public string Name { get; set; }
-        public int BrandId { get; set; }
-        public Model Model { get; set; }
     }
-
 }
