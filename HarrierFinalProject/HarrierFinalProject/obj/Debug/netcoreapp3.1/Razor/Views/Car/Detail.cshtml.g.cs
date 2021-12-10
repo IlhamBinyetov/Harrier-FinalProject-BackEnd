@@ -33,8 +33,15 @@ using HarrierFinalProject.Data.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
+using HarrierFinalProject.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce", @"/Views/Car/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7ef4bbe021a4e70e028b07fc85323e20e5c020a6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71c47fea4d7d22529661737085a23daed142c8ea", @"/Views/_ViewImports.cshtml")]
     public class Views_Car_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Car>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -80,7 +87,7 @@ using HarrierFinalProject.Data.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<main>\r\n\r\n\r\n    <section class=\"car-detail\">\r\n        <div class=\"car-info\">\r\n            <div class=\"col-4 car-images\">\r\n                <div class=\"poster-image\" >\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce5707", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce5942", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -117,7 +124,7 @@ AddHtmlAttributeValue("", 385, Model.CarImages.FirstOrDefault(x=>x.IsPoster==tru
             BeginWriteAttribute("href", " href=\"", 690, "\"", 697, 0);
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce8029", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce8264", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -483,7 +490,7 @@ AddHtmlAttributeValue("", 725, item.Image, 725, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    <div class=\"comment-block\">\r\n                        <div class=\"comment-img\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce28218", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce28453", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -541,7 +548,7 @@ AddHtmlAttributeValue("", 8760, item.Image, 8760, 11, false);
                     <p><span>Your email address will not be published. Required fields are marked</span><span class=""star"">*</span></p>
 
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce31402", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce31637", async() => {
                 WriteLiteral("\r\n                        <div class=\"form-first\">\r\n                            <textarea");
                 BeginWriteAttribute("name", " name=\"", 9531, "\"", 9538, 0);
                 EndWriteAttribute();
@@ -602,7 +609,7 @@ AddHtmlAttributeValue("", 8760, item.Image, 8760, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    <div class=\"car-item col-3\">\r\n                        <div class=\"item-info\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce34750", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce34985", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -716,7 +723,7 @@ AddHtmlAttributeValue("", 10835, relatedCar.CarImages.FirstOrDefault(x=>x.IsPost
 #line hidden
 #nullable disable
             WriteLiteral("                <div class=\"feature-element col-3 d-flex justify-content-evenly\">\r\n                    <div class=\"feature-icon\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce41645", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce41880", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -764,7 +771,7 @@ AddHtmlAttributeValue("", 13407, item.Logo, 13407, 10, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n            \r\n        </div>\r\n    </section>\r\n\r\n    <section class=\"newsletter-section\">\r\n        <h5>NEWSLETTER</h5>\r\n        <h4>GET NOTIFIED OF ANY UPDATES!</h4>\r\n        <div class=\"form-elements\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce44574", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0b9b585b164ea59b127a2c4f40dc3d9b64ea6ce44809", async() => {
                 WriteLiteral(@"
                 <input type=""email""
                        name=""email""

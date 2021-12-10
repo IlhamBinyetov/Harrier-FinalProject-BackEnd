@@ -127,7 +127,11 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         [HttpPost]
         public IActionResult Edit(int id, SliderViewModel sliderVM)
         {
+            if (sliderVM.ImageFile == null) return View();
+
+
             if (!ModelState.IsValid) return View();
+
 
             Slider existSlider = _context.Sliders.FirstOrDefault(x => x.Id == id);
 
@@ -138,7 +142,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             string newFileName = null;
             if (sliderVM.ImageFile != null)
             {
-                if (existSlider.ImageFile.ContentType != "image/png" && existSlider.ImageFile.ContentType != "image/jpeg")
+                if (sliderVM.ImageFile.ContentType != "image/png" && sliderVM.ImageFile.ContentType != "image/jpeg")
                 {
                     ModelState.AddModelError("ImageFile", "File type can be only jpeg,jpg or png!");
                     return View();
@@ -178,7 +182,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 existSlider.Image = newFileName;
             }
 
-            existSlider.Image = sliderVM.Image;
+            existSlider.Image = newFileName;
             existSlider.ImageFile = sliderVM.ImageFile;
 
 

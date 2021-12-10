@@ -1,4 +1,5 @@
 using HarrierFinalProject.Data;
+using HarrierFinalProject.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,10 @@ options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoop
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
+
+            
+
+            services.AddScoped<LayoutService>();
 
             services.AddHttpContextAccessor();
         }

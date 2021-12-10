@@ -33,8 +33,15 @@ using HarrierFinalProject.Data.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
+using HarrierFinalProject.Services;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ff8a24bf0ad7b78097eb9aaf2fa0af1fefb64195", @"/Views/Contact/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7ef4bbe021a4e70e028b07fc85323e20e5c020a6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71c47fea4d7d22529661737085a23daed142c8ea", @"/Views/_ViewImports.cshtml")]
     public class Views_Contact_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ContactViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/images/contact-bg.jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -76,7 +83,7 @@ using HarrierFinalProject.Data.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n<section class=\"bg\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb641955431", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb641955666", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -102,7 +109,7 @@ using HarrierFinalProject.Data.Models;
             BeginWriteAttribute("allowfullscreen", "\r\n            allowfullscreen=\"", 593, "\"", 624, 0);
             EndWriteAttribute();
             WriteLiteral("\r\n            loading=\"lazy\"></iframe>\r\n</section>\r\n\r\n<section class=\"contact\">\r\n    <div class=\"contact-header\">\r\n        <h2>CONTACT US</h2>\r\n    </div>\r\n    <div>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb641957371", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb641957606", async() => {
                 WriteLiteral("\r\n            <div class=\"d-flex justify-content-between mb-4\">\r\n                <div class=\"col-5\">\r\n                    <label");
                 BeginWriteAttribute("for", " for=\"", 944, "\"", 950, 0);
                 EndWriteAttribute();
@@ -145,7 +152,7 @@ using HarrierFinalProject.Data.Models;
 #line hidden
 #nullable disable
             WriteLiteral("            <div class=\"feature-element col-3 d-flex justify-content-evenly\">\r\n                <div class=\"feature-icon\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb6419511022", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb6419511257", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -194,7 +201,7 @@ AddHtmlAttributeValue("", 2050, item.Logo, 2050, 10, false);
 #line hidden
 #nullable disable
             WriteLiteral("        \r\n    </div>\r\n</section>\r\n\r\n<section class=\"newsletter-section\">\r\n    <h5>NEWSLETTER</h5>\r\n    <h4>GET NOTIFIED OF ANY UPDATES!</h4>\r\n    <div class=\"form-elements\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb6419513885", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff8a24bf0ad7b78097eb9aaf2fa0af1fefb6419514120", async() => {
                 WriteLiteral(@"
             <input type=""email""
                    name=""email""

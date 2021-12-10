@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@inject LayoutService service
+@{ 
+    Setting setting = service.GetSetting();
+    List<BasketViewModel> favitems = service.GetFavorites();
+
+    double totalCount = 0;
+    //totalCount = favitems.Sum(x => x.CarPrice * x.);
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -34,7 +43,7 @@
             <div class="navbar">
                 <div class="logo col-12 col-sm-12 col-md-3 col-lg-3">
                     <a href="#">
-                        <img src="~/assets/images/logo.png" alt="logo" />
+                        <img src="~/assets/images/@service.GetSetting().HeaderLogo" alt="logo" />
                     </a>
                 </div>
                 <div class="header-nav col-12 col-sm-12 col-md-9 col-lg-9">
@@ -108,52 +117,11 @@
                             <div class="basket-section col-md-1 col-lg-1">
                                 <a href="" class="basket">
                                     <i class="bi bi-cart"></i>
-                                    <span class="basket-number">0</span>
+                                    <span class="basket-number">@service.GetFavorites().Count</span>
                                 </a>
-                                <!-- Cart Menu START -->
-                                @*<div class="cart-menu">
-                                    <div class="cart-header">
-                                        <div>
-                                            <span class="menu-count">1</span>
-                                            <span class="menu-title">car</span>
-                                        </div>
-                                        <div class="d-flex">
-                                            <span class="menu-price-currency">£</span>
-                                            <span class="menu-price-count">36</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-menu">
-                                        <ul>
-                                            <li class="product-list">
-                                                <div>
-                                                    <a href="#">
-                                                        <img src="~/assets/images/car1.jpg"
-                                                             class="img"
-                                                             alt="" />
-                                                    </a>
-                                                    <a href="" class="deleteimage">
-                                                        <span class="mini-cart-item-delete">
-                                                            <i class="bi bi-x"></i>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                                <div class="item-details">
-                                                    <span class="item-count">1</span>
-                                                    <span>x</span>
-                                                    <span class="item-price">£36</span>
-                                                    <p class="item-name">Mercedes-Benz</p>
-                                                </div>
-                                            </li>
-                                        </ul>
+                               
 
-                                        <div class="cart-buttons">
-                                            <a href="#">View Cart</a>
-                                            <a href="#">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>*@
-
-                                @*@await Html.PartialAsync("_BasketPartial", Model)*@
+                                @await Html.PartialAsync("_BasketPartial", favitems)
                             </div>
 
                             <div class="hamburger-section col-md-1 col-lg-1">
@@ -188,10 +156,10 @@
                     <h4>SHOWROOM</h4>
                     <ul>
                         <li>
-                            <p>KlbTheme, 789 Main rd, Anytown, CA 12345 USA</p>
+                            <p>@service.GetSetting().Address</p>
                         </li>
-                        <li>+1 800 789 0000</li>
-                        <li><a href="">Harrier@klbtheme.com</a></li>
+                        <li>+@service.GetSetting().Phone</li>
+                        <li><a href="">@service.GetSetting().Email</a></li>
                         <li>Mon – Fri : 09am to 06pm</li>
                     </ul>
                 </div>

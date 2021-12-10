@@ -36,6 +36,7 @@ namespace HarrierFinalProject.Data
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Advertising> Advertisings { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
 
 

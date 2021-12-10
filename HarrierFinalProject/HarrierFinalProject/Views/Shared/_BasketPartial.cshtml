@@ -17,7 +17,7 @@
         </div>
         <div class="d-flex">
             <span class="menu-price-currency">£</span>
-            <span class="menu-price-count">@totalPrice</span>
+            <span class="menu-price-count">@totalPrice.ToString("#,00")</span>
         </div>
     </div>
     <div class="product-menu">
@@ -40,7 +40,7 @@
                     <div class="item-details">
                         <span class="item-count">1</span>
                         <span>x</span>
-                        <span class="item-price">£@item.CarPrice</span>
+                        <span class="item-price">£@item.CarPrice.ToString("#,00")</span>
                         <p class="item-name">@item.CarName</p>
                     </div>
                 </li>
