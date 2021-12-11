@@ -1,7 +1,12 @@
 ﻿@model HomeViewModel
+@inject LayoutService service
 @{
     ViewData["Title"] = "Index";
     List<Car> cars = Model?.Cars;
+    Setting setting = service.GetSetting();
+
+    List<BasketViewModel> favitems = service.GetFavorites();
+
     
 }
 
@@ -241,23 +246,17 @@
                    
                 </div>
                 <div class="hover-items">
-                    <div class="rhombus col-4">
+                    <div class="rhombus col-6">
                         <div>
                             <a href=""><i class="bi bi-link"></i></a>
                         </div>
                     </div>
-                    <div class="rhombus col-4">
+                    <div class="rhombus col-6">
                         <div>
-                            <a  data-id="@car.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@car.Id"><i class="fas fa-shopping-cart"></i></a>
+                            <a  data-id="@car.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@car.Id" class="favorite"><i class="fas fa-shopping-cart "></i></a>
                         </div>
                     </div>
-                    <div class="rhombus col-4">
-                        <div>
-                            <a href="" title="add to wishlist">
-                                <i class="bi bi-suit-heart"></i>
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
                 @if(car.CarSituationId == 0)
                 {
@@ -339,23 +338,17 @@
                         </div>
                     </div>
                     <div class="hover-items">
-                        <div class="rhombus col-4">
+                        <div class="rhombus col-6">
                             <div>
                                 <a href=""><i class="bi bi-link"></i></a>
                             </div>
                         </div>
-                        <div class="rhombus col-4">
+                        <div class="rhombus col-6">
                             <div>
                                 <a href=""><i class="fas fa-shopping-cart"></i></a>
                             </div>
                         </div>
-                        <div class="rhombus col-4">
-                            <div>
-                                <a href="" title="add to wishlist">
-                                    <i class="bi bi-suit-heart"></i>
-                                </a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             }

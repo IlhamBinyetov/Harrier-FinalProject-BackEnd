@@ -51,7 +51,7 @@ namespace HarrierFinalProject.Controllers
             return View();
         }
 
-
+        
         public IActionResult AddToBasket(int id)
         {
             Car car = _context.Cars.Include(c=>c.Brand).Include(c => c.CarImages).FirstOrDefault(x => x.Id == id);
@@ -84,5 +84,68 @@ namespace HarrierFinalProject.Controllers
 
             return PartialView("_BasketPartial", favorites);
         }
+
+
+
+
+
+        //public IActionResult Deletefavorites(int id)
+        //{
+        //    Car car = _context.Cars.Include(x => x.CarImages).FirstOrDefault(x => x.Id == id);
+        //    BasketViewModel favoriteItem = null;
+
+
+        //    //AppUser member = null;
+
+        //    //if (User.Identity.IsAuthenticated)
+        //    //{
+        //    //    member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
+
+        //    //}
+
+        //    List<BasketViewModel> products = new List<BasketViewModel>();
+
+
+        //    if (member == null)
+        //    {
+        //        string ProductStr = HttpContext.Request.Cookies["BasketCookie"];
+        //        products = JsonConvert.DeserializeObject<List<BasketViewModel>>(ProductStr);
+
+        //        favoriteItem = products.FirstOrDefault(x => x.CarId == id);
+
+
+
+        //        products.Remove(favoriteItem);
+
+
+        //        ProductStr = JsonConvert.SerializeObject(products);
+        //        HttpContext.Response.Cookies.Append("BasketCookie", ProductStr);
+        //    }
+        //    else
+        //    {
+        //        FavoriteItem memberFavItem = _context.FavoriteItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == id);
+
+
+
+        //        _context.FavoriteItems.Remove(memberFavItem);
+
+
+
+        //        _context.SaveChanges();
+
+        //        products = _context.FavoriteItems.Include(x => x.Product).ThenInclude(bi => bi.ProductImages).Where(x => x.AppUserId == member.Id)
+        //            .Select(x => new BasketViewModel
+        //            {
+        //                CarId = x.ProductId,
+        //                Count = x.Count,
+        //                CarName = x.Product.Name,
+        //                CarPrice = (double)x.Product.Price,
+        //                CarPosterImage = x.Car.CarImages.FirstOrDefault(b => b.IsPoster == true).Image
+        //            }).ToList();
+        //    }
+
+        //    return PartialView("_BasketPartial", products);
+
+        //}
     }
 }
