@@ -217,28 +217,7 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click", ".favorite", function (e) {
-        e.preventDefault();
-
-        var id = $(this).attr("data-id");
-
-        fetch('https://localhost:44360/home/addtobasket/' + id)
-            .then(response => response.text())
-            .then(data => {
-                $(this).removeClass("favorite").addClass("deleteFav")
-
-                $("product-menu").html(data)
-                var count = $(".menu-count").data("data-favorite-count");
-                $(".basket-number").text(count)
-                $(this).css('background', '#FF5A3C')
-
-                //console.log(data)
-                //$(".modal-favorite").html(data)
-            });
-        // get data from controller
-
-        //set data 
-    });
+  
 
     //$(document).on("click", ".deleteFav", function (e) {
     //    e.preventDefault();
@@ -259,6 +238,33 @@ $(document).ready(function () {
 
 
 
+});
+
+
+
+
+$(document).on("click", ".favorite", function (e) { 
+    e.preventDefault();
+
+    var id = $(this).attr("data-id");
+
+    fetch('https://localhost:44360/home/addtobasket/' + id)
+        .then(response => response.text())
+        .then(data => {
+            $(this).removeClass("favorite").addClass("deleteFav");
+            $(".cart-menu").html('');
+            $(".cart-menu").html(data);
+            var count = $(".menu-count").text();
+            
+            $(".basket-number").text(count)
+            $(this).css('background', '#FF5A3C')
+
+            //console.log(data)
+            //$(".modal-favorite").html(data)
+        });
+    // get data from controller
+
+    //set data 
 });
 
 //testimonial section
