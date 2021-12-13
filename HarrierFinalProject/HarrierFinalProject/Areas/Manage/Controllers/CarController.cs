@@ -1,4 +1,5 @@
-﻿using HarrierFinalProject.Areas.Manage.ViewModels;
+﻿using HarrierFinalProject.Areas.Manage.Helpers;
+using HarrierFinalProject.Areas.Manage.ViewModels;
 using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,7 +28,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             List<Car> cars = _context.Cars.Include(c=>c.Brand).Include(c=>c.Model).Include(c=>c.CarImages).ToList();
 
-            ViewBag.CurrenSearch = search;
+            
 
             CarViewModel carVM = new CarViewModel()
             {
@@ -35,6 +37,315 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
 
             return View(carVM);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            List<City> cities = _context.Cities.ToList();
+            List<Model> models = _context.Models.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<Transmission> transmissions = _context.Transmissions.ToList();
+            List<Gearbox> gearboxes = _context.Gearboxes.ToList();
+            List<CarColor> carColors = _context.CarColors.ToList();
+            List<Feature> features = _context.Features.ToList();
+            List<CarStatus> carStatuses = _context.CarStatuses.ToList();
+            List<FuelType> fuelTypes = _context.FuelTypes.ToList();
+            List<CarType> carTypes = _context.CarTypes.ToList();
+
+
+            CarViewModel carVM = new CarViewModel()
+            {
+                Cities = cities,
+                Models = models,
+                Brands = brands,
+                Transmissions = transmissions,
+                Gearboxes = gearboxes,
+                CarColors = carColors,
+                Features = features,
+                CarStatuses = carStatuses,
+                FuelTypes = fuelTypes,
+                CarTypes = carTypes
+                
+            };
+
+
+            return View(carVM);
+        }
+
+        [HttpPost]
+
+        public IActionResult Create(CarViewModel carVM)
+        {
+            Car car = new Car()
+            {
+                BrandId = carVM.BrandId, 
+                ModelId = carVM.ModelId,
+                TransmissionId = carVM.TransmissionId,
+                GearboxId = carVM.GearboxId,
+                CarColorId = carVM.CarColorId,
+                CarTypeId = carVM.CarTypeId,
+                FuelTypeId = carVM.FuelTypeId,
+                ImageFiles = carVM.ImageFiles,
+                PosterFile = carVM.PosterImage,
+                CityId = carVM.CityId,
+                CarStatusId = carVM.CarStatusId,
+                Price = carVM.Price,
+                DoorCount = carVM.DoorCount,
+                DateOfProduct = carVM.DateOfProduct,
+                Mileage = carVM.Mileage,
+                Description = carVM.Description,
+                MotorPower = carVM.MotorPower,
+                HorsePower = carVM.HorsePower,
+                CarImages = new List<CarImage>(),
+                CarFeatures = new List<CarFeature>() 
+            };
+
+            if (car.PosterFile == null)
+            {
+                ModelState.AddModelError("PosterFile", "Poster file is required");
+            }
+            else
+            {
+                if (car.PosterFile.ContentType != "image/png" && car.PosterFile.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("PosterFile", "File type can be only jpeg,jpg or png!");
+                    return View();
+                }
+
+                if (car.PosterFile.Length > 2097152)
+                {
+                    ModelState.AddModelError("PosterFile", "File size can not be more than 2MB!");
+                    return View();
+                }
+
+                string newFileName = Guid.NewGuid().ToString() + car.PosterFile.FileName;
+                string path = Path.Combine(_env.WebRootPath, "assets/images", newFileName);
+
+                using (FileStream stream = new FileStream(path, FileMode.Create))
+                {
+                    car.PosterFile.CopyTo(stream);
+                }
+
+                CarImage poster = new CarImage
+                {
+                    Image = newFileName,
+                    IsPoster = true,
+                };
+
+                car.CarImages.Add(poster);
+            }
+
+
+
+            if (car.ImageFiles != null)
+            {
+                foreach (var file in car.ImageFiles)
+                {
+                    if (file.ContentType != "image/png" && file.ContentType != "image/jpeg")
+                    {
+                        continue;
+                    }
+
+                    if (file.Length > 2097152)
+                    {
+                        continue;
+                    }
+
+                    CarImage image = new CarImage
+                    {
+                        IsPoster = false,
+                        Image = SaveImg.SaveImage(_env.WebRootPath, "assets/images", file)
+                    };
+
+                    car.CarImages.Add(image);
+                }
+            }
+
+
+            foreach (var featureId in carVM.CarFeatureIds)
+            {
+                CarFeature carFeature = new CarFeature
+                {
+                    Car = car,
+                    FeatureId = featureId
+                };
+                car.CarFeatures.Add(carFeature);
+            }
+             
+            _context.Cars.Add(car);
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Car car = _context.Cars.Include(c=>c.Model).Include(c => c.Brand)
+                                                       .Include(c => c.Gearbox)
+                                                       .Include(c => c.Transmission)
+                                                       .Include(c => c.CarColor)
+                                                       .Include(c => c.CarStatus)
+                                                       .Include(c => c.CarFeatures)
+                                                       .ThenInclude(c=>c.Feature)
+                                                       .Include(c => c.FuelType)
+                                                       .Include(c => c.CarImages)
+                                                       .Include(c => c.City)
+                                                       .FirstOrDefault(c => c.Id == id);
+
+            List<City> cities = _context.Cities.ToList();
+            List<Model> models = _context.Models.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<Transmission> transmissions = _context.Transmissions.ToList();
+            List<Gearbox> gearboxes = _context.Gearboxes.ToList();
+            List<CarColor> carColors = _context.CarColors.ToList();
+            List<Feature> features = _context.Features.ToList();
+            List<CarStatus> carStatuses = _context.CarStatuses.ToList();
+            List<FuelType> fuelTypes = _context.FuelTypes.ToList();
+            List<CarType> carTypes = _context.CarTypes.ToList();
+
+            ViewBag.Features = _context.Features.ToList();
+
+            car.FeatureIds = car.CarFeatures.Select(x => x.FeatureId).ToList();
+
+            CarViewModel carVM = new CarViewModel()
+            {
+                Car = car,
+                Price = car.Price,
+                Cities = cities,
+                Models = models,
+                Brands = brands,
+                Transmissions = transmissions,
+                Gearboxes = gearboxes,
+                CarColors = carColors,
+                Features  = features,
+                CarStatuses = carStatuses,
+                FuelTypes = fuelTypes,
+                CarTypes = carTypes,
+
+            };
+            return View(carVM);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, CarViewModel carVM)
+        {
+
+            if (!ModelState.IsValid) return View();
+
+            Car existCar = _context.Cars.Include(x => x.CarImages).Include(x => x.CarFeatures).Include(c => c.Gearbox)
+                                                                                              .Include(c => c.Transmission)
+                                                                                              .Include(c => c.CarColor)
+                                                                                              .Include(c => c.CarStatus)
+                                                                                              .Include(c => c.Brand)
+                                                                                              .Include(c => c.FuelType)
+                                                                                              .Include(c => c.Model)
+                                                                                              .Include(c => c.City).FirstOrDefault(x => x.Id == id );
+
+            if (existCar == null) return NotFound();
+
+
+            if (carVM.PosterImage != null)
+            {
+                if (carVM.PosterImage.ContentType != "image/png" && carVM.PosterImage.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("PosterImage", "File type can be only jpeg,jpg or png!");
+                    return View();
+                }
+
+                if (carVM.PosterImage.Length > 2097152)
+                {
+                    ModelState.AddModelError("PosterImage", "File size can not be more than 2MB!");
+                    return View();
+                }
+
+
+                CarImage poster = existCar.CarImages.FirstOrDefault(x => x.IsPoster == true);
+                string newFileName = SaveImg.SaveImage(_env.WebRootPath, "assets/images", carVM.PosterImage);
+
+                if (poster == null)
+                {
+                    poster = new CarImage
+                    {
+                        IsPoster = true,
+                        Image = newFileName,
+                        CarId = carVM.Car.Id
+                    };
+
+                    _context.CarImages.Add(poster);
+                }
+                else
+                {
+                    SaveImg.Delete(_env.WebRootPath, "assets/images", poster.Image);
+                    poster.Image = newFileName;
+                }
+            }
+
+            existCar.CarFeatures.RemoveAll((x => !carVM.CarFeatureIds.Contains(x.FeatureId)));
+
+            if (carVM.CarFeatureIds != null)
+            {
+                foreach (var FeatureId in carVM.CarFeatureIds.Where(x => !existCar.CarFeatures.Any(bt => bt.FeatureId == x)))
+                {
+                    CarFeature carFeature = new CarFeature
+                    {
+                        FeatureId = FeatureId,
+                        CarId = carVM.Car.Id
+                    };
+                    existCar.CarFeatures.Add(carFeature);
+                }
+            }
+
+            existCar.CarImages.RemoveAll(x => x.IsPoster == false );
+
+
+            if (carVM.ImageFiles != null)
+            {
+                foreach (var file in carVM.ImageFiles)
+                {
+                    if (file.ContentType != "image/png" && file.ContentType != "image/jpeg")
+                    {
+                        continue;
+                    }
+
+                    if (file.Length > 2097152)
+                    {
+                        continue;
+                    }
+
+                    CarImage image = new CarImage
+                    {
+                        IsPoster = false,
+                        Image = SaveImg.SaveImage(_env.WebRootPath, "assets/images", file)
+                    };
+
+                    existCar.CarImages.Add(image);
+                }
+            }
+
+
+            existCar.BrandId = carVM.BrandId;
+            existCar.ModelId = carVM.ModelId;
+            existCar.Price = carVM.Price;
+            existCar.Description = carVM.Description;
+            existCar.DoorCount = carVM.DoorCount;
+            existCar.DateOfProduct = carVM.DateOfProduct;
+            existCar.HorsePower = carVM.HorsePower;
+            existCar.Mileage = carVM.Mileage;
+            existCar.MotorPower = carVM.MotorPower;
+            existCar.CityId = carVM.CityId;
+            existCar.TransmissionId = carVM.TransmissionId;
+            existCar.GearboxId = carVM.GearboxId;
+            existCar.CarColorId = carVM.CarColorId;
+            existCar.CarStatusId = carVM.CarStatusId;
+            existCar.CarTypeId = carVM.CarTypeId;
+            existCar.FuelTypeId = carVM.FuelTypeId;
+
+            _context.SaveChanges();
+
+
+            return RedirectToAction("index");
         }
     }
 }

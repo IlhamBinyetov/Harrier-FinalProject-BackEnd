@@ -51,6 +51,11 @@ namespace HarrierFinalProject.Controllers
             return View();
         }
 
+
+        public IActionResult SubmitCar()
+        {
+            return View();
+        }
         
         public IActionResult AddToBasket(int id)
         {

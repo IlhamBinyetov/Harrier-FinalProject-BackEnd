@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HarrierFinalProject",
+    "\\HarrierFinalProject\\HarrierFinalProject",
+    "\\HarrierFinalProject\\HarrierFinalProject\\Areas",
+    "\\HarrierFinalProject\\HarrierFinalProject\\Areas\\Manage",
+    "\\HarrierFinalProject\\HarrierFinalProject\\Areas\\Manage\\Views",
+    "\\HarrierFinalProject\\HarrierFinalProject\\Areas\\Manage\\Views\\Car"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\HarrierFinalProject\\HarrierFinalProject\\Areas\\Manage\\Views\\Car\\Create.cshtml",
   "PreviewInSolutionExplorer": false
 }

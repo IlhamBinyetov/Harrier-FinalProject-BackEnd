@@ -1,0 +1,54 @@
+﻿
+
+@model CarViewModel
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+<div class="container-fluid" style="width:100%;">
+    <div class="d-flex justify-content-between align-items-center" style="padding-top:50px; display:flex; justify-content:space-between; align-items:center">
+        <div>
+            <h1 class="col-6">Cars</h1>
+
+        </div>
+        <div>
+            <a asp-action="create" class="btn btn-primary col-6 ">Create</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">Price</th>
+                <th scope="col">DateOfProduct</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var carItem in Model.Cars)
+            {
+                order++;
+                <tr>
+                    <th scope="row">@order</th>
+                    <td>@carItem.Brand.Name</td>
+                    <td>@carItem.Model.Name</td>
+                    <td>@carItem.Price.ToString("#,00") $</td>
+                    <td>@carItem.DateOfProduct.ToString("MMMM dd, yyyy")</td>
+                    <td><img src="~/assets/images/@carItem.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" style="max-width:100px" /></td>
+                    <td>
+                        <a asp-action="edit" asp-route-id="@carItem.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="deletefetch" asp-route-id="@carItem.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>
+

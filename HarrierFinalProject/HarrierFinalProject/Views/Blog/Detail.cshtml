@@ -40,7 +40,7 @@
                             <span>- @item.PostDate.ToString("MMM dd, yyyy")</span>
                         </div>
 
-                        <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>@item.Description</p>
 
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <h3>Leave Reply</h3>
                 <p>Your email address will not be published. Required fields are marked <span>*</span> </p>
 
-                <form action="">
+                <form asp-action="">
                     <textarea name="" id="" placeholder="Comment" required></textarea>
                     <input type="text" placeholder="Name *" required>
                     <input type="email" placeholder="Email *" required>

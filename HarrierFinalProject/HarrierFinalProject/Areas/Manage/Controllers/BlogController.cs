@@ -95,9 +95,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 blog.Image = newFileName;
             }
 
-            _context.Blogs.Add(blog
-                );
-            _context.SaveChanges();
+            _context.Blogs.Add(blog);
+            _context.SaveChanges(); 
 
             return RedirectToAction("index");
         }
@@ -108,15 +107,12 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         public IActionResult Edit(int id)
         {
             Blog blog = _context.Blogs.FirstOrDefault(c => c.Id == id);
+            if (blog == null) return NotFound();
 
             BlogViewModel blogVM = new BlogViewModel
             {
-                Blog = blog
-
-            };
-
-            if (blog == null) return NotFound();
-
+                Blog = blog 
+            }; 
             return View(blogVM);
         }
 
@@ -181,10 +177,10 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             existBlog.Image = newFileName;
             existBlog.BlogImage = blogVM.ImageFile;
-            existBlog.Name = blogVM.Name;
-            existBlog.Description = blogVM.Description;
-            existBlog.PostDate = blogVM.PostDate;
-            existBlog.PostedBy = blogVM.PostedBy;
+            existBlog.Name = blogVM?.Blog?.Name;
+            existBlog.Description = blogVM?.Blog?.Description;
+            existBlog.PostDate = blogVM.Blog.PostDate;
+            existBlog.PostedBy = blogVM?.Blog.PostedBy;
 
             _context.SaveChanges();
 

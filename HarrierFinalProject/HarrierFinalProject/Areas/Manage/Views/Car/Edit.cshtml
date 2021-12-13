@@ -1,0 +1,203 @@
+﻿
+@model CarViewModel
+@{
+    ViewData["Title"] = "Create";
+    List<City> cities = Model?.Cities;
+    List<Brand> brands = Model?.Brands;
+    List<FuelType> fuelTypes = Model?.FuelTypes;
+    List<Transmission> transmissions = Model?.Transmissions;
+    List<Gearbox> gearboxes = Model?.Gearboxes;
+    List<Feature> features = Model?.Features;
+    List<CarStatus> carStatuses = Model?.CarStatuses;
+    List<CarType> carTypes = Model?.CarTypes;
+    List<CarColor> carColors = Model?.CarColors;
+    Car car = Model?.Car;
+}
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="Price">Price</label>
+                <input asp-for="Price" class="form-control" placeholder="Price">
+                <span class="text-danger" asp-validation-for="Price"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="MotorPower">MotorPower</label>
+                <input asp-for="MotorPower" class="form-control" placeholder="MotorPower">
+                <span class="text-danger" asp-validation-for="MotorPower"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="HorsePower">HorsePower</label>
+                <input asp-for="HorsePower" class="form-control" placeholder="HorsePower">
+                <span class="text-danger" asp-validation-for="HorsePower"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="DoorCount">DoorCount</label>
+                <input asp-for="DoorCount" class="form-control" placeholder="DoorCount">
+                <span class="text-danger" asp-validation-for="DoorCount"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Description">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description">
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Mileage">Mileage</label>
+                <input asp-for="Mileage" class="form-control" placeholder="Mileage">
+                <span class="text-danger" asp-validation-for="Mileage"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label>City</label>
+                <select asp-for="CityId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var city in cities)
+                    {
+                        <option value="@city.Id">@city.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Color</label>
+                <select asp-for="CarColorId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var carColor in carColors)
+                    {
+                        <option value="@carColor.Id">@carColor.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label> CarType</label>
+                <select asp-for="CarTypeId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var carType in carTypes)
+                    {
+                        <option value="@carType.Id">@carType.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Status</label>
+                <select asp-for="CarStatusId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var carStatus in carStatuses)
+                    {
+                        <option value="@carStatus.Id">@carStatus.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label>Brand</label>
+                <select asp-for="BrandId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var brand in brands)
+                    {
+                        <option value="@brand.Id">@brand.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Model</label>
+                <select asp-for="ModelId" class="form-control">
+                    <option>Select first brand</option>
+                    <option value="2">Elantra</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label> FuelType</label>
+                <select asp-for="FuelTypeId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var fuelType in fuelTypes)
+                    {
+                        <option value="@fuelType.Id">@fuelType.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Transmission</label>
+                <select asp-for="TransmissionId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var transmission in transmissions)
+                    {
+                        <option selected="@(transmission.Id == car.TransmissionId ? "selected" : null) " value="@transmission.Id">@transmission.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label>GearBox</label>
+                <select asp-for="GearboxId" class="form-control">
+                    <option>Select Make</option>
+                    @foreach (var gearbox in gearboxes)
+                    {
+                        <option value="@gearbox.Id">@gearbox.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="FeatureIds">CarFeatures</label>
+                <select asp-for="FeatureIds" class="form-control" id="FeatureIds" asp-items="@(new SelectList(ViewBag.Features, "Id", "Name"))">
+                   
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="DateOfProduct">DateOfProduct</label>
+                <input asp-for="DateOfProduct" class="form-control" placeholder="ProductDate">
+                <span class="text-danger" asp-validation-for="DateOfProduct"></span>
+            </div>
+
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="PosterImage">PosterFile</label>
+                <input asp-for="PosterImage" class="form-control" placeholder="PosterFile">
+                <span class="text-danger" asp-validation-for="PosterImage"></span>
+            </div>
+             <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                <input type="hidden" name="PosterImageId" value="@Model.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Id" />
+                <img style="max-width:150px" src="~/assets/images/@Model.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="Alternate Text" />
+                <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                    <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                </span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label asp-for="ImageFiles">ImageFiles</label>
+                <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
+                <span class="text-danger" asp-validation-for="ImageFiles"></span>
+            </div>
+            @foreach (var file in Model.Car.CarImages.Where(x => x.IsPoster == false))
+            {
+                <div>
+
+                    <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                        <input type="hidden" name="ProductImageIds[]" value="@file.Id" />
+                        <img style="max-width:150px" src="~/assets/images/@file.Image" alt="Alternate Text" />
+                        <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                            <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                        </span>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+    </form>
+</div>
+

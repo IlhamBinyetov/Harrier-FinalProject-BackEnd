@@ -13,7 +13,10 @@
                 <label asp-for="ImageFile">ImageFile</label>
                 <input asp-for="ImageFile" class="form-control" placeholder="ImageFile">
                 <span class="text-danger" asp-validation-for="ImageFile"></span>
-
+            </div>
+            <div class="img-box mt-5" style="display: inline-block; position: relative; margin-top:10px; margin-bottom:10px">
+                <input type="hidden" asp-for="Image" value="@Model.Image" />
+                <img style="max-width:100px" src="~/assets/images/@Model.Slider.Image" alt="Alternate Text" />
             </div>
         </div>
         <div class="form-group">

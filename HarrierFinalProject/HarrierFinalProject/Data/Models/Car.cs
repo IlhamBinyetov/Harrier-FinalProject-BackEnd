@@ -1,7 +1,9 @@
 ﻿using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.Data.Models.Enums;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -44,13 +46,18 @@ namespace HarrierFinalProject.Data.Models
         public int CarStatusId { get; set; }
         public CarStatus CarStatus { get; set; }
         public ICollection<Basket> Baskets { get; set; }
-        
 
-       
+        [NotMapped]
+        public IFormFile PosterFile { get; set; }
+
+        [NotMapped]
+        public List<IFormFile> ImageFiles { get; set; }
+
         public List<Comment> Comments { get; set; }
 
-        
 
+        [NotMapped]
+        public List<int> FeatureIds { get; set; } = new List<int>();
 
     }
 }

@@ -1,0 +1,299 @@
+﻿
+@{
+    ViewData["Title"] = "SubmitCar";
+}
+
+
+<main>
+    <section class="car-upload">
+        <div class="div-header">
+            <div class="col-4">
+                <h4>Have an account?</h4>
+            </div>
+            <div class="col-8">
+                <a href="./MyAccount.html">Sign In</a>
+                <p>
+                    If you don’t have an account you can create one below by entering
+                    your email address/username. Your account details will be
+                    confirmed via email.
+                </p>
+            </div>
+        </div>
+        <form action="">
+            <div class="account-part">
+                <div class="username">
+                    <div>
+                        <label for="" class="col-4">Username</label>
+                        <input type="text" class="col-8" />
+                    </div>
+                </div>
+                <div class="username email">
+                    <div>
+                        <label for="" class="col-4">Your Email</label>
+                        <input type="email" class="col-8" />
+                    </div>
+                </div>
+                <div class="username">
+                    <div>
+                        <label for="" class="col-4">Listing Title</label>
+                        <input type="text" class="col-8" />
+                    </div>
+                </div>
+                <div class="username">
+                    <div>
+                        <label for="" class="col-4">Description</label>
+                        <textarea name="" id="" class="col-8"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="car-data">
+                <h2>Car Data</h2>
+                <div class="car-options">
+                    <div>
+                        <label for="" class="col-4">Condition</label>
+                        <select name="" id="" class="col-8 sel-example form-control">
+                            <option value="">New</option>
+                            <option value="">Used</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Make</label>
+                        <select class="col-8 sel-example form-control" id="sel1">
+                            <option value="0">Select Make</option>
+                            <option value="1">Acura</option>
+                            <option value="2">Audi</option>
+                            <option value="3">BMW</option>
+                            <option value="4">Chevrolet</option>
+                            <option value="5">Hyundai</option>
+                            <option value="6">Kia</option>
+                            <option value="7">Mazda</option>
+                            <option value="8">Mercedes-Benz</option>
+                            <option value="9">Nissan</option>
+                            <option value="10">Toyota</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Model</label>
+                        <select class="col-8 sel-example form-control" id="sel2">
+                            <option value="">Select Model</option>
+                            <option data-val="1">CL</option>
+                            <option data-val="1">IlX</option>
+                            <option data-val="1">Ilx Hybrid</option>
+                            <option data-val="1">Integra</option>
+                            <option data-val="2">A3</option>
+                            <option data-val="2">A5</option>
+                            <option data-val="2">A7</option>
+                            <option data-val="2">A8</option>
+                            <option data-val="3">X1</option>
+                            <option data-val="3">X3</option>
+                            <option data-val="3">X5</option>
+                            <option data-val="3">X6</option>
+                            <option data-val="3">X7</option>
+                            <option data-val="3">Z8</option>
+                            <option data-val="4">Cruze</option>
+                            <option data-val="4">Aveo</option>
+                            <option data-val="4">Volt</option>
+                            <option data-val="5">Elantra</option>
+                            <option data-val="5">Sonata</option>
+                            <option data-val="5">Tucson</option>
+                            <option data-val="6">Sorento</option>
+                            <option data-val="6">Optima</option>
+                            <option data-val="6">Cerato</option>
+                            <option data-val="7">CX-3</option>
+                            <option data-val="7">CX-5</option>
+                            <option data-val="7">Mazda5</option>
+                            <option data-val="8">GL</option>
+                            <option data-val="8">Sprinter</option>
+                            <option data-val="8">E220</option>
+                            <option data-val="9">Sunny</option>
+                            <option data-val="9">X-Trail</option>
+                            <option data-val="9">Altima</option>
+                            <option data-val="10">Corolla</option>
+                            <option data-val="10">Prado</option>
+                            <option data-val="10">Land Cruiser</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="" class="col-4">First Registration Date</label>
+                        <input type="date" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Price <small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Mileage <small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Fuel Type <small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Color <small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Body Style<small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Power kW<small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Power hp<small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Doors<small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Engine<small>(optional)</small></label>
+                        <input type="text" class="col-8" />
+                    </div>
+                    <div>
+                        <label for="" class="col-4">Transmission<small>(optional)</small></label>
+                        <select name="" id="" class="col-8 sel-example form-control">
+                            <option value="">Automatic</option>
+                            <option value="">Manual</option>
+                            <option value="">Semi-automatic</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="car-features">
+                <h2>Car Features</h2>
+                <div class="car-tags">
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">ABS</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">Air Conditioner</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">AntiLock Braking System</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">Auxiliary heating</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for=""> Bluetooth</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">CD player</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for=""> Central locking</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">Head-up display</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">Leather Seats</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">Navigation system</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for="">Panoramic roof</label>
+                    </div>
+                    <div class="col-3 tag-item">
+                        <input type="checkbox" />
+                        <label for=""> Parking sensors</label>
+                    </div>
+                </div>
+            </div>
+            <div class="image-part">
+                <h2>Images</h2>
+                <div class="image">
+                    <h3>Upload New Images</h3>
+                    <strong>Click here to upload your images</strong>
+                    <span>
+                        You can upload multiple images at the same time, the first
+                        image will be your thumbnail.
+                    </span>
+                    <div class="image-preview">
+                        <div class="preview-item col-3">
+                            <img src="~/assets/images/car30.jpg" alt="" />
+                            <a href="">Remove File</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="submit">
+                <a href="" class="car-preview">Preview Car</a>
+            </div>
+        </form>
+    </section>
+
+    <section class="features-section">
+        <div class="features d-flex">
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/world-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">World`s #1</p>
+                    <p class="feature-second-p">Largest Auto Portal</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/car-sold-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Car sold</p>
+                    <p class="feature-second-p">Every 4 minute</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/tag-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Offers</p>
+                    <p class="feature-second-p">Stay updated pay less</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/compare-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Compare</p>
+                    <p class="feature-second-p">Decode the right car</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
