@@ -95,7 +95,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label>Brand</label>
-                <select asp-for="BrandId" class="form-control">
+                <select asp-for="BrandId" class="form-control brand" >
                     <option>Select Make</option>
                     @foreach (var brand in brands)
                     {
@@ -106,7 +106,7 @@
             <div class="form-group col-md-3">
                 <label>Model</label>
                 <select asp-for="ModelId" class="form-control">
-                    <option>Select first brand</option> 
+                    <option>Select first brand</option>
                     <option value="2">Elantra</option> 
                 </select>
             </div>

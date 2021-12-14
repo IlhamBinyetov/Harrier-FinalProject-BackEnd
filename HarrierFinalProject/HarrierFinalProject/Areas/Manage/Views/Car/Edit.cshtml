@@ -52,13 +52,13 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3">   
                 <label>City</label>
                 <select asp-for="CityId" class="form-control">
                     <option>Select Make</option>
                     @foreach (var city in cities)
                     {
-                        <option value="@city.Id">@city.Name</option>
+                        <option selected="@(city.Id == car.CityId?"selected":null)"  value="@city.Id">@city.Name</option>
                     }
                 </select>
             </div>
@@ -68,7 +68,7 @@
                     <option>Select Make</option>
                     @foreach (var carColor in carColors)
                     {
-                        <option value="@carColor.Id">@carColor.Name</option>
+                        <option selected="@(carColor.Id == car.CarColorId?"selected":null)"  value="@carColor.Id">@carColor.Name</option>
                     }
                 </select>
             </div>
@@ -78,7 +78,7 @@
                     <option>Select Make</option>
                     @foreach (var carType in carTypes)
                     {
-                        <option value="@carType.Id">@carType.Name</option>
+                        <option selected="@(carType.Id == car.CarTypeId?"selected":null)"  value="@carType.Id">@carType.Name</option>
                     }
                 </select>
             </div>
@@ -88,7 +88,7 @@
                     <option>Select Make</option>
                     @foreach (var carStatus in carStatuses)
                     {
-                        <option value="@carStatus.Id">@carStatus.Name</option>
+                        <option selected="@(carStatus.Id == car.CarStatusId?"selected":null)"  value="@carStatus.Id">@carStatus.Name</option>
                     }
                 </select>
             </div>
@@ -100,7 +100,7 @@
                     <option>Select Make</option>
                     @foreach (var brand in brands)
                     {
-                        <option value="@brand.Id">@brand.Name</option>
+                        <option selected="@(brand.Id == car.BrandId?"selected":null)"  value="@brand.Id">@brand.Name</option>
                     }
                 </select>
             </div>
@@ -117,7 +117,7 @@
                     <option>Select Make</option>
                     @foreach (var fuelType in fuelTypes)
                     {
-                        <option value="@fuelType.Id">@fuelType.Name</option>
+                        <option selected="@(fuelType.Id == car.FuelTypeId?"selected":null)" value="@fuelType.Id">@fuelType.Name</option>
                     }
                 </select>
             </div>
@@ -137,7 +137,7 @@
                     <option>Select Make</option>
                     @foreach (var gearbox in gearboxes)
                     {
-                        <option value="@gearbox.Id">@gearbox.Name</option>
+                        <option selected="@(gearbox.Id == car.GearboxId?"selected": null)" value="@gearbox.Id">@gearbox.Name</option>
                     }
                 </select>
             </div>

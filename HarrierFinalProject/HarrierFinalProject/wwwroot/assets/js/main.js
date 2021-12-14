@@ -267,6 +267,30 @@ $(document).on("click", ".favorite", function (e) {
     //set data 
 });
 
+
+$(document).on("change", ".brand", function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr("data-id");   
+
+    fetch('https://localhost:44360/car/GetModelByBrand/' + id)
+        .then(response => response.text())
+        .then(data => {
+            console.log("salam")
+            $(this).
+            $(".cart-menu").html('');
+            $(".cart-menu").html(data);
+            var count = $(".menu-count").text();
+
+           
+        });
+    // get data from controller
+
+    //set data 
+});
+
+
+
 //testimonial section
 var slideIndex = 1;
 showSlides(slideIndex);

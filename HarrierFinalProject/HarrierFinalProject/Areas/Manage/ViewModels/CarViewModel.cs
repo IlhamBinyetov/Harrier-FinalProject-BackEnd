@@ -47,7 +47,7 @@ namespace HarrierFinalProject.Areas.Manage.ViewModels
         public List<FuelType> FuelTypes { get; set; } 
         public List<CarImage> CarImages { get; set; }
 
-
+        public Brand Brand { get; set; }
         public List<int> FeatureIds { get; set; } = new List<int>();
 
 

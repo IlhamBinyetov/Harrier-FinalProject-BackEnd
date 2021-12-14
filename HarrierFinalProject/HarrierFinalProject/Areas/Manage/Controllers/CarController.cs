@@ -26,9 +26,11 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
         public IActionResult Index(int page=1, string search=null)
         {
-            List<Car> cars = _context.Cars.Include(c=>c.Brand).Include(c=>c.Model).Include(c=>c.CarImages).ToList();
+            List<Car> cars = _context.Cars.Include(c=>c.Brand).Include(c=>c.Model).Include(c=>c.CarImages).Skip((page-1)*4).Take(4).ToList();
 
-            
+            ViewBag.TotalPage = Math.Ceiling(_context.Cars.Count() / 4m);
+            ViewBag.SelectedPage = page;
+
 
             CarViewModel carVM = new CarViewModel()
             {
@@ -346,6 +348,44 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
 
             return RedirectToAction("index");
+        }
+
+        public IActionResult DeleteFetch(int id)
+        {
+            Car car = _context.Cars.Include(x => x.CarImages).FirstOrDefault(x => x.Id == id);
+
+            if (car == null) return Json(new { status = 404 });
+
+            try
+            {
+                _context.Cars.Remove(car);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return Json(new { status = 500 });
+            }
+
+            List<CarImage> images = car.CarImages.Where(x => x.CarId == id).ToList();
+            foreach (CarImage img in images)
+            {
+                string deletePath = Path.Combine(_env.WebRootPath, "assets/images", img.Image);
+                if (System.IO.File.Exists(deletePath))
+                {
+                    System.IO.File.Delete(deletePath);
+                }
+            }
+            return Json(new { status = 200 });
+        }
+
+
+        public IActionResult GetModelByBrand(int brandId)
+        {
+            List<Model> models = _context.Models.Where(m => m.BrandId == brandId).ToList();
+
+
+
+            return View(models);
         }
     }
 }
