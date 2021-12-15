@@ -34,5 +34,7 @@ namespace HarrierFinalProject.ViewModels
         [StringLength(maximumLength: 25, MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string CurrentPassword { get; set; }
+
+        public string Image { get; set; }
     }
 }

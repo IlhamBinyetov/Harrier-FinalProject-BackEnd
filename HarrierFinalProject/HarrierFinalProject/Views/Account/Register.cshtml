@@ -17,9 +17,9 @@
                     </div>
 
                     <div>
-                        <label asp-for="UserName">UserName <span class="star">*</span></label></label>
+                        <label asp-for="UserName">UserName <span class="star">*</span></label>
                         <input asp-for="UserName" type="text" id="UserName"
-                               placeholder="Enter your full name">
+                               placeholder="Enter your full name"/>
                         <span class="text-danger" asp-validation-for="UserName"></span>
                     </div>
 
@@ -38,7 +38,12 @@
                         <input asp-for="ConfirmPassword" id="ConfirmPassword" placeholder="Repeat your password">
                         <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
                     </div>
-
+                    <div>
+                        <label asp-for="FileImage">Profile Image</label>
+                        <input asp-for="FileImage" class="form-control" placeholder="Image" style="width:50%">
+                        <span class="text-danger" asp-validation-for="FileImage"></span>
+                    </div>
+                  
 
                     <button class="btn-register" type="submit">Register</button>
                 </form>

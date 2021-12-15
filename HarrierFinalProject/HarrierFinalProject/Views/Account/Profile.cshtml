@@ -1,0 +1,200 @@
+﻿@model ProfileViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+<main>
+    <section class="account">
+        <div class="tabs">
+            <ul class="nav nav-tabs flex-column col-3" id="myTab" role="tablist" style="height:max-content">
+                <li class="nav-item">
+                    <a class="nav-link"
+                       id="home-tab"
+                       data-toggle="tab"
+                       href="#home"
+                       role="tab"
+                       aria-controls="home"
+                       aria-selected="true">
+                        Orders <i class="fas fa-file-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       id="profile-tab"
+                       data-toggle="tab"
+                       href="#profile"
+                       role="tab"
+                       aria-controls="profile"
+                       aria-selected="false">
+                        Account Details <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="messages-tab" asp-action="logout" asp-controller="account">
+                        Logout <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content flex-column col-8">
+                <div class="tab-pane active"
+                     id="home"
+                     role="tabpanel"
+                     aria-labelledby="home-tab">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Product Name</th>
+                                <th>Car</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                
+                            <tr>
+                                <td>1</td>
+                                <td>Nov 28, 2021</td>
+                                <td class="status">Pending</td>
+                                <td>$ 40000</td>
+                                <td>Mercedes-Benz</td>
+                                <td><a href="">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane"
+                     id="profile"
+                     role="tabpanel"
+                     aria-labelledby="profile-tab">
+                    <div class="form-part">
+                        <form action="" method="post">
+                            <div class="form-items">
+                                <div class="col-5 mt-3">
+                                    <label asp-for="FullName">Full Name</label>
+                                    <input asp-for="FullName" type="text" id="FullName" placeholder="Enter your full name" />
+                                    <span class="text-danger" asp-validation-for="FullName"></span>
+                                </div>
+                                <div class="col-5 mt-3">
+                                    <label asp-for="PhoneNumber">Phone Number</label>
+                                    <input asp-for="PhoneNumber" type="text" id="PhoneNumber" placeholder="Enter your phone number" />
+                                    <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+
+                                </div>
+                                <div class="col-5 mt-3">
+                                    <label asp-for="Email">Email</label>
+                                    <input asp-for="Email" type="email" id="Email" placeholder="Enter Your Email Address" />
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+
+                                </div>
+                                <div class="col-5 mt-3">
+                                    <label asp-for="UserName">UserName</label>
+                                    <input asp-for="UserName" type="text" id="UserName" placeholder="Enter your UserName" />
+                                    <span class="text-danger" asp-validation-for="UserName"></span>
+
+                                </div>
+                            </div>
+                            <div class="password-changes">
+                                <h3>Password Change</h3>
+                                <div>
+                                    <label asp-for="CurrentPassword">Current Password</label>
+                                    <input asp-for="CurrentPassword" type="password" id="CurrentPassword" placeholder="Enter your current password" />
+                                    <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+                                </div>
+                                <div>
+                                    <label asp-for="NewPassword">New Password</label>
+                                    <input asp-for="NewPassword" type="password" id="NewPassword" placeholder="Enter your new password" />
+                                    <span class="text-danger" asp-validation-for="NewPassword"></span>
+
+                                </div>
+                                <div>
+                                    <label asp-for="ConfirmNewPassword">Repeat Password</label>
+                                    <input asp-for="ConfirmNewPassword" type="password" id="ConfirmNewPassword" placeholder="Repeat your new password" />
+                                    <span class="text-danger" asp-validation-for="ConfirmNewPassword"></span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane"
+                     id="messages"
+                     role="tabpanel"
+                     aria-labelledby="messages-tab"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Nav tabs -->
+
+    <section class="features-section">
+        <div class="features d-flex">
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/world-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">World`s #1</p>
+                    <p class="feature-second-p">Largest Auto Portal</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/car-sold-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Car sold</p>
+                    <p class="feature-second-p">Every 4 minute</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/tag-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Offers</p>
+                    <p class="feature-second-p">Stay updated pay less</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/compare-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Compare</p>
+                    <p class="feature-second-p">Decode the right car</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+</main>
+

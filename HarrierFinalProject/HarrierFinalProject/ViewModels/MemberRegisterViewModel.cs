@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HarrierFinalProject.Data.Models;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -31,5 +33,11 @@ namespace HarrierFinalProject.ViewModels
         [DataType(DataType.Password)]
         [Compare(nameof(Password))]
         public string ConfirmPassword { get; set; }
+
+        public IFormFile FileImage { get; set; }
+
+        public string Image { get; set; }
+
+        public AppUser AppUser { get; set; }
     }
 }

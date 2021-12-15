@@ -4,7 +4,7 @@
     Setting setting = service.GetSetting();
     List<BasketViewModel> favitems = service.GetFavorites();
 
-    double totalCount = 0;
+    //double totalCount = 0;
     //totalCount = favitems.Sum(x => x.CarPrice * x.);
 
     AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
