@@ -34,6 +34,13 @@ using HarrierFinalProject.Data.Models;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 5 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
 using HarrierFinalProject.Services;
 
@@ -41,7 +48,7 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8189c2bfbd3366407d2b9d76b1da671e9c7349eb", @"/Views/Home/AdvancedSearch.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71c47fea4d7d22529661737085a23daed142c8ea", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ef2c9e2f68a24466b088013401f05de414627c1b", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_AdvancedSearch : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "0", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -110,12 +117,12 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n<main>\r\n    <section class=\"advanced-search\">\r\n        <h3>Advanced Search</h3>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb13995", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb14231", async() => {
                 WriteLiteral("\r\n            <div class=\"search-product\">\r\n                <div class=\"left-side col-5\">\r\n                    <label");
                 BeginWriteAttribute("for", " for=\"", 278, "\"", 284, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"col-4\">Marka</label>\r\n                    <select class=\"sel-example form-control col-8\" id=\"sel1\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb14668", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb14904", async() => {
                     WriteLiteral("Butun Markalar");
                 }
                 );
@@ -131,7 +138,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb15924", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb16160", async() => {
                     WriteLiteral("Acura");
                 }
                 );
@@ -147,7 +154,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb17171", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb17407", async() => {
                     WriteLiteral("Audi");
                 }
                 );
@@ -163,7 +170,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb18417", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb18653", async() => {
                     WriteLiteral("BMW");
                 }
                 );
@@ -179,7 +186,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb19662", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb19898", async() => {
                     WriteLiteral("Chevrolet");
                 }
                 );
@@ -195,7 +202,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb20913", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb21149", async() => {
                     WriteLiteral("Hyundai");
                 }
                 );
@@ -211,7 +218,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb22162", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb22398", async() => {
                     WriteLiteral("Kia");
                 }
                 );
@@ -227,7 +234,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb23407", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb23643", async() => {
                     WriteLiteral("Mazda");
                 }
                 );
@@ -243,7 +250,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb24654", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb24890", async() => {
                     WriteLiteral("Mercedes-Benz");
                 }
                 );
@@ -259,7 +266,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb25909", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb26145", async() => {
                     WriteLiteral("Nissan");
                 }
                 );
@@ -275,7 +282,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb27157", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb27393", async() => {
                     WriteLiteral("Toyota");
                 }
                 );
@@ -299,7 +306,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("id", " id=\"", 1253, "\"", 1258, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"col-8 sel-example form-control\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb29065", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb29301", async() => {
                     WriteLiteral("Baku");
                 }
                 );
@@ -315,7 +322,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb30313", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb30549", async() => {
                     WriteLiteral("Sumqayit");
                 }
                 );
@@ -331,7 +338,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb31565", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb31801", async() => {
                     WriteLiteral("Quba");
                 }
                 );
@@ -347,7 +354,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb32813", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb33049", async() => {
                     WriteLiteral("Lenkeran");
                 }
                 );
@@ -363,7 +370,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb34065", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb34301", async() => {
                     WriteLiteral("Siyezen");
                 }
                 );
@@ -379,7 +386,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb35316", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb35552", async() => {
                     WriteLiteral("Kurdemir");
                 }
                 );
@@ -395,7 +402,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb36568", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb36804", async() => {
                     WriteLiteral("Seki");
                 }
                 );
@@ -417,7 +424,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("name", " name=\"", 1962, "\"", 1969, 0);
                 EndWriteAttribute();
                 WriteLiteral(" id=\"sel2\" class=\"sel-example form-control col-8\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb38441", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb38677", async() => {
                     WriteLiteral("Butun Modeller");
                 }
                 );
@@ -433,7 +440,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb39699", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb39935", async() => {
                     WriteLiteral("CL");
                 }
                 );
@@ -448,7 +455,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb40822", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb41058", async() => {
                     WriteLiteral("IlX");
                 }
                 );
@@ -463,7 +470,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb41946", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb42182", async() => {
                     WriteLiteral("Ilx Hybrid");
                 }
                 );
@@ -478,7 +485,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb43077", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb43313", async() => {
                     WriteLiteral("Integra");
                 }
                 );
@@ -493,7 +500,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb44205", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb44441", async() => {
                     WriteLiteral("A3");
                 }
                 );
@@ -508,7 +515,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb45328", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb45564", async() => {
                     WriteLiteral("A5");
                 }
                 );
@@ -523,7 +530,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb46451", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb46687", async() => {
                     WriteLiteral("A7");
                 }
                 );
@@ -538,7 +545,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb47574", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb47810", async() => {
                     WriteLiteral("A8");
                 }
                 );
@@ -553,7 +560,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb48697", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb48933", async() => {
                     WriteLiteral("X1");
                 }
                 );
@@ -568,7 +575,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb49820", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb50056", async() => {
                     WriteLiteral("X3");
                 }
                 );
@@ -583,7 +590,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb50943", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb51179", async() => {
                     WriteLiteral("X5");
                 }
                 );
@@ -598,7 +605,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb52066", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb52302", async() => {
                     WriteLiteral("X6");
                 }
                 );
@@ -613,7 +620,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb53189", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb53425", async() => {
                     WriteLiteral("X7");
                 }
                 );
@@ -628,7 +635,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb54312", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb54548", async() => {
                     WriteLiteral("Z8");
                 }
                 );
@@ -643,7 +650,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb55435", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb55671", async() => {
                     WriteLiteral("Cruze");
                 }
                 );
@@ -658,7 +665,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb56561", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb56797", async() => {
                     WriteLiteral("Aveo");
                 }
                 );
@@ -673,7 +680,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb57686", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb57922", async() => {
                     WriteLiteral("Volt");
                 }
                 );
@@ -688,7 +695,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb58811", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb59047", async() => {
                     WriteLiteral("Elantra");
                 }
                 );
@@ -703,7 +710,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb59939", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb60175", async() => {
                     WriteLiteral("Sonata");
                 }
                 );
@@ -718,7 +725,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb61066", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb61302", async() => {
                     WriteLiteral("Tucson");
                 }
                 );
@@ -733,7 +740,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb62193", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb62429", async() => {
                     WriteLiteral("Sorento");
                 }
                 );
@@ -748,7 +755,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb63321", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb63557", async() => {
                     WriteLiteral("Optima");
                 }
                 );
@@ -763,7 +770,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb64448", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb64684", async() => {
                     WriteLiteral("Cerato");
                 }
                 );
@@ -778,7 +785,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb65575", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb65811", async() => {
                     WriteLiteral("CX-3");
                 }
                 );
@@ -793,7 +800,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb66700", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb66936", async() => {
                     WriteLiteral("CX-5");
                 }
                 );
@@ -808,7 +815,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb67825", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb68061", async() => {
                     WriteLiteral("Mazda5");
                 }
                 );
@@ -823,7 +830,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb68952", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb69188", async() => {
                     WriteLiteral("GL");
                 }
                 );
@@ -838,7 +845,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb70075", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb70311", async() => {
                     WriteLiteral("Sprinter");
                 }
                 );
@@ -853,7 +860,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb71204", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb71440", async() => {
                     WriteLiteral("E220");
                 }
                 );
@@ -868,7 +875,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb72329", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb72565", async() => {
                     WriteLiteral("Sunny");
                 }
                 );
@@ -883,7 +890,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb73455", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb73691", async() => {
                     WriteLiteral("X-Trail");
                 }
                 );
@@ -898,7 +905,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb74583", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb74819", async() => {
                     WriteLiteral("Altima");
                 }
                 );
@@ -913,7 +920,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb75710", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb75946", async() => {
                     WriteLiteral("Corolla");
                 }
                 );
@@ -928,7 +935,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb76838", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb77074", async() => {
                     WriteLiteral("Prado");
                 }
                 );
@@ -943,7 +950,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb77964", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb78200", async() => {
                     WriteLiteral("Land Cruiser");
                 }
                 );
@@ -966,7 +973,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("id", " id=\"", 4422, "\"", 4427, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"col-8 sel-example form-control\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb79763", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb79999", async() => {
                     WriteLiteral("Dizel");
                 }
                 );
@@ -982,7 +989,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb81012", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb81248", async() => {
                     WriteLiteral("Benzin");
                 }
                 );
@@ -998,7 +1005,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb82262", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb82498", async() => {
                     WriteLiteral("Qaz");
                 }
                 );
@@ -1014,7 +1021,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb83509", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb83745", async() => {
                     WriteLiteral("Elektro");
                 }
                 );
@@ -1030,7 +1037,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb84760", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb84996", async() => {
                     WriteLiteral("Hibrid");
                 }
                 );
@@ -1052,7 +1059,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("name", " name=\"", 5014, "\"", 5021, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"sel-example form-control col-8\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb86626", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb86862", async() => {
                     WriteLiteral("Butun tipler");
                 }
                 );
@@ -1068,7 +1075,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb87882", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb88118", async() => {
                     WriteLiteral("Furqon");
                 }
                 );
@@ -1084,7 +1091,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb89132", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb89368", async() => {
                     WriteLiteral("Hetcbek/Liftbek");
                 }
                 );
@@ -1100,7 +1107,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb90391", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb90627", async() => {
                     WriteLiteral("Sedan");
                 }
                 );
@@ -1116,7 +1123,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb91640", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb91876", async() => {
                     WriteLiteral("Universal");
                 }
                 );
@@ -1132,7 +1139,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb92893", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb93129", async() => {
                     WriteLiteral("Yuk masini");
                 }
                 );
@@ -1148,7 +1155,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb94147", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb94383", async() => {
                     WriteLiteral("Pikap");
                 }
                 );
@@ -1172,7 +1179,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("id", " id=\"", 5693, "\"", 5698, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"col-8 sel-example form-control\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb96057", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb96293", async() => {
                     WriteLiteral("Butun tipler");
                 }
                 );
@@ -1188,7 +1195,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb97313", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb97549", async() => {
                     WriteLiteral("Arxa");
                 }
                 );
@@ -1204,7 +1211,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb98561", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb98797", async() => {
                     WriteLiteral("On");
                 }
                 );
@@ -1220,7 +1227,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb99807", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb100043", async() => {
                     WriteLiteral("Tam");
                 }
                 );
@@ -1242,7 +1249,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("name", " name=\"", 6223, "\"", 6230, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"sel-example form-control col-8\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb101666", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb101903", async() => {
                     WriteLiteral("Butun");
                 }
                 );
@@ -1258,7 +1265,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb102916", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb103153", async() => {
                     WriteLiteral("Qara");
                 }
                 );
@@ -1274,7 +1281,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb104165", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb104402", async() => {
                     WriteLiteral("Ag");
                 }
                 );
@@ -1290,7 +1297,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb105412", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb105649", async() => {
                     WriteLiteral("Yas Asfalt");
                 }
                 );
@@ -1306,7 +1313,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb106667", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb106904", async() => {
                     WriteLiteral("Qirmizi");
                 }
                 );
@@ -1322,7 +1329,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb107919", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb108156", async() => {
                     WriteLiteral("Bej");
                 }
                 );
@@ -1338,7 +1345,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb109167", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb109404", async() => {
                     WriteLiteral("Gumusu");
                 }
                 );
@@ -1362,7 +1369,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("id", " id=\"", 6885, "\"", 6890, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"col-8 sel-example form-control\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb111087", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb111324", async() => {
                     WriteLiteral("Butun");
                 }
                 );
@@ -1378,7 +1385,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb112337", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb112574", async() => {
                     WriteLiteral("Mexaniki");
                 }
                 );
@@ -1394,7 +1401,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb113590", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb113827", async() => {
                     WriteLiteral("Avtomat");
                 }
                 );
@@ -1410,7 +1417,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb114842", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb115079", async() => {
                     WriteLiteral("Robot");
                 }
                 );
@@ -1426,7 +1433,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb116092", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb116329", async() => {
                     WriteLiteral("Variator");
                 }
                 );
@@ -1526,7 +1533,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("id", " id=\"", 11240, "\"", 11245, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"sel-example form-control col-6\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb124963", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb125200", async() => {
                     WriteLiteral("Tarixe gore");
                 }
                 );
@@ -1542,7 +1549,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb126219", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb126456", async() => {
                     WriteLiteral("Evvel Ucuz");
                 }
                 );
@@ -1558,7 +1565,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb127474", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb127711", async() => {
                     WriteLiteral("Evvel bahali");
                 }
                 );
@@ -1574,7 +1581,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb128731", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb128968", async() => {
                     WriteLiteral("Yurus");
                 }
                 );
@@ -1590,7 +1597,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb129981", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb130218", async() => {
                     WriteLiteral("Buraxilis ili");
                 }
                 );
@@ -1614,7 +1621,7 @@ using HarrierFinalProject.Services;
                 BeginWriteAttribute("id", " id=\"", 11811, "\"", 11816, 0);
                 EndWriteAttribute();
                 WriteLiteral(" class=\"sel-example form-control col-6\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb131915", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb132152", async() => {
                     WriteLiteral("Butun");
                 }
                 );
@@ -1630,7 +1637,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb133165", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb133402", async() => {
                     WriteLiteral("Islenmis");
                 }
                 );
@@ -1646,7 +1653,7 @@ using HarrierFinalProject.Services;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb134418", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb134655", async() => {
                     WriteLiteral("Yeni");
                 }
                 );
@@ -1677,7 +1684,7 @@ using HarrierFinalProject.Services;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    </section>\r\n\r\n    <section class=\"features-section\">\r\n        <div class=\"features d-flex\">\r\n            <div class=\"feature-element col-3 d-flex justify-content-evenly\">\r\n                <div class=\"feature-icon\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb137138", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb137375", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1701,7 +1708,7 @@ using HarrierFinalProject.Services;
             <div class=""feature-element col-3 d-flex justify-content-evenly"">
                 <div class=""feature-icon"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb138632", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb138869", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1725,7 +1732,7 @@ using HarrierFinalProject.Services;
             <div class=""feature-element col-3 d-flex justify-content-evenly"">
                 <div class=""feature-icon"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb140119", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb140356", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1749,7 +1756,7 @@ using HarrierFinalProject.Services;
             <div class=""feature-element col-3 d-flex justify-content-evenly"">
                 <div class=""feature-icon"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb141611", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb141848", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1779,7 +1786,7 @@ using HarrierFinalProject.Services;
         <h4>GET NOTIFIED OF ANY UPDATES!</h4>
         <div class=""form-elements"">
             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb143163", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8189c2bfbd3366407d2b9d76b1da671e9c7349eb143400", async() => {
                 WriteLiteral(@"
                 <input type=""email""
                        name=""email""

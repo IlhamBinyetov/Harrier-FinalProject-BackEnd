@@ -1,10 +1,13 @@
 ﻿@inject LayoutService service
+@inject UserManager<AppUser> userManager
 @{ 
     Setting setting = service.GetSetting();
     List<BasketViewModel> favitems = service.GetFavorites();
 
     double totalCount = 0;
     //totalCount = favitems.Sum(x => x.CarPrice * x.);
+
+    AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
 }
 
 <!DOCTYPE html>
@@ -130,9 +133,20 @@
 
                                 <div class="drop-menu user-menu">
                                     <ul>
-                                        <li><a href="">Submit Car</a></li>
-                                        <li><a href="">My Cars</a></li>
-                                        <li><a href="">My Account</a></li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li style="color:red">@User.Identity.Name</li>
+                                            <li><a asp-action="profile" asp-controller="account">My Account</a></li>
+                                            <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
+                                            <li><a href="">Submit Car</a></li>
+
+                                        }
+                                        else
+                                        {
+                                            <li><a asp-action="login" asp-controller="account">Sign in</a></li>
+                                            <li><a asp-action="register" asp-controller="account">Register</a></li>
+                                        }
+
                                     </ul>
                                 </div>
                             </div>

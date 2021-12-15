@@ -1,47 +1,45 @@
-﻿@model MemberRegisterViewModel
+﻿@model MemberLoginViewModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Login";
 }
 
 <main>
     <section class="login-section">
         <div class="main-part">
-
-            <div class="register col-6 m-auto">
-                <h2>Register</h2>
-                <form action="" method="post">
+            <div class="login col-lg-6 m-auto">
+                <h2>Login</h2>
+                <form action=""  method="post">
                     <div>
-                        <label asp-for="FullName">Full Name <span class="star">*</span></label>
-                        <input asp-for="FullName" type="text" id="FullName" placeholder="Enter your full name" />
-                        <span class="text-danger" asp-validation-for="FullName"></span>
-                    </div>
-
-                    <div>
-                        <label asp-for="UserName">UserName <span class="star">*</span></label></label>
-                        <input asp-for="UserName" type="text" id="UserName"
-                               placeholder="Enter your full name">
+                        <label asp-for="UserName">Username<span class="star">*</span></label>
+                        <input asp-for="UserName" type="text" id="UserName" placeholder="Enter your Username" />    
                         <span class="text-danger" asp-validation-for="UserName"></span>
                     </div>
 
                     <div>
-                        <label asp-for="Email">Email address <span class="star">*</span></label>
-                        <input asp-for="Email" type="email" id="Email" />
-                        <span class="text-danger" asp-validation-for="Email"></span>
-                    </div>
-                    <div>
                         <label asp-for="Password">Password <span class="star">*</span></label>
-                        <input asp-for="Password" type="password" id="password" />
+                        <input asp-for="Password" type="password" id="Password" placeholder="Enter your Password" />
                         <span class="text-danger" asp-validation-for="Password"></span>
                     </div>
-                    <div>
-                        <label asp-for="ConfirmPassword">Repeat Password <span class="star">*</span></label>
-                        <input asp-for="ConfirmPassword" id="ConfirmPassword" placeholder="Repeat your password">
-                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
-                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
+                    <button class="btn-login" type="submit">Log In</button>
 
-                    <button class="btn-register" type="submit">Register</button>
+                    <label for="" class="remember">
+                        <input type="checkbox" />
+                        <span>Remember me</span>
+                    </label>
+
+                    <a href="">Lost Your Password?</a>
                 </form>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="account-create text-center pt-5 ">
+                    <div class="btn-wrapper">
+                        <p style="color:red">If you don`t have an acount Please go to register!</p>
+                        <a asp-action="register" asp-controller="account" class="btn btn-primary p-3">CREATE ACCOUNT</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

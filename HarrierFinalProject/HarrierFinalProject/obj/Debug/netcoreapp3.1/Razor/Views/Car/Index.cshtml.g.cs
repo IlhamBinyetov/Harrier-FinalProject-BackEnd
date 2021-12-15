@@ -34,6 +34,13 @@ using HarrierFinalProject.Data.Models;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 5 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
 using HarrierFinalProject.Services;
 
@@ -41,7 +48,7 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3e369658d8c3ce8cbf629a927444384c6eea8ced", @"/Views/Car/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71c47fea4d7d22529661737085a23daed142c8ea", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ef2c9e2f68a24466b088013401f05de414627c1b", @"/Views/_ViewImports.cshtml")]
     public class Views_Car_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<CarViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/images/category-bg.jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -89,7 +96,7 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<section class=\"bg-img-section\">\r\n    <div>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced6837", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced7073", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -137,7 +144,7 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
             WriteLiteral("</a>\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced9190", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced9426", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -179,8 +186,8 @@ AddHtmlAttributeValue("", 862, item.Image, 862, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("                    <div class=\"d-flex justify-content-between pt-4 car-item\">\r\n                        <div class=\"car-image col-4\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced11883", async() => {
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced12100", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced12119", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced12336", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -234,7 +241,7 @@ AddHtmlAttributeValue("", 1595, item.CarImages.FirstOrDefault(x=>x.IsPoster==tru
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </div>\r\n                        <div class=\"car-details col-7\">\r\n                            <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced16075", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced16311", async() => {
 #nullable restore
 #line 47 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\Car\Index.cshtml"
                                                                                               Write(item.Brand.Name);
@@ -315,7 +322,7 @@ AddHtmlAttributeValue("", 1595, item.CarImages.FirstOrDefault(x=>x.IsPoster==tru
 #line hidden
 #nullable disable
             WriteLiteral("                <div class=\"d-flex justify-content-between car-item\">\r\n                    <div class=\"col-3\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced20781", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced21017", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -377,7 +384,7 @@ AddHtmlAttributeValue("", 2505, car.CarImages.FirstOrDefault(x=>x.IsPoster==true
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced24510", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced24746", async() => {
                 WriteLiteral("<i class=\"bi bi-arrow-right\"></i>View More");
             }
             );
@@ -452,7 +459,7 @@ AddHtmlAttributeValue("", 2505, car.CarImages.FirstOrDefault(x=>x.IsPoster==true
 #line hidden
 #nullable disable
             WriteLiteral("            <div class=\"feature-element col-3 d-flex justify-content-evenly\">\r\n                <div class=\"feature-icon\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced28805", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3e369658d8c3ce8cbf629a927444384c6eea8ced29041", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -500,7 +507,7 @@ AddHtmlAttributeValue("", 4673, advertising.Logo, 4673, 17, false);
 #line hidden
 #nullable disable
             WriteLiteral("    </div>\r\n</section>\r\n\r\n<section class=\"newsletter-section\">\r\n    <h5>NEWSLETTER</h5>\r\n    <h4>GET NOTIFIED OF ANY UPDATES!</h4>\r\n    <div class=\"form-elements\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced31663", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e369658d8c3ce8cbf629a927444384c6eea8ced31899", async() => {
                 WriteLiteral(@"
             <input type=""email""
                    name=""email""

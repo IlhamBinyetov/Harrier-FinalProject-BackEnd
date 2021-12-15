@@ -7369,6 +7369,7 @@ a {
     display: flex;
     flex-wrap: wrap; }
     .header .navbar .logo {
+        height:111px;
       padding: 30px;
       background-color: yellow; }
       .header .navbar .logo a img {
@@ -7435,8 +7436,8 @@ a {
           justify-content: space-evenly;
           padding: 22px;
           margin-bottom: 0; }
-          .header .navbar .header-nav .header-main .header-menu ul li:hover {
-            border-bottom: 5px solid yellow; }
+          .header .navbar .header-nav .header-main .header-menu ul li a:hover {
+           color:red; }
           .header .navbar .header-nav .header-main .header-menu ul li a {
             color: black; }
         @media screen and (max-width: 1100px) {

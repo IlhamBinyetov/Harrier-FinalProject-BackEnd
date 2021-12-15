@@ -34,6 +34,13 @@ using HarrierFinalProject.Data.Models;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 5 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Views\_ViewImports.cshtml"
 using HarrierFinalProject.Services;
 
@@ -41,7 +48,7 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c3517b7d0999c9a8af12274067d5424b8652a6a6", @"/Views/Wishlist/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71c47fea4d7d22529661737085a23daed142c8ea", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ef2c9e2f68a24466b088013401f05de414627c1b", @"/Views/_ViewImports.cshtml")]
     public class Views_Wishlist_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<WishlistViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -84,7 +91,7 @@ using HarrierFinalProject.Services;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<main>\r\n    <section class=\"wishlist-section\">\r\n        <h2>My Wishlist</h2>\r\n        <div class=\"wishlist-part\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3517b7d0999c9a8af12274067d5424b8652a6a66055", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3517b7d0999c9a8af12274067d5424b8652a6a66291", async() => {
                 WriteLiteral(@"
                 <table>
                     <thead>
@@ -116,7 +123,7 @@ using HarrierFinalProject.Services;
                                     </button>
                                 </td>
                                 <td>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c3517b7d0999c9a8af12274067d5424b8652a6a67591", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c3517b7d0999c9a8af12274067d5424b8652a6a67827", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -199,7 +206,7 @@ AddHtmlAttributeValue("", 1301, car.CarImages.FirstOrDefault(x=>x.IsPoster==true
 #line hidden
 #nullable disable
             WriteLiteral("                <div class=\"feature-element col-3 d-flex justify-content-evenly\">\r\n                    <div class=\"feature-icon\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c3517b7d0999c9a8af12274067d5424b8652a6a612875", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c3517b7d0999c9a8af12274067d5424b8652a6a613111", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -247,7 +254,7 @@ AddHtmlAttributeValue("", 2265, item.Logo, 2265, 10, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n         \r\n        </div>\r\n    </section>\r\n\r\n\r\n    <section class=\"newsletter-section\">\r\n        <h5>NEWSLETTER</h5>\r\n        <h4>GET NOTIFIED OF ANY UPDATES!</h4>\r\n        <div class=\"form-elements\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3517b7d0999c9a8af12274067d5424b8652a6a615815", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3517b7d0999c9a8af12274067d5424b8652a6a616051", async() => {
                 WriteLiteral(@"
                 <input type=""email""
                        name=""email""
