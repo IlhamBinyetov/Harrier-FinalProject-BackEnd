@@ -38,6 +38,7 @@ namespace HarrierFinalProject.Data
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<AppUser> AppUsers { get; set; } 
+        public DbSet<Order> Orders { get; set; }
 
 
 

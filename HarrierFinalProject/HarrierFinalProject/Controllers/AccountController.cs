@@ -182,9 +182,11 @@ namespace HarrierFinalProject.Controllers
                 FullName = member.Fullname,
                 PhoneNumber = member.PhoneNumber,
                 UserName = member.UserName,
-                Image = member.Image
-                
-                
+                Image = member.Image,
+                Orders = _context.Orders.Include(x => x.Car).Where(x => x.AppUserId == member.Id).ToList()
+
+
+
             };
 
             return View(profileVM);

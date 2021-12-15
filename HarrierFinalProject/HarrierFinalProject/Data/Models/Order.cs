@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarrierFinalProject.Data.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace HarrierFinalProject.Data.Models
         public string Phone { get; set; }
 
         public DateTime CreatedAt { get; set; }
-        public CarStatus CarStatus { get; set; }
+        public OrderStatus Status { get; set; }
         public decimal Price { get; set; }
         public Car Car { get; set; }
 

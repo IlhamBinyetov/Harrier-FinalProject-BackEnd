@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarrierFinalProject.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -36,5 +37,6 @@ namespace HarrierFinalProject.ViewModels
         public string CurrentPassword { get; set; }
 
         public string Image { get; set; }
+        public List<Order> Orders { get; set; } 
     }
 }

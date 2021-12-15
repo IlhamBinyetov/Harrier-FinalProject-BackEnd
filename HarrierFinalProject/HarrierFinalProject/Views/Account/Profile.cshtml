@@ -1,6 +1,7 @@
 ﻿@model ProfileViewModel
 @{
     ViewData["Title"] = "Profile";
+    int index = 0;
 }
 
 
@@ -55,15 +56,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                                
+                            @foreach (var order in Model.Orders)
+                            {
+                                index++;
                             <tr>
-                                <td>1</td>
-                                <td>Nov 28, 2021</td>
-                                <td class="status">Pending</td>
-                                <td>$ 40000</td>
-                                <td>Mercedes-Benz</td>
-                                <td><a href="">View</a></td>
+                                <td>@index</td>
+                                <td>@order.CreatedAt.ToString("MMMM  dd yyyy")</td>
+                                @if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Accepted)
+                                {
+                                    <h4><span style="background-color: green; padding: 3px; color: white; border-radius: 10px">Accepted</span></h4>
+                                }
+                                else if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Rejected)
+                                {
+                                    <h4><span style="background-color: red; padding: 3px; color: white; border-radius: 10px ">Rejected</span></h4>
+
+                                }
+                                else
+                                {
+                                    <h4><span style="background-color: gray; padding: 3px; color:white; border-radius: 10px">Pending</span></h4>
+                                }
+                                
+                                <td>$ @order.Price</td>
+                                <td> @order.Car.Brand.Name</td>
+                                <td><a asp-action="detail" asp-controller="car" asp-route-id="@order.Car.Id">View</a></td>
                             </tr>
+
+                            }
+
                         </tbody>
                     </table>
                 </div>
@@ -74,6 +93,13 @@
                     <div class="form-part">
                         <form action="" method="post">
                             <div class="form-items">
+
+                                <div class="col-8 m-auto">
+                                    <label asp-for="Image">Profile Image</label>
+                                    <img src="~/assets/images/@Model.Image" alt="Alternate Text" />
+                                    <span class="text-danger" asp-validation-for="Image"></span>
+                                </div>
+
                                 <div class="col-5 mt-3">
                                     <label asp-for="FullName">Full Name</label>
                                     <input asp-for="FullName" type="text" id="FullName" placeholder="Enter your full name" />

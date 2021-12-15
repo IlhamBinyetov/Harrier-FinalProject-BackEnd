@@ -4,14 +4,16 @@ using HarrierFinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HarrierFinalProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211215183359_OrderTableCreatedAgain")]
+    partial class OrderTableCreatedAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -988,6 +990,9 @@ namespace HarrierFinalProject.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CarStatusId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -1008,14 +1013,13 @@ namespace HarrierFinalProject.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
 
                     b.HasIndex("CarId");
+
+                    b.HasIndex("CarStatusId");
 
                     b.ToTable("Orders");
                 });
@@ -1472,6 +1476,10 @@ namespace HarrierFinalProject.Migrations
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("HarrierFinalProject.Data.Models.CarStatus", "CarStatus")
+                        .WithMany()
+                        .HasForeignKey("CarStatusId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
