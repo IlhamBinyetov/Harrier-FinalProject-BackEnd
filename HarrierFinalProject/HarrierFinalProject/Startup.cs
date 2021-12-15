@@ -1,8 +1,10 @@
 using HarrierFinalProject.Data;
+using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,12 +33,16 @@ options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoop
 );
 
 
-      services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
 
-            
+
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddScoped<LayoutService>();
 
@@ -61,6 +67,7 @@ options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoop
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

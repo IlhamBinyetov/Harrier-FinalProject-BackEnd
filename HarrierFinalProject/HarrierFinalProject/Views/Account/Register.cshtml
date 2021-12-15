@@ -1,0 +1,129 @@
+﻿@model MemberRegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<main>
+    <section class="login-section">
+        <div class="main-part">
+            <!-- <div class="login col-5">
+              <h2>Login</h2>
+              <form action="">
+                <label for=""
+                  >Username or email address <span class="star">*</span></label
+                >
+                <input type="text" />
+                <label for="">Password <span class="star">*</span></label>
+                <input type="password" />
+
+                <button class="btn-login">Log In</button>
+
+                <label for="" class="remember">
+                  <input type="checkbox" />
+                  <span>Remember me</span>
+                </label>
+
+                <a href="">Lost Your Password?</a>
+              </form>
+            </div> -->
+            <div class="register col-6 m-auto" >
+                <h2>Register</h2>
+                <form action="">
+                    <div>
+                        <label asp-for="FullName">Full Name <span class="star">*</span></label></label>
+                        <input asp-for="FullName" type="text" id="FullName" placeholder="Enter your full name" />
+                        <span class="text-danger" asp-validation-for="FullName"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="UserName">UserName <span class="star">*</span></label></label>
+                        <input asp-for="UserName" type="text" id="UserName"
+                               placeholder="Enter your full name">
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="Email">Email address <span class="star">*</span></label>
+                        <input asp-for="Email" type="email" id="Email" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Password">Password <span class="star">*</span></label>
+                        <input asp-for="Password" type="password" id="password" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div>
+                        <label asp-for="ConfirmPassword">Repeat Password <span class="star">*</span></label>
+                        <input asp-for="ConfirmPassword"  id="ConfirmPassword" placeholder="Repeat your password">
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                    </div>
+
+                    <p>
+                        Your personal data will be used to support your experience
+                        throughout this website, to manage access to your account, and
+                        for other purposes described in our privacy policy.
+                    </p>
+                    <button class="btn-register" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features d-flex">
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/world-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">World`s #1</p>
+                    <p class="feature-second-p">Largest Auto Portal</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/car-sold-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Car sold</p>
+                    <p class="feature-second-p">Every 4 minute</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/tag-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Offers</p>
+                    <p class="feature-second-p">Stay updated pay less</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="./assets/images/compare-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Compare</p>
+                    <p class="feature-second-p">Decode the right car</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+

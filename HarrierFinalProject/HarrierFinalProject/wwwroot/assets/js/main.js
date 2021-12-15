@@ -268,26 +268,21 @@ $(document).on("click", ".favorite", function (e) {
 });
 
 
-$(document).on("change", ".brand", function (e) {
-    e.preventDefault();
+//$(document).on("change", ".brand", function (e) {
+//    e.preventDefault();
 
-    var id = $(this).attr("data-id");   
+//    var id = $(this).val();   
 
-    fetch('https://localhost:44360/car/GetModelByBrand/' + id)
-        .then(response => response.text())
-        .then(data => {
-            console.log("salam")
-            $(this).
-            $(".cart-menu").html('');
-            $(".cart-menu").html(data);
-            var count = $(".menu-count").text();
+//    fetch('https://localhost:44360/Car/GetModelByBrand/' + id)
+//        .then(response => response.text())
+//        .then(data => {
+//            console.log(data); 
+//        });
+//    // get data from controller
 
-           
-        });
-    // get data from controller
+//    //set data 
+//});
 
-    //set data 
-});
 
 
 

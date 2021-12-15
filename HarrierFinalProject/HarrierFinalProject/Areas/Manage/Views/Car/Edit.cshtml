@@ -96,7 +96,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label>Brand</label>
-                <select asp-for="BrandId" class="form-control">
+                <select asp-for="BrandId" class="form-control brand">
                     <option>Select Make</option>
                     @foreach (var brand in brands)
                     {
@@ -106,7 +106,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label>Model</label>
-                <select asp-for="ModelId" class="form-control">
+                <select asp-for="ModelId" class="form-control modelSelect">
                     <option>Select first brand</option>
                     <option value="2">Elantra</option>
                 </select>
@@ -200,4 +200,43 @@
 
     </form>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $('.brand').on('change', function (e) {
+        $('.modelSelect').empty();
+        e.preventDefault();
+        let url = "@Url.Action("GetModelByBrand", "Car")";
+        var id = $(this).val(); 
+        let data = {
+            BrandId: id
+        };
+
+
+        $.ajax({
+            type: "post",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            responseType: "json",
+            url: url, 
+            data: JSON.stringify(data),
+            success: function (resp) { 
+                let modelss = resp.models;
+                $('.modelSelect').append(`<option selected="selected" value="">Sec</option>`);
+                modelss.forEach(function (model) { 
+                    $('.modelSelect').append(`<option value="${model.id}">${model.name}</option>`);
+                }) 
+            }
+        });
+         
+    })
+
+
+
+
+
+
+     
+               
+</script>
 

@@ -378,14 +378,15 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             return Json(new { status = 200 });
         }
 
-
-        public IActionResult GetModelByBrand(int brandId)
+        [HttpPost]
+        [Produces("application/json")]
+        public JsonResult GetModelByBrand([FromBody]CarViewModel viewModel)
         {
-            List<Model> models = _context.Models.Where(m => m.BrandId == brandId).ToList();
+            List<Model> models = _context.Models.Where(m => m.BrandId == viewModel.BrandId).ToList();
 
 
 
-            return View(models);
+            return Json(new { models });
         }
     }
 }
