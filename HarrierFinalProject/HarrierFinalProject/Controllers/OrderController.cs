@@ -24,8 +24,22 @@ namespace HarrierFinalProject.Controllers
             AppUser member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
             Car car = _context.Cars.FirstOrDefault(x => x.Id == id);
 
+            Order order = new Order
+            {
+                CarId = car.Id,
+                AppUserId = member.Id,
+                FullName = member.Fullname,
+                Email = member.Email,
+                CreatedAt = DateTime.UtcNow,
+                Status = Data.Models.Enums.OrderStatus.Pending,
+                Price = (decimal)car.Price
+            };
 
-            return View();
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+
+            return RedirectToAction("profile", "account");
         }
     }
 }

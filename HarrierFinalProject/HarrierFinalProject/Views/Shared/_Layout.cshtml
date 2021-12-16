@@ -135,8 +135,8 @@
                                     <ul>
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            <li style="color:red">@User.Identity.Name</li>
-                                            <li><a asp-action="profile" asp-controller="account">My Account</a></li>
+                                            
+                                            <li><a asp-action="profile" asp-controller="account" style="color:red">@member.Fullname</a></li>
                                             <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
                                             <li><a href="">Submit Car</a></li>
 
