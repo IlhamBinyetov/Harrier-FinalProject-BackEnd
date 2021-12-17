@@ -219,7 +219,10 @@ namespace HarrierFinalProject.Controllers
         }
 
 
-
+        public IActionResult Cart()
+        {
+            return View();
+        }
 
     }
 }
