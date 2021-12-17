@@ -1,0 +1,139 @@
+﻿@model BasketViewModel 
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<main>
+    <section class="order-section">
+        <h3>Order Details</h3>
+
+        <form action="">
+            <div class="items">
+                <div class="col-5 items-detail">
+                    <p>First Name <span>*</span></p>
+                    <input type="text" placeholder="Enter Your Name" required />
+                </div>
+                <div class="col-5 items-detail">
+                    <p>Last Name <span>*</span></p>
+                    <input type="text" placeholder="Enter Your Last name" required />
+                </div>
+                <div class="col-5 items-detail">
+                    <p>Select Your City</p>
+                    <select name="" id="" class="sel-example form-control">
+                        <option value="">Select City</option>
+                        <option value="">Baku</option>
+                        <option value="">Ganja</option>
+                        <option value="">Sumgayit</option>
+                        <option value="">Siyezen</option>
+                        <option value="">Sheki</option>
+                        <option value="">Guba</option>
+                        <option value="">Khachmaz</option>
+                    </select>
+                </div>
+                <div class="col-5 items-detail">
+                    <p>Your address <span>*</span></p>
+                    <input type="text" placeholder="Enter Your Address" required />
+                </div>
+                <div class="col-5 items-detail">
+                    <p>Your Phone <span>*</span></p>
+                    <input type="tel"
+                           required
+                           placeholder="Enter your phone number" />
+                </div>
+                <div class="col-5 items-detail">
+                    <p>Your Email address <span>*</span></p>
+                    <input type="email"
+                           placeholder="Enter Your Email Address"
+                           required />
+                </div>
+            </div>
+
+            <div class="checkout-totals">
+                <h2>Your Order</h2>
+                <table>
+                    <tr>
+                        <th class="col-4">Product</th>
+                        <th class="col-3">SubTotal</th>
+                        <th class="col-3">Total</th>
+                    </tr>
+                    <tr>
+                        <td>Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</td>
+                        <td>£ 505.00</td>
+                        <td>£ 505.00</td>
+                    </tr>
+                </table>
+
+                <div class="confirm">
+                    <button><i class="fas fa-check"></i>Place Order</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="features-section">
+        <div class="features d-flex">
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/world-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">World`s #1</p>
+                    <p class="feature-second-p">Largest Auto Portal</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/car-sold-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Car sold</p>
+                    <p class="feature-second-p">Every 4 minute</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/tag-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Offers</p>
+                    <p class="feature-second-p">Stay updated pay less</p>
+                </div>
+            </div>
+            <div class="feature-element col-3 d-flex justify-content-evenly">
+                <div class="feature-icon">
+                    <img src="~/assets/images/compare-icon.png" alt="" />
+                </div>
+                <div>
+                    <p class="feature-first-p">Compare</p>
+                    <p class="feature-second-p">Decode the right car</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h5>NEWSLETTER</h5>
+        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
+        <div class="form-elements">
+            <form action="email">
+                <input type="email"
+                       name="email"
+                       placeholder="Your email address"
+                       id="email" />
+                <button type="submit" class="subs-btn">
+                    <span><i class="bi bi-envelope-fill envelope"></i></span>
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+</main>
+
