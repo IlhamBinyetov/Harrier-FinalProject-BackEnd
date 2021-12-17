@@ -104,12 +104,13 @@ namespace HarrierFinalProject.Controllers
                 member.Image = newFileName;
             }
 
-            _context.AppUsers.Add(member);
-            _context.SaveChanges();
+           
 
 
 
             var result = await _userManager.CreateAsync(member, memberRegisterVM.Password);
+
+            
 
             if (!result.Succeeded)
             {
@@ -123,6 +124,8 @@ namespace HarrierFinalProject.Controllers
 
             var roleResult = await _userManager.AddToRoleAsync(member, "Member");
             await _signInManager.SignInAsync(member, true);
+
+             
 
             return RedirectToAction("index", "home");
 

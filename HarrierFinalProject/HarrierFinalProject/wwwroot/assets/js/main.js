@@ -219,23 +219,7 @@ $(document).ready(function () {
 
   
 
-    //$(document).on("click", ".deleteFav", function (e) {
-    //    e.preventDefault();
-    //    var id = $(this).attr("data-id");
-
-    //    fetch('https://localhost:44360/home/deletefavorites/' + id)
-    //        .then(response => response.text())
-    //        .then(data => {
-
-    //            $('.fav').each(function () {
-    //                if ($(this).attr('data-id') == id) {
-    //                    $(this).removeClass('deleteFav').addClass('favorite');
-    //                    $(this).css('background', 'none');
-    //                }
-    //            })
-    //        });
-    //});
-
+   
 
 
 });
@@ -248,7 +232,7 @@ $(document).on("click", ".favorite", function (e) {
 
     var id = $(this).attr("data-id");
 
-    fetch('https://localhost:44360/home/addtobasket/' + id)
+    fetch('https://localhost:44360/car/addtobasket/' + id)
         .then(response => response.text())
         .then(data => {
             $(this).removeClass("favorite").addClass("deleteFav");
@@ -259,13 +243,33 @@ $(document).on("click", ".favorite", function (e) {
             $(".basket-number").text(count)
             $(this).css('background', '#FF5A3C')
 
-            //console.log(data)
-            //$(".modal-favorite").html(data)
+           
         });
     // get data from controller
 
     //set data 
 });
+ $(document).on("click", ".deleteFav", function (e) {
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+
+        fetch('https://localhost:44360/car/deletefavorites/' + id)
+            .then(response => response.text())
+            .then(data => {
+              
+                $(".cart-menu").html('');
+                $(".cart-menu").html(data);
+                $(this).removeClass('deleteFav').addClass('favorite');
+                $(this).css('background', 'none');
+                $(".cart").css('background', '#fbe122')
+                var count = $(".menu-count").text();
+                $(".basket-number").text(count)
+            });
+    });
+
+
+
+
 
 
 //$(document).on("change", ".brand", function (e) {

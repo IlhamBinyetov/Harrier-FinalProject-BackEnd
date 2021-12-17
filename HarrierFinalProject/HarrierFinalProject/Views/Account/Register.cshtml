@@ -9,7 +9,7 @@
 
             <div class="register col-6 m-auto">
                 <h2>Register</h2>
-                <form action="" method="post">
+                <form asp-action="Register" asp-controller="Account" method="post" enctype="multipart/form-data"> 
                     <div>
                         <label asp-for="FullName">Full Name <span class="star">*</span></label>
                         <input asp-for="FullName" type="text" id="FullName" placeholder="Enter your full name" />

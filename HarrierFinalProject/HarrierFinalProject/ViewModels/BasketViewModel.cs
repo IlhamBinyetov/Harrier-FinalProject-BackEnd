@@ -16,6 +16,7 @@ namespace HarrierFinalProject.ViewModels
         public string CarName { get; set; }
         public decimal CarPrice { get; set; }
         public string CarPosterImage { get; set; }
+        public int Count { get; set; }
 
     }
 }

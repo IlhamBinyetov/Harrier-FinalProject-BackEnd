@@ -31,7 +31,7 @@
                                  class="img"
                                  alt="" />
                         </a>
-                        <a href="" class="deleteimage">
+                        <a class="deleteFav deleteimage" data-id="@item.CarId" asp-action="deletefavorites" asp-controller="car" asp-route-id="@item.CarId">
                             <span class="mini-cart-item-delete">
                                 <i class="bi bi-x"></i>
                             </span>

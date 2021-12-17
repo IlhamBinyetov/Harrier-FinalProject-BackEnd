@@ -14,5 +14,6 @@ namespace HarrierFinalProject.Data.Models
 
         public Car Car { get; set; }
         public AppUser AppUser { get; set; }
+        public int Count { get; set; }
     }
 }
