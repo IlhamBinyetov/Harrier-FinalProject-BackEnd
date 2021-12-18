@@ -1,70 +1,80 @@
-﻿@model BasketViewModel 
+﻿@model CarViewModel 
+@inject UserManager<AppUser> userManager
 @{
     ViewData["Title"] = "Checkout";
+    var currentUser = userManager.GetUserAsync(User).Result;
+    var totalCount = 0;
 }
 
 <main>
     <section class="order-section">
         <h3>Order Details</h3>
         
-        <form action="">
+        <form asp-action="CreateOrder" asp-controller="Order">
             <div class="items">
                 <div class="col-5 items-detail">
-                    <p>First Name <span>*</span></p>
-                    <input type="text" placeholder="Enter Your Name" required />
-                </div>
-                <div class="col-5 items-detail">
-                    <p>Last Name <span>*</span></p>
-                    <input type="text" placeholder="Enter Your Last name" required />
-                </div>
+                    <label>Full Name</label>
+                    <input type="text" readonly  value="@currentUser.Fullname"/>
+                </div> 
                 <div class="col-5 items-detail">
                     <p>Select Your City</p>
                     <select name="" id="" class="sel-example form-control">
                         <option value="">Select City</option>
-                        <option value="">Baku</option>
-                        <option value="">Ganja</option>
-                        <option value="">Sumgayit</option>
-                        <option value="">Siyezen</option>
-                        <option value="">Sheki</option>
-                        <option value="">Guba</option>
-                        <option value="">Khachmaz</option>
+                        @foreach (var item in Model.Cities)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+
+                        }
+
+                       
                     </select>
                 </div>
                 <div class="col-5 items-detail">
-                    <p>Your address <span>*</span></p>
-                    <input type="text" placeholder="Enter Your Address" required />
+                    <label asp-for="Address">Your address <span>*</span></label>
+                    <input asp-for="Address" type="text" placeholder="Enter Your Address" required />
+                    <span asp-validation-for="Address"></span>
                 </div>
                 <div class="col-5 items-detail">
-                    <p>Your Phone <span>*</span></p>
-                    <input type="tel"
+                    <label asp-for="Phone">Your Phone <span>*</span></label>
+                    <input asp-for="Phone" type="tel"
                            required
                            placeholder="Enter your phone number" />
+                    <span asp-validation-for="Phone"></span>
                 </div>
+
                 <div class="col-5 items-detail">
-                    <p>Your Email address <span>*</span></p>
-                    <input type="email"
-                           placeholder="Enter Your Email Address"
-                           required />
+                    <label >Your Email address</label>
+                    <input type="email" value="@currentUser.Email" />
                 </div>
             </div>
 
             <div class="checkout-totals">
                 <h2>Your Order</h2>
                 <table>
-                    <tr>
-                        <th class="col-4">Product</th>
-                        <th class="col-3">SubTotal</th>
-                        <th class="col-3">Total</th>
-                    </tr>
-                    <tr>
-                        <td>Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</td>
-                        <td>£ 505.00</td>
-                        <td>£ 505.00</td>
-                    </tr>
-                </table>
+                    <thead>
+                        <tr>
+                            <th class="col-4">Product</th>
+                            <th class="col-3">Price</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            @foreach (var item in Model.Cars)
+                            {
+                             <tr>
+                                <td>@item.Brand.Name @item.Model.Name</td>
+                                <td>£ @item.Price</td>
+                             </tr>
+                                totalCount += (int)item.Price;
+                            }
 
+                        
+                    </tbody>
+                </table>
+                <span style="display:flex; justify-content:right; font-size:16px; margin-top:5px"><b style="margin-right:5px">Total Price:</b>£ @totalCount</span>
                 <div class="confirm">
-                    <button><i class="fas fa-check"></i>Place Order</button>
+                    <button type="submit"><i class="fas fa-check"></i>Place Order</button>
                 </div>
             </div>
         </form>

@@ -12,6 +12,8 @@
     <Compile Remove="Migrations\20211206192217_CarAndBlogTableUpdated.Designer.cs" />
     <Compile Remove="Migrations\20211206192624_CarAndBlogTableUpdated.cs" />
     <Compile Remove="Migrations\20211206192624_CarAndBlogTableUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20211218151035_OrderTableUpdatedAgain.cs" />
+    <Compile Remove="Migrations\20211218151035_OrderTableUpdatedAgain.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -76,7 +76,7 @@
                                     <h4><span style="background-color: gray; padding: 3px; color:white; border-radius: 10px">Pending</span></h4>
                                 }
                                 
-                                <td>$ @order.Price</td>
+                                <td>$ @order.Car.Price</td>
                                 <td> @order.Car.Brand.Name</td>
                                 <td><a asp-action="detail" asp-controller="car" asp-route-id="@order.Car.Id">View</a></td>
                             </tr>

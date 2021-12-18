@@ -17,6 +17,7 @@ namespace HarrierFinalProject.ViewModels
         public decimal CarPrice { get; set; }
         public string CarPosterImage { get; set; }
         public int Count { get; set; }
+        public List<BasketItem> BasketItems { get; set;  }
 
     }
 }

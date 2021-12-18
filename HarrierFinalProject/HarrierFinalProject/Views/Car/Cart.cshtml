@@ -1,6 +1,7 @@
-﻿@model BasketViewModel
+﻿@model CarViewModel
 @{
     ViewData["Title"] = "Cart";
+    var totalPrice = 0;
 }
 
 <main>
@@ -12,31 +13,25 @@
                         <th></th>
                         <th>Product</th>
                         <th>Price</th>
-                        <th>Subtotal</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><img src="./assets/images/car1.jpg" alt="" /></td>
-                        <td>Best Cell Phone Car TurboCharges Mercedes-Benz</td>
-                        <td>£ 36.00</td>
-                        <td>£36.00</td>
-                        <td>
-                            <button><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td><img src="./assets/images/car2.jpg" alt="" /></td>
-                        <td>Best Cell Phone Car TurboCharges Mercedes-Benz</td>
-                        <td>£ 36.00</td>
-                        <td>£36.00</td>
-                        <td>
-                            <button><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
+                    @foreach (var item in Model?.Cars)
+                    {
+                        <tr class="cart-item">
+                            <td><img src="~/assets/images/@item.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" /></td>
+                            <td>@item.Brand?.Name</td>
+                            <td>£ @item.Price</td>
+                            <td></td>
+                            <td>
+                                <a data-id="@item.Id" asp-action="Deletefavorites" asp-controller="Car" asp-route-id="@item.Id" class="deleteFav"><i class="far fa-trash-alt remove"></i></a>
+                            </td>
+                        </tr>
+                        totalPrice += (int)item.Price;
+                    }
+
                 </tbody>
             </table>
 
@@ -45,18 +40,14 @@
                 <table>
                     <tbody>
                         <tr>
-                            <th>Subtotal</th>
-                            <td>£505.00</td>
-                        </tr>
-                        <tr>
                             <th>Total</th>
-                            <td>£505.00</td>
+                            <td>£ @totalPrice </td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div class="checkout">
-                    <a href=""><i class="fas fa-check"></i>Proceed To Checkout</a>
+                    <a asp-action="Checkout" asp-controller="Car"><i class="fas fa-check"></i>Proceed To Checkout</a>
                 </div>
             </div>
         </form>

@@ -219,15 +219,101 @@ namespace HarrierFinalProject.Controllers
         }
 
 
+
         public IActionResult Cart()
-        {
-            return View();
+        { 
+
+
+            List<BasketViewModel> basketVM = new List<BasketViewModel>();
+            CarViewModel carVm = new CarViewModel()
+            {
+                Cars = new List<Car>()
+            };
+
+            AppUser member = null;
+            if (User.Identity.IsAuthenticated)
+            {
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
+            }
+
+            if (member == null)
+            {
+                var CarStr = HttpContext.Request.Cookies["BasketCookie"];
+                if (!string.IsNullOrWhiteSpace(CarStr))
+                {
+                    basketVM = JsonConvert.DeserializeObject<List<BasketViewModel>>(CarStr);
+
+                   
+
+                    foreach (var item in basketVM)
+                    {
+                        Car car = _context.Cars.Include(c=>c.Brand).Include(x => x.CarImages).FirstOrDefault(x => x.Id == item.CarId);
+                        if (car != null)
+                        {
+                            carVm.Cars.Add(car); 
+                        }
+                    }
+                }
+            }
+            else
+            {
+                carVm.Cars = _context.BasketItems.Include(x => x.Car)
+                                                            .ThenInclude(x => x.Brand)
+                                                            .Include(x => x.Car)
+                                                            .ThenInclude(x => x.CarImages)
+                                                            .Where(x => x.AppUserId == member.Id)
+                                                  .Select(x => new Car
+                                                  {
+                                                      Id = x.Car.Id,
+                                                      Brand = x.Car.Brand,
+                                                      Model = x.Car.Model,
+                                                      Price = x.Car.Price,
+                                                      CarImages = x.Car.CarImages
+                                                  }).ToList();
+            }
+
+            return View(carVm);
         }
 
 
         public IActionResult Checkout()
         {
-            return View();
+            List<City> cities = _context.Cities.ToList();
+
+            List<BasketViewModel> basketVM = new List<BasketViewModel>();
+
+            AppUser member = null;
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("login", "account");  
+            }
+            else
+            {
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
+            }
+
+
+            CarViewModel carVm = new CarViewModel();
+
+                 carVm.Cars = _context.BasketItems.Include(x => x.Car)
+                                                            .ThenInclude(x => x.Brand)
+                                                            .Include(x => x.Car)
+                                                            .ThenInclude(x => x.CarImages)
+                                                            .Include(x => x.Car)
+                                                            .ThenInclude(x => x.City)
+                                                            .Where(x => x.AppUserId == member.Id)
+                                                  .Select(x => new Car
+                                                  {
+                                                      Brand = x.Car.Brand,
+                                                      Model = x.Car.Model,
+                                                      Price = x.Car.Price,
+                                                      CarImages = x.Car.CarImages,
+                                                      City = x.Car.City
+                                                  }).ToList();
+
+            carVm.Cities = cities;
+
+            return View(carVm);
         }
     }
 }

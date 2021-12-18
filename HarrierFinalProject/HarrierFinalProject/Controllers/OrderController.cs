@@ -1,5 +1,6 @@
 ﻿using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
+using HarrierFinalProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,27 +20,32 @@ namespace HarrierFinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult CreateOrder(int id)
+
+
+        [HttpPost]
+        public IActionResult CreateOrder(CarViewModel viewModel)
         {
-            AppUser member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
-            Car car = _context.Cars.FirstOrDefault(x => x.Id == id);
+            AppUser member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
 
-            Order order = new Order
+            var currentUserCars = _context.BasketItems.Where(car => car.AppUserId == member.Id);
+
+            foreach (var car in currentUserCars)
             {
-                CarId = car.Id,
-                AppUserId = member.Id,
-                FullName = member.Fullname,
-                Email = member.Email,
-                CreatedAt = DateTime.UtcNow,
-                Status = Data.Models.Enums.OrderStatus.Pending,
-                Price = (decimal)car.Price
-            };
-
-
-            _context.Orders.Add(order);
+                Order order = new Order
+                {
+                    CarId = car.Id,
+                    AppUserId = member.Id,
+                    CreatedAt = DateTime.UtcNow,
+                    Status = Data.Models.Enums.OrderStatus.Pending,
+                    Phone = viewModel.Phone,
+                    Address = viewModel.Address,
+                    CityId = viewModel.CityId 
+                };
+                _context.Orders.Add(order);
+            } 
             _context.SaveChanges();
 
-            return RedirectToAction("profile", "account");
+            return RedirectToAction("Profile", "Account");
         }
     }
 }

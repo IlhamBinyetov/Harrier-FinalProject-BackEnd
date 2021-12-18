@@ -251,8 +251,8 @@ $(document).on("click", ".favorite", function (e) {
 });
  $(document).on("click", ".deleteFav", function (e) {
         e.preventDefault();
-        var id = $(this).attr("data-id");
-
+     var id = $(this).attr("data-id");
+     let thisTr = $(this).parent().parent();
         fetch('https://localhost:44360/car/deletefavorites/' + id)
             .then(response => response.text())
             .then(data => {
@@ -264,6 +264,8 @@ $(document).on("click", ".favorite", function (e) {
                 $(".cart").css('background', '#fbe122')
                 var count = $(".menu-count").text();
                 $(".basket-number").text(count)
+                thisTr.hide();
+               
             });
     });
 

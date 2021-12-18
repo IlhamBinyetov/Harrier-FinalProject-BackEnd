@@ -23,8 +23,13 @@ namespace HarrierFinalProject.ViewModels
         public List<Brand> Brands   { get; set; }
         public List<Model> Models   { get; set; }
         public List<Feature> Features { get; set; }
-        
 
-       
+
+
+
+        public int CityId { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+
     }
 }

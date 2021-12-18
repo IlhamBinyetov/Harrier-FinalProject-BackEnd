@@ -11,25 +11,22 @@ namespace HarrierFinalProject.Data.Models
     {
         public int Id { get; set; }
 
-        public int CarId { get; set; }
-        public string AppUserId { get; set; }
         [StringLength(maximumLength: 250)]
         public string Address { get; set; }
-        [Required]
-        [StringLength(maximumLength: 50)]
-        public string FullName { get; set; }
-        [Required]
-        [StringLength(maximumLength: 100)]
-        public string Email { get; set; }
+         
 
         [StringLength(maximumLength: 25)]
         public string Phone { get; set; }
 
         public DateTime CreatedAt { get; set; }
-        public OrderStatus Status { get; set; }
-        public decimal Price { get; set; }
+        public OrderStatus Status { get; set; } 
         public Car Car { get; set; }
+        public int CarId { get; set; }
 
         public AppUser AppUser { get; set; }
+        public string AppUserId { get; set; } 
+
+        public City City { get; set; }
+        public int CityId { get; set; }
     }
 }
