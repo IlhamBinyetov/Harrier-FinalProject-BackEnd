@@ -64,16 +64,16 @@
                                 <td>@order.CreatedAt.ToString("MMMM  dd yyyy")</td>
                                 @if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Accepted)
                                 {
-                                    <h4><span style="background-color: green; padding: 3px; color: white; border-radius: 10px">Accepted</span></h4>
+                                    <td><h4><span style="background-color: green; padding: 3px; color: white; border-radius: 10px">Accepted</span></h4></td> 
                                 }
                                 else if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Rejected)
                                 {
-                                    <h4><span style="background-color: red; padding: 3px; color: white; border-radius: 10px ">Rejected</span></h4>
+                                     <td><h4><span style="background-color: red; padding: 3px; color: white; border-radius: 10px ">Rejected</span></h4></td> 
 
                                 }
                                 else
                                 {
-                                    <h4><span style="background-color: gray; padding: 3px; color:white; border-radius: 10px">Pending</span></h4>
+                                    <td><h4><span style="background-color: gray; padding: 3px; color:white; border-radius: 10px">Pending</span></h4></td> 
                                 }
                                 
                                 <td>$ @order.Car.Price</td>
@@ -95,8 +95,8 @@
                             <div class="form-items">
 
                                 <div class="col-8 m-auto">
-                                    <label asp-for="Image">Profile Image</label>
-                                    <img src="~/assets/images/@Model.Image" alt="Alternate Text" />
+                                    
+                                    <img  src="~/assets/images/@Model.Image" alt="Alternate Text" />
                                     <span class="text-danger" asp-validation-for="Image"></span>
                                 </div>
 

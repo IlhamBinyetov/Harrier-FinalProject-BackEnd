@@ -27,6 +27,7 @@ namespace HarrierFinalProject.Controllers
             List<Car> cars = _context.Cars.Include(c => c.Brand)
                                         .Include(c => c.Model)
                                         .Include(c => c.CarImages)
+                                        .Where(c=>c.CarSituationId ==1)
                                         .ToList();
 
 
@@ -49,7 +50,7 @@ namespace HarrierFinalProject.Controllers
             return View(carVM);
         }
 
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
 
 
@@ -60,7 +61,10 @@ namespace HarrierFinalProject.Controllers
                                         .ToList();
 
             ViewBag.Advertisements = _context.Advertisings.ToList();
+            CarViewModel carVM = new CarViewModel();
 
+
+            AppUser member = await _userManager.GetUserAsync(User);
 
             Car car = _context.Cars.Include(c => c.CarImages)
                                    .Include(c => c.Model)
@@ -77,9 +81,17 @@ namespace HarrierFinalProject.Controllers
                                    .Include(c=> c.Comments)
                                    .FirstOrDefault(x => x.Id == id);
 
+            carVM.Car = car;
+
+            var userOrder = _context.Orders.FirstOrDefault(o => o.AppUserId == member.Id && o.CarId == car.Id);
+
+            if(userOrder != null)
+            {
+                carVM.isOrder = true;
+            }
 
 
-            return View(car);
+            return View(carVM);
         }
 
 

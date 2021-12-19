@@ -186,10 +186,7 @@ namespace HarrierFinalProject.Controllers
                 PhoneNumber = member.PhoneNumber,
                 UserName = member.UserName,
                 Image = member.Image,
-                Orders = _context.Orders.Include(x => x.Car).Where(x => x.AppUserId == member.Id).ToList()
-
-
-
+                Orders = _context.Orders.Include(x => x.Car).ThenInclude(x=>x.Brand).Where(x => x.AppUserId == member.Id).ToList()
             };
 
             return View(profileVM);

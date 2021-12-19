@@ -1,9 +1,7 @@
-﻿@model Car
-
+﻿@model CarViewModel 
 @{
     ViewData["Title"] = "Detail";
-    List<Car> RelatedCars = ViewBag.RelatedCars;
-
+    List<Car> RelatedCars = ViewBag.RelatedCars; 
     List<Advertising> advertisings = ViewBag.Advertisements;
 }
 
@@ -14,10 +12,10 @@
         <div class="car-info">
             <div class="col-4 car-images">
                 <div class="poster-image" >
-                    <img src="~/assets/images/@Model.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" style="width:100%" />
+                    <img src="~/assets/images/@Model?.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" style="width:100%" />
                 </div>
                 <div class="car-pics-slide">
-                    @foreach (var item in Model.CarImages)
+                    @foreach (var item in Model?.Car.CarImages)
                     {
                         <div>
                             <a href=""><img src="~/assets/images/@item.Image" alt="" /></a>
@@ -31,9 +29,9 @@
                 </a>
             </div>
             <div class="col-6 car-summary">
-                <div class="brand">@Model.Brand.Name</div>
+                <div class="brand">@Model?.Car.Brand.Name</div>
                 <div class="product-name">
-                    <h1>@Model.Brand.Name @Model.Model.Name</h1>
+                    <h1>@Model?.Car.Brand.Name @Model?.Car.Model.Name</h1>
                 </div>
                 <div class="product-contact">
                     <a href="">
@@ -47,12 +45,14 @@
                 </div>
                 <div class="price-block ">
                     <div class="col-6">
-                        <p>$@Model.Price.ToString("0.##")</p>
+                        <p>$@Model?.Car.Price.ToString("0.##")</p>
                     </div>
-                    <div class=" mt-3">
-                        <a data-id="@Model.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@Model.Id" class="cart favorite"> <i class="fas fa-shopping-cart"></i>Add To Cart</a>
-                        
-                    </div>
+                    @if (Model?.isOrder != true)
+                    {
+                        <div class=" mt-3">
+                            <a data-id="@Model?.Car.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@Model?.Car.Id" class="cart favorite"> <i class="fas fa-shopping-cart"></i>Add To Cart</a>
+                        </div>
+                    }
 
                 </div>
                 <div class="mini-info">
@@ -62,35 +62,35 @@
                             <tbody>
                                 <tr class="col-6">
                                     <th>Condition</th>
-                                    <td><span>@Model.CarStatus.Name</span></td>
+                                    <td><span>@Model?.Car.CarStatus.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Mileage</th>
-                                    <td><span>@Model.Mileage miles</span></td>
+                                    <td><span>@Model?.Car.Mileage miles</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Year</th>
-                                    <td><span>@Model.DateOfProduct.ToString("yyyy")</span></td>
+                                    <td><span>@Model?.Car.DateOfProduct.ToString("yyyy")</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Engine</th>
-                                    <td><span>@Model.MotorPower</span></td>
+                                    <td><span>@Model?.Car.MotorPower</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Fuel</th>
-                                    <td><span>@Model.FuelType.Name</span></td>
+                                    <td><span>@Model?.Car.FuelType.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Transmission</th>
-                                    <td><span>@Model.Gearbox.Name</span></td>
+                                    <td><span>@Model?.Car.Gearbox.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Color</th>
-                                    <td><span>@Model.CarColor.Name</span></td>
+                                    <td><span>@Model?.Car.CarColor.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Doors</th>
-                                    <td><span>@Model.DoorCount</span></td>
+                                    <td><span>@Model?.Car.DoorCount</span></td>
                                 </tr>
 
 
@@ -119,62 +119,62 @@
 
         <div class="tab-content content-menu">
             <div id="home" class="tab-pane fade in active">
-                <p>@Model.Description</p>
+                <p>@Model?.Car.Description</p>
             </div>
             <div id="menu1" class="tab-pane fade">
                 <table class="table">
                     <tbody>
                         <tr class="col-6">
                             <th>Condition</th>
-                            <td>@Model.CarStatus.Name</td>
+                            <td>@Model?.Car.CarStatus.Name</td>
                         </tr>
                         <tr class="col-6">
                             <th>Model</th>
-                            <td>@Model.Model.Name</td>
+                            <td>@Model?.Car.Model.Name</td>
                         </tr>
                         <tr class="col-6">
                             <th>Price</th>
-                            <td>$@Model.Price.ToString("0.##")</td>
+                            <td>$@Model?.Car.Price.ToString("0.##")</td>
                         </tr>
                         <tr class="col-6">
                             <th>Fuel</th>
-                            <td>@Model.FuelType.Name</td>
+                            <td>@Model?.Car.FuelType.Name</td>
                         </tr>
                         <tr class="col-6">
                             <th>Body Style</th>
-                            <td>@Model.CarType.Name</td>
+                            <td>@Model?.Car.CarType.Name</td>
                         </tr>
                         <tr class="col-6">
                             <th>Doors</th>
-                            <td>@Model.DoorCount</td>
+                            <td>@Model?.Car.DoorCount</td>
                         </tr>
                         <tr class="col-6">
                             <th>Make</th>
-                            <td>@Model.Brand.Name</td>
+                            <td>@Model?.Car.Brand.Name</td>
                         </tr>
                         <tr class="col-6">
                             <th>Year</th>
-                            <td>@Model.DateOfProduct.ToString("yyyy")</td>
+                            <td>@Model?.Car.DateOfProduct.ToString("yyyy")</td>
                         </tr>
                         <tr class="col-6">
                             <th>Mileage</th>
-                            <td>@Model.Mileage miles</td>
+                            <td>@Model?.Car.Mileage miles</td>
                         </tr>
                         <tr class="col-6">
                             <th>Color</th>
-                            <td>@Model.CarColor.Name </td>
+                            <td>@Model?.Car.CarColor.Name </td>
                         </tr>
                         <tr class="col-6">
                             <th>Transmission</th>
-                            <td>@Model.Gearbox.Name</td>
+                            <td>@Model?.Car.Gearbox.Name</td>
                         </tr>
                         <tr class="col-6">
                             <th>Engine</th>
-                            <td>@Model.MotorPower</td>
+                            <td>@Model?.Car.MotorPower</td>
                         </tr>
                         <tr class="col-6">
                             <th>Power</th>
-                            <td>@Model.HorsePower</td>
+                            <td>@Model?.Car.HorsePower</td>
                         </tr>
                     </tbody>
                 </table>
@@ -182,7 +182,7 @@
             <div id="menu2" class="tab-pane fade">
                 <table class="table">
                     <tbody>
-                        @foreach (var item in Model.CarFeatures)
+                        @foreach (var item in Model?.Car.CarFeatures)
                         {
                             <tr class="col-6">
                                 <th>@item.Feature.Name</th>
@@ -194,9 +194,9 @@
                 </table>
             </div>
             <div id="menu3" class="tab-pane fade comments">
-                <h3>@Model.Comments.Count thoughts on “@Model.Brand.Name @Model.Model.Name”</h3>
+                <h3>@Model?.Car.Comments.Count thoughts on “@Model?.Car.Brand.Name @Model?.Car.Model.Name”</h3>
 
-                @foreach (var item in Model.Comments)
+                @foreach (var item in Model?.Car.Comments)
                 {
                     <div class="comment-block">
                         <div class="comment-img">

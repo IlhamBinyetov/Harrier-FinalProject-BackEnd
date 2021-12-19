@@ -15,16 +15,12 @@ namespace HarrierFinalProject.Data.Models
         public string Description { get; set; }
         public DateTime DateOfProduct { get; set; }
         public string MotorPower { get; set; }
-        public int HorsePower { get; set; }
+        public int HorsePower { get; set; } 
 
         public string Mileage { get; set; }
         public decimal Price { get; set; }
         public int DoorCount { get; set; }
-        public int CarSituationId { get; set; }
-
-
-
-
+        public int CarSituationId { get; set; } = 1;  
         public int CarColorId { get; set; }
         public CarColor CarColor { get; set; }
         public int BrandId { get; set; }

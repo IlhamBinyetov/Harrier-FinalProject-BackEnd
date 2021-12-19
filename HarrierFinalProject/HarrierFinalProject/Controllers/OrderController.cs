@@ -3,6 +3,7 @@ using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,22 +28,24 @@ namespace HarrierFinalProject.Controllers
         {
             AppUser member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
 
-            var currentUserCars = _context.BasketItems.Where(car => car.AppUserId == member.Id);
+            var currentUserCars = _context.BasketItems.Include(x=>x.Car).Where(car => car.AppUserId == member.Id);
 
             foreach (var car in currentUserCars)
-            {
+            {  
                 Order order = new Order
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     AppUserId = member.Id,
                     CreatedAt = DateTime.UtcNow,
                     Status = Data.Models.Enums.OrderStatus.Pending,
                     Phone = viewModel.Phone,
                     Address = viewModel.Address,
-                    CityId = viewModel.CityId 
+                    CityId = viewModel.CityId
                 };
                 _context.Orders.Add(order);
-            } 
+                _context.BasketItems.Remove(car);
+                 car.Car.CarSituationId = 0;
+             }  
             _context.SaveChanges();
 
             return RedirectToAction("Profile", "Account");

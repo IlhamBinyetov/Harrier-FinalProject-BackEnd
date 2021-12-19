@@ -1,0 +1,40 @@
+﻿
+@model OrderViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container-fluid" style="font-size:16px;">
+    <h1>Edit</h1>
+    <div class="card" style="width: 40%; margin:0 auto;">
+        <div class="card-body">
+            <p class="card-text">
+                Full Name - @Model.Order.AppUser.Fullname
+            </p>
+            <p class="card-text">
+                Email - @Model.Order.AppUser.Email
+            </p>
+            <p class="card-text">
+                Phone number - @Model.Order.Phone
+            </p>
+            <p class="card-text">
+                Total Amount - AZN @Model.Order.Car.Price.ToString("#,00")
+            </p>
+            <p class="card-text">
+                Address - @Model.Order.Address
+            </p>
+            <p class="card-text">
+                Date - @Model.Order.CreatedAt.AddHours(4).ToString("HH:mm dd MMM yyyy")
+            </p>
+            <p class="card-text">
+                Status - @Model.Order.Status
+            </p>
+        </div>
+        <div class="card-body">
+            <a asp-action="accept" asp-route-id="@Model.Order.Id" class="btn btn-success">Accept</a>
+            <a asp-action="reject" asp-route-id="@Model.Order.Id" class="btn btn-danger">Reject</a>
+            <a asp-action="index" asp-controller="order" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+</div>
+

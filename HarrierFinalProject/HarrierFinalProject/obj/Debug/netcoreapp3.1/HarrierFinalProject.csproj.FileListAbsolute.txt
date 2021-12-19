@@ -310,3 +310,5 @@ C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierF
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\HarrierFinalProject.csproj.AssemblyReference.cache
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Car\Cart.cshtml.g.cs
 C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Car\Checkout.cshtml.g.cs
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Order\Index.cshtml.g.cs
+C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Order\Edit.cshtml.g.cs
