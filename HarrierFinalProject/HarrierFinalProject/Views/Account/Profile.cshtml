@@ -59,27 +59,31 @@
                             @foreach (var order in Model.Orders)
                             {
                                 index++;
-                            <tr>
-                                <td>@index</td>
-                                <td>@order.CreatedAt.ToString("MMMM  dd yyyy")</td>
-                                @if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Accepted)
-                                {
-                                    <td><h4><span style="background-color: green; padding: 3px; color: white; border-radius: 10px">Accepted</span></h4></td> 
-                                }
-                                else if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Rejected)
-                                {
-                                     <td><h4><span style="background-color: red; padding: 3px; color: white; border-radius: 10px ">Rejected</span></h4></td> 
+                                <tr>
+                                    <td>@index</td>
+                                    <td>@order.CreatedAt.ToString("MMMM  dd yyyy")</td>
+                                    @if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Accepted)
+                                    {
+                                        <td><h4><span style="background-color: green; padding: 3px; color: white; border-radius: 10px">Accepted</span></h4></td>
 
-                                }
-                                else
-                                {
-                                    <td><h4><span style="background-color: gray; padding: 3px; color:white; border-radius: 10px">Pending</span></h4></td> 
-                                }
-                                
-                                <td>$ @order.Car.Price</td>
-                                <td> @order.Car.Brand.Name</td>
-                                <td><a asp-action="detail" asp-controller="car" asp-route-id="@order.Car.Id">View</a></td>
-                            </tr>
+                                    }
+                                    else if (order.Status == HarrierFinalProject.Data.Models.Enums.OrderStatus.Rejected)
+                                    {
+                                        <td><h4><span style="background-color: red; padding: 3px; color: white; border-radius: 10px ">Rejected</span></h4></td>
+
+
+
+                                    }
+                                    else
+                                    {
+                                        <td><h4><span style="background-color: gray; padding: 3px; color:white; border-radius: 10px">Pending</span></h4></td>
+
+                                    }
+
+                                    <td>$ @order.Car.Price.ToString("#,00")</td>
+                                    <td> @order.Car.Brand.Name</td>
+                                    <td><a asp-action="detail" asp-controller="car" asp-route-id="@order.Car.Id">View</a></td>
+                                </tr>
 
                             }
 
@@ -91,13 +95,15 @@
                      role="tabpanel"
                      aria-labelledby="profile-tab">
                     <div class="form-part">
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="form-items">
 
-                                <div class="col-8 m-auto">
-                                    
-                                    <img  src="~/assets/images/@Model.Image" alt="Alternate Text" />
-                                    <span class="text-danger" asp-validation-for="Image"></span>
+                                <div class=" col-10 m-auto account-image" >
+                                    <div style="margin-left: 40%; ">
+                                        <label for="browse" style="cursor:pointer"><img style="border-radius: 50%; ";  src="~/assets/images/@Model.Image" alt="Alternate Text" />   @*<img src="~/assets/images/user12.jpeg" alt="Alternate Text" />*@</label>
+                                        <input asp-for="FileImage" type="file" id="browse" style="visibility:hidden;">
+                                        <span class="text-danger" asp-validation-for="FileImage"></span>
+                                    </div>
                                 </div>
 
                                 <div class="col-5 mt-3">
@@ -224,3 +230,12 @@
     </section>
 </main>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    $('.account-image').on("click", function () {
+        console.log("salam")
+        $(".input-class").trigger("click"); 
+    })
+</script>

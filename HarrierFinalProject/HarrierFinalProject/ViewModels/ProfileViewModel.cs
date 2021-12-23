@@ -1,4 +1,5 @@
 ﻿using HarrierFinalProject.Data.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -38,5 +39,7 @@ namespace HarrierFinalProject.ViewModels
 
         public string Image { get; set; }
         public List<Order> Orders { get; set; } 
+
+        public  IFormFile FileImage { get; set; }
     }
 }

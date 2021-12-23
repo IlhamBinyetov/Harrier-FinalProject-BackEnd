@@ -274,6 +274,8 @@ $(document).on("click", ".favorite", function (e) {
 
 
 
+
+
 //$(document).on("change", ".brand", function (e) {
 //    e.preventDefault();
 
@@ -326,4 +328,7 @@ function showSlides(n) {
 
 
 //----------------------------------------//
+
+ 
+
 

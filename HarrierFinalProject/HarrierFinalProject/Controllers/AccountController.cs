@@ -191,5 +191,95 @@ namespace HarrierFinalProject.Controllers
 
             return View(profileVM);
         }
+
+
+        [HttpPost]
+        //[Authorize(Roles = "Member")]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Profile(ProfileViewModel profileVM)
+        {
+
+            if (!ModelState.IsValid) return View();
+
+            AppUser member = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            if (!string.IsNullOrWhiteSpace(profileVM.ConfirmNewPassword) && !string.IsNullOrWhiteSpace(profileVM.NewPassword))
+            {
+                var passwordChangeResult = await _userManager.ChangePasswordAsync(member, profileVM.CurrentPassword, profileVM.NewPassword);
+
+                if (!passwordChangeResult.Succeeded)
+                {
+                    foreach (var item in passwordChangeResult.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                    return View();
+                }
+            }
+
+            if (member.Email != profileVM.Email && _userManager.Users.Any(x => x.NormalizedEmail == profileVM.Email.ToUpper()))
+            {
+                ModelState.AddModelError("Email", "This email has already been taken!");
+                return View();
+            }
+
+            if (profileVM.FileImage != null)
+            {
+                if (profileVM.FileImage.ContentType != "image/png" && profileVM.FileImage.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("ImageFile", "File type can be only jpeg,jpg or png!");
+                    return View();
+                }
+
+
+                if (profileVM.FileImage.Length > 2097152)
+                {
+                    ModelState.AddModelError("ImageFile", "File size can not be more than 2MB!");
+                    return View();
+                }
+
+                string fileName = profileVM.FileImage.FileName;
+                if (fileName.Length > 64)
+                {
+                    fileName = fileName.Substring(fileName.Length - 64, 64);
+                }
+
+                string newFileName = Guid.NewGuid().ToString() + fileName;
+                string path = Path.Combine(_env.WebRootPath, "assets/images", newFileName);
+
+                using (FileStream stream = new FileStream(path, FileMode.Create))
+                {
+                    profileVM.FileImage.CopyTo(stream);
+                }
+
+                member.Image = newFileName;
+            }
+
+           
+
+            member.Fullname = profileVM.FullName;
+            member.Email = profileVM.Email;
+            member.PhoneNumber = profileVM.PhoneNumber;
+            member.UserName = profileVM.UserName;
+
+
+            _context.SaveChanges();
+
+
+            var result = await _userManager.UpdateAsync(member);
+
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+
+                return View();
+            }
+
+            return RedirectToAction("profile");
+        }
     }
 }
