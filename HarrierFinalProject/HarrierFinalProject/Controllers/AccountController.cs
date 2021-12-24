@@ -1,5 +1,6 @@
 ﻿using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
+using HarrierFinalProject.Services;
 using HarrierFinalProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -20,13 +21,15 @@ namespace HarrierFinalProject.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IWebHostEnvironment _env;
+        private readonly IEmailService _emailService;
 
-        public AccountController(AppDbContext context, UserManager <AppUser> userManager, SignInManager<AppUser> signInManager, IWebHostEnvironment env )
+        public AccountController(AppDbContext context, UserManager <AppUser> userManager, SignInManager<AppUser> signInManager, IWebHostEnvironment env, IEmailService emailService )
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _env = env;
+            _emailService = emailService;
         }
 
 
@@ -280,6 +283,43 @@ namespace HarrierFinalProject.Controllers
             }
 
             return RedirectToAction("profile");
+        }
+
+
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotVM)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(forgotVM.Email);
+
+            if (user == null)
+            {
+                ModelState.AddModelError("Email", "Email is not valid!");
+                return View();
+            }
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            string callback = Url.Action("resetpassword", "account", new { token, email = user.Email}, Request.Scheme);
+            string body = string.Empty;
+
+            using (StreamReader reader = new StreamReader("wwwroot/templates/forgotPassword.html"))
+            {
+                body = reader.ReadToEnd();
+            }
+
+
+            body = body.Replace("{{url}}", callback);
+
+
+            _emailService.Send(user.Email, "Reset Password", body);
+
+                return RedirectToAction("login");
         }
     }
 }

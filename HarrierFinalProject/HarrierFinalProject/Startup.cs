@@ -45,8 +45,11 @@ options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoop
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddScoped<LayoutService>();
-
+            services.AddScoped<IEmailService, EmailService>();
             services.AddHttpContextAccessor();
+
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

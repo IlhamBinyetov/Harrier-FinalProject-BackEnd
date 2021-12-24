@@ -1,6 +1,7 @@
 ﻿using HarrierFinalProject.Areas.Manage.ViewModels;
 using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
+using HarrierFinalProject.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,12 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
     public class OrderController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IEmailService _emailService;
 
-        public OrderController(AppDbContext context)
+        public OrderController(AppDbContext context, IEmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
         public IActionResult Index()
         {
@@ -50,11 +53,13 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
         public IActionResult Accept(int id)
         {
-            Order order = _context.Orders.FirstOrDefault(x => x.Id == id);
+            Order order = _context.Orders.Include(x=>x.AppUser).Include(x=>x.Car).FirstOrDefault(x => x.Id == id);
             if (order == null) return NotFound();
 
             order.Status = Data.Models.Enums.OrderStatus.Accepted;
             _context.SaveChanges();
+
+            _emailService.Send(order.AppUser.Email, "Order Accepted", "Your Order Accepted, total:");
 
             return RedirectToAction("index");
         }
