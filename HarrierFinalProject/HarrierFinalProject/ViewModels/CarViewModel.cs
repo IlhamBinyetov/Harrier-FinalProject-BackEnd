@@ -32,6 +32,7 @@ namespace HarrierFinalProject.ViewModels
         public string Phone { get; set; }
 
         public bool isOrder { get; set; } = false;
+        public CommentViewModel CommentViewModel { get; set; }
 
     }
 }

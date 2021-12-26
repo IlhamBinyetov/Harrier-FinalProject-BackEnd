@@ -82,13 +82,15 @@ namespace HarrierFinalProject.Controllers
                                    .FirstOrDefault(x => x.Id == id);
 
             carVM.Car = car;
-
-            var userOrder = _context.Orders.FirstOrDefault(o => o.AppUserId == member.Id && o.CarId == car.Id);
-
-            if(userOrder != null)
+            if (member != null)
             {
-                carVM.isOrder = true;
+                var userOrder = _context.Orders.FirstOrDefault(o => o.AppUserId == member.Id && o.CarId == car.Id);
+                if (userOrder != null)
+                {
+                    carVM.isOrder = true;
+                }
             }
+          
 
 
             return View(carVM);

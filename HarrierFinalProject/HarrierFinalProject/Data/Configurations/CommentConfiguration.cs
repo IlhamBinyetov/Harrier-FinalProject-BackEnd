@@ -11,9 +11,7 @@ namespace HarrierFinalProject.Data.Configurations
     public class CommentConfiguration : IEntityTypeConfiguration<Comment>
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
-        {
-            builder.Property(x => x.Name).HasMaxLength(50);
-            builder.Property(x => x.Image).HasMaxLength(200);
+        { 
             builder.Property(x => x.Description).HasMaxLength(1000);
             builder.Property(x => x.PostDate).HasDefaultValueSql("GETUTCDATE()");
         }

@@ -9,7 +9,10 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label asp-for="Name">Name</label>
-                <input asp-for="Name" class="form-control" placeholder="Name">
+                @*<input asp-for="Name" class="form-control" placeholder="Name">*@
+                <select asp-for="Name">
+                    <option value="@Model.Name">@Model.Name</option>
+                </select>
                 <span class="text-danger" asp-validation-for="Name"></span>
             </div>
         </div>

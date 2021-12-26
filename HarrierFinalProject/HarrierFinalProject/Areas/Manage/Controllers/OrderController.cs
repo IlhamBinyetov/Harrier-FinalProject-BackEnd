@@ -4,9 +4,11 @@ using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,11 +20,13 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IEmailService _emailService;
+        private readonly IHubContext<HarrierHub> _hubContext;
 
-        public OrderController(AppDbContext context, IEmailService emailService)
+        public OrderController(AppDbContext context, IEmailService emailService, IHubContext<HarrierHub> hubContext)
         {
             _context = context;
             _emailService = emailService;
+            _hubContext = hubContext;
         }
         public IActionResult Index(int page = 1)
         {
@@ -54,7 +58,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             return View(orderVM);
         }
 
-        public IActionResult Accept(int id)
+        public async Task<IActionResult> Accept(int id)
         {
             Order order = _context.Orders.Include(x=>x.AppUser).Include(x=>x.Car).FirstOrDefault(x => x.Id == id);
             if (order == null) return NotFound();
@@ -62,7 +66,37 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             order.Status = Data.Models.Enums.OrderStatus.Accepted;
             _context.SaveChanges();
 
-            _emailService.Send(order.AppUser.Email, "Order Accepted", "Your Order Accepted, total:");
+
+
+            if (order.AppUser?.ConnectionId != null)
+            {
+                await _hubContext.Clients.Client(order.AppUser.ConnectionId).SendAsync("OrderAccepted");
+
+            }
+
+
+            string body = string.Empty;
+
+            using (StreamReader reader = new StreamReader("wwwroot/templates/order.html"))
+            {
+                body = reader.ReadToEnd();
+            }
+
+            body = body.Replace("{{price}}", order.Car.Price.ToString());
+
+            string orders = string.Empty;
+
+            orders = @$"<tr><td width=\""75 %\"" align=\""left\"" style =\""font - family: Open Sans, Helvetica, Arial, sans-serif; font - size: 16px; font - weight: 400; line - height: 24px; padding: 15px 10px 5px 10px;\"" > {order.AppUser.Fullname} </td>
+           </tr>";
+
+            body = body.Replace("{{price}}", order.Car.Price.ToString()).Replace("{{order}}", orders);
+
+
+            _emailService.Send(order.AppUser.Email, "Order Accepted", body);
+
+
+
+
 
             return RedirectToAction("index");
         }

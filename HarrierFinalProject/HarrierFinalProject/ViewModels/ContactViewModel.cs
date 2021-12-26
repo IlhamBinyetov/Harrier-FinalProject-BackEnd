@@ -10,5 +10,10 @@ namespace HarrierFinalProject.ViewModels
     {
         public Contact Contact { get; set; }
         public List<Advertising> Advertisings { get; set; }
+        public string Name { get; set; }
+        public string Subject { get; set; }
+        public string Messsage { get; set; }
+        public string Email { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

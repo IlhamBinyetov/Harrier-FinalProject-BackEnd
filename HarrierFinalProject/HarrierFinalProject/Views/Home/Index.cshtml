@@ -268,23 +268,18 @@
 
 <section class="testimonial-section">
     <div class="slideshow-container">
-        @foreach (var comment in Model.Comments)
+        @foreach (var comment in Model?.Comments)
         {
             <div class="mySlides">
                 <div>
-                    <img src="~/assets/./images/@comment.Image" alt="" />
+                    <img src="~/assets/images/@comment.AppUser?.Image" alt="" />
                 </div>
                 <p class="desc">
                     @comment.Description
                 </p>
-                <p class="author"><span>@comment.Name</span> Happy Customer</p>
+                <p class="author"><span>@comment.AppUser?.Fullname</span></p>
             </div>
-        }
-
-
-
-
-       
+        } 
 
         <div class="dot-container">
             <span class="dot active" onclick="currentSlide(1)"></span>

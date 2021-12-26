@@ -19,17 +19,19 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Brand Name</th>
                 <th scope="col">Actions</th>
 
             </tr>
         </thead>
         <tbody>
-            @foreach (var modelitem in Model.Models)
+            @foreach (var modelitem in Model?.Models)
             {
                 order++;
                 <tr>
                     <th scope="row">@order</th>
-                    <td>@modelitem.Name</td>
+                    <td scope="row">@modelitem.Name</td>
+                    <td scope="row">@modelitem.Brand?.Name</td>
                     <td>
                         <a asp-action="edit" asp-route-id="@modelitem.Id" class="btn btn-warning">Edit</a>
                         <a asp-action="deletefetch" asp-route-id="@modelitem.Id" class="btn btn-danger btn-item-delete">Delete</a>

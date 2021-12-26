@@ -1,10 +1,12 @@
-﻿@model CarViewModel 
+﻿@inject UserManager<AppUser> userManager
+@model CarViewModel 
 @{
     ViewData["Title"] = "Detail";
-    List<Car> RelatedCars = ViewBag.RelatedCars; 
+    List<Car> RelatedCars = ViewBag.RelatedCars;
     List<Advertising> advertisings = ViewBag.Advertisements;
+    var member = userManager.GetUserAsync(User).Result;
+    Car car = Model?.Car;
 }
-
 <main>
 
 
@@ -200,40 +202,39 @@
                 {
                     <div class="comment-block">
                         <div class="comment-img">
-                            <img src="~/assets/images/@item.Image" alt="">
+                            <img src="~/assets/images/@item.AppUser.Image" alt="">
                         </div>
                         <div class="comment-info">
                             <div><a href="">Reply</a></div>
-                            <b>John Doe</b> - <span>@item.PostDate.ToString("yyyy dd, MMMM")</span>
+                            <b>@item.AppUser.Fullname</b> - <span>@item.PostDate.ToString("yyyy dd, MMMM")</span>
                             <p>@item.Description</p>
                         </div>
                     </div>
                 }
 
-            
 
-                <div class="comment-form">
-                    <h3>Leave A Reply</h3>
-                    <p><span>Your email address will not be published. Required fields are marked</span><span class="star">*</span></p>
+                @if (member != null)
+                {
+                    <div class="comment-form">
+                        <h3></h3>
+                        <p><span></span><span class="star"></span></p>
 
-                    <form action="">
-                        <div class="form-first">
-                            <textarea name="" id="" placeholder="Comment"></textarea>
+                        <form asp-action="CreateComment" asp-controller="Comment">
+                            <div class="form-first">
+                                <textarea asp-for="CommentViewModel.Description"  placeholder="Comment"></textarea>
 
-                            <input type="text" placeholder="Name *">
-                            <input type="email" placeholder="Email *">
-                            <input type="text" placeholder="Website">
-                        </div>
+                                <input value="@member.Fullname"  type="text" placeholder="Name *">
+                                <input value="@member.Email" type="email" placeholder="Email *">
+                                <input asp-for="CommentViewModel.CarId" type="text"  value="@car.Id" style="visibility:hidden" />
+                            </div>
 
-                        <div class="form-second">
-                            <input type="checkbox" value="yes">
-                            <label for="">Save my name, email, and website in this browser for the next time I comment.</label>
-                        </div>
 
-                        <button class="submit" type="submit">Post Comment</button>
-                    </form>
+                            <button class="submit" type="submit">Post Comment</button>
+                        </form>
 
-                </div>
+                    </div>
+                }
+
 
             </div>
         </div>

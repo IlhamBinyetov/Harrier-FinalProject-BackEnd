@@ -1,22 +1,23 @@
 ﻿@model ModelViewModel
 @{
     ViewData["Title"] = "Edit";
+    var model = Model?.Model;
 }
 
 <div class="container">
     <h1>Edit</h1>
-    <form method="post" enctype="multipart/form-data">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-12">
-                <label asp-for="Name">Name</label>
-                <input asp-for="Name" class="form-control" placeholder="Name">
-                <span class="text-danger" asp-validation-for="Name"></span>
+                <label asp-for="Model.Name">Name</label>
+                <input asp-for="Model.Name" class="form-control" placeholder="Name">
+                <span class="text-danger" asp-validation-for="Model.Name"></span>
                 <select asp-for="BrandId" class="form-select" style="padding:10px; outline:none; margin-top:10px">
                     <option>Select Make</option>
                     @foreach (var brand in Model?.Brands)
                     {
 
-                        <option value="@brand.Id">@brand.Name</option>
+                        <option selected ="@(brand.Id == model.BrandId ? "selected": null)" value="@brand.Id">@brand.Name</option>
 
                     }
                 </select>

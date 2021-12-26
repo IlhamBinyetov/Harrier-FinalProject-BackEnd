@@ -1,6 +1,9 @@
-﻿@model ContactViewModel
+﻿@inject UserManager<AppUser> userManager
+@model ContactViewModel
 @{
     ViewData["Title"] = "Index";
+
+    var member = userManager.GetUserAsync(User).Result;
 }
 
 
@@ -23,27 +26,29 @@
         <h2>CONTACT US</h2>
     </div>
     <div>
-        <form action="">
+
+        <form asp-action="CreateContact" asp-controller="Contact">
             <div class="d-flex justify-content-between mb-4">
                 <div class="col-5">
-                    <label for="">Your Name(required)</label>
-                    <input type="text" />
-                    <span></span>
+                    
+                    <label asp-for="Name">Your Name(required)</label>
+                    <input asp-for="Name"  value="@(member != null ? member.Fullname:"")" type="text" />
+                    <span asp-validation-for="Name"></span>
                 </div>
                 <div class="col-5">
-                    <label for="">Your Email(required)</label>
-                    <input type="email" />
-                    <span></span>
+                    <label asp-for="Email">Your Email(required)</label>
+                    <input asp-for="Email" value="@(member != null ? member.Email:"")" type="email" />
+                    <span asp-validation-for="Email"></span>
                 </div>
             </div>
             <div class="subject mb-4">
-                <label for="">Subject</label>
-                <input type="text" />
+                <label asp-for="Subject">Subject</label>
+                <input asp-for="Subject" type="text" />
             </div>
             <div class="message">
-                <label for="">Your Message</label>
+                <label asp-for="Messsage">Your Message</label>
                 <br />
-                <textarea name="" id=""></textarea>
+                <textarea asp-for="Messsage"></textarea>
             </div>
 
             <button type="submit" class="submit">Submit</button>

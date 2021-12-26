@@ -39,15 +39,15 @@ namespace HarrierFinalProject.Controllers
                                           .Include(c => c.Transmission)
                                           .Include(c=>c.CarStatus) 
                                           .ToList();
-
+            var comments = _context.Comments.Include(x => x.AppUser).OrderByDescending(x => x.PostDate).Take(3).ToList();
             homeVM = new HomeViewModel()
             {
                 Sliders = _context.Sliders.ToList(),
                 CarTypes = _context.CarTypes.ToList(),
-                Comments = _context.Comments.ToList(),
+                Comments = comments,
                 Cars = cars,
                 Partners = _context.Partners.ToList(),
-                Blogs = _context.Blogs.ToList(),
+                Blogs = _context.Blogs.ToList(), 
                 Advertisings = _context.Advertisings.ToList()
             
             };

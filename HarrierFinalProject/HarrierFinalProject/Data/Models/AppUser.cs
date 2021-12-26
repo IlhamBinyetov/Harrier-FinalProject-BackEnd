@@ -15,6 +15,7 @@ namespace HarrierFinalProject.Data.Models
         public string ConnectionId { get; set; }
         public DateTime LastConnectedDate { get; set; }
         public string Image { get; set; }
+        public List<Comment> Comments { get; set; }
         
         [NotMapped]
         public IFormFile ImageFile { get; set; }

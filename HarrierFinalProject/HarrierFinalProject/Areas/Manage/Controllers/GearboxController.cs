@@ -73,7 +73,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             GearboxViewModel gearboxVM = new GearboxViewModel
             {
-                Gearbox = gearbox
+                Gearbox = gearbox,
+                Name = gearbox.Name
 
             };
 

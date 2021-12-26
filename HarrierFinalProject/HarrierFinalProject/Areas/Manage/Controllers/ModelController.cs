@@ -73,7 +73,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         public IActionResult  Edit(int id)
 
         {
-            Model model = _context.Models.FirstOrDefault(m => m.Id == id);
+            Model model = _context.Models.Include(m=>m.Brand).FirstOrDefault(m => m.Id == id);
 
             List<Brand> brands = _context.Brands.ToList();
 
@@ -99,7 +99,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             if (existModel == null) return NotFound();
 
 
-            existModel.Name = modelVM.Name;
+            existModel.Name = modelVM.Model.Name;
             existModel.BrandId = modelVM.BrandId;
 
             _context.SaveChanges();
