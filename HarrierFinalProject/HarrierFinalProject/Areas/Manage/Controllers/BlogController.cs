@@ -22,9 +22,13 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             _env = env;
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Blog> blogs = _context.Blogs.ToList();
+            List<Blog> blogs = _context.Blogs.Skip((page - 1) * 4).Take(4).ToList();
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Blogs.Count() / 4m);
+            ViewBag.SelectedPage = page;
+
 
             BlogViewModel blogVM = new BlogViewModel()
             {

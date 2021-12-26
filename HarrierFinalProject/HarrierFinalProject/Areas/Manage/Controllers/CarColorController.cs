@@ -18,10 +18,14 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
 
-            List<CarColor> carColors = _context.CarColors.ToList();
+            List<CarColor> carColors = _context.CarColors.Skip((page - 1) * 8).Take(8).ToList();
+
+
+            ViewBag.TotalPage = Math.Ceiling(_context.CarColors.Count() / 8m);
+            ViewBag.SelectedPage = page;
 
             CarColorViewModel CarColorVM = new CarColorViewModel()
             {
@@ -76,7 +80,9 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             CarColorViewModel carColorVM = new CarColorViewModel
             {
-               CarColor = carColor
+               CarColor = carColor,
+               Name = carColor.Name
+               
 
             };
 

@@ -188,22 +188,22 @@ namespace HarrierFinalProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BrandId")
+                    b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CarColorId")
+                    b.Property<int?>("CarColorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CarSituationId")
+                    b.Property<int?>("CarSituationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CarStatusId")
+                    b.Property<int?>("CarStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CarTypeId")
+                    b.Property<int?>("CarTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CityId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfProduct")
@@ -218,21 +218,24 @@ namespace HarrierFinalProject.Migrations
                     b.Property<int>("DoorCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("FuelTypeId")
+                    b.Property<int?>("FuelTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GearboxId")
+                    b.Property<int?>("GearboxId")
                         .HasColumnType("int");
 
                     b.Property<int>("HorsePower")
                         .HasColumnType("int")
                         .HasMaxLength(50);
 
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Mileage")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("ModelId")
+                    b.Property<int?>("ModelId")
                         .HasColumnType("int");
 
                     b.Property<string>("MotorPower")
@@ -242,7 +245,7 @@ namespace HarrierFinalProject.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("TransmissionId")
+                    b.Property<int?>("TransmissionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -1399,57 +1402,39 @@ namespace HarrierFinalProject.Migrations
                 {
                     b.HasOne("HarrierFinalProject.Data.Models.Brand", "Brand")
                         .WithMany("Cars")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrandId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.CarColor", "CarColor")
                         .WithMany("Cars")
-                        .HasForeignKey("CarColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CarColorId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.CarStatus", "CarStatus")
                         .WithMany("Cars")
-                        .HasForeignKey("CarStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CarStatusId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.CarType", "CarType")
                         .WithMany("Cars")
-                        .HasForeignKey("CarTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CarTypeId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.City", "City")
                         .WithMany("Cars")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CityId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.FuelType", "FuelType")
                         .WithMany("Cars")
-                        .HasForeignKey("FuelTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FuelTypeId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.Gearbox", "Gearbox")
                         .WithMany("Cars")
-                        .HasForeignKey("GearboxId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GearboxId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.Model", "Model")
                         .WithMany("Cars")
-                        .HasForeignKey("ModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ModelId");
 
                     b.HasOne("HarrierFinalProject.Data.Models.Transmission", "Transmission")
                         .WithMany("Cars")
-                        .HasForeignKey("TransmissionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TransmissionId");
                 });
 
             modelBuilder.Entity("HarrierFinalProject.Data.Models.CarFeature", b =>

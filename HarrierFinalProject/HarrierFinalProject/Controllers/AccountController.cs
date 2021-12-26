@@ -294,7 +294,7 @@ namespace HarrierFinalProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotVM)
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotVM) 
         {
             AppUser user = await _userManager.FindByEmailAsync(forgotVM.Email);
 

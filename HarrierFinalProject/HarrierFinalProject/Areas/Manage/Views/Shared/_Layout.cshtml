@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<AppUser> usermanager
+
+@{ AppUser admin = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        admin = await usermanager.FindByNameAsync(User.Identity.Name);
+    }
+
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -96,7 +108,7 @@
                                 <li><a asp-action="index" asp-controller="FuelType">FuelTypes</a></li>
                                 <li><a asp-action="index" asp-controller="Setting">Setting</a></li>
                                 <li><a asp-action="index" asp-controller="Order">Orders</a></li>
-                                
+
 
 
                                 <li><a href="404.html">404 Error</a></li>
@@ -173,27 +185,29 @@
     <script src="~/manage/lib/sparkline-chart.js"></script>
     <script src="~/manage/lib/zabuto_calendar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/3a622e44f0.js"
+            crossorigin="anonymous"></script>
     <script src="~/manage/js/main.js"></script>
     @*<script type="text/javascript">
-        $(document).ready(function () {
-            var unique_id = $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'Welcome to Dashio!',
-                // (string | mandatory) the text inside the notification
-                text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-                // (string | optional) the image to display on the left
-                image: 'img/ui-sam.jpg',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: false,
-                // (int | optional) the time you want it to be alive for before fading out
-                time: 8000,
-                // (string | optional) the class name you want to apply to that specific message
-                class_name: 'my-sticky-class'
-            });
+            $(document).ready(function () {
+                var unique_id = $.gritter.add({
+                    // (string | mandatory) the heading of the notification
+                    title: 'Welcome to Dashio!',
+                    // (string | mandatory) the text inside the notification
+                    text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
+                    // (string | optional) the image to display on the left
+                    image: 'img/ui-sam.jpg',
+                    // (bool | optional) if you want it to fade out on its own or just sit there
+                    sticky: false,
+                    // (int | optional) the time you want it to be alive for before fading out
+                    time: 8000,
+                    // (string | optional) the class name you want to apply to that specific message
+                    class_name: 'my-sticky-class'
+                });
 
-            return false;
-        });
-    </script>*@
+                return false;
+            });
+        </script>*@
     <script type="application/javascript">
         $(document).ready(function() {
           $("#date-popover").popover({

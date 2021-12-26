@@ -1,48 +1,45 @@
-﻿
+﻿@inject UserManager<AppUser> userManager
+@model SubmitViewModel
 @{
     ViewData["Title"] = "SubmitCar";
+    List<City> cities = Model?.Cities;
+    List<Brand> brands = Model?.Brands;
+    List<FuelType> fuelTypes = Model?.FuelTypes;
+    List<Transmission> transmissions = Model?.Transmissions;
+    List<Gearbox> gearboxes = Model?.Gearboxes;
+    List<Feature> features = Model?.Features;
+    List<CarStatus> carStatuses = Model?.CarStatuses;
+    List<CarType> carTypes = Model?.CarTypes;
+    List<CarColor> carColors = Model?.CarColors;
+    Car car = Model?.Car;
+    var user = userManager.GetUserAsync(User).Result;
 }
+
+
 
 
 <main>
     <section class="car-upload">
-        <div class="div-header">
-            <div class="col-4">
-                <h4>Have an account?</h4>
-            </div>
-            <div class="col-8">
-                <a href="./MyAccount.html">Sign In</a>
-                <p>
-                    If you don’t have an account you can create one below by entering
-                    your email address/username. Your account details will be
-                    confirmed via email.
-                </p>
-            </div>
-        </div>
-        <form action="">
+
+        <form asp-action="SubmitCar" asp-controller="Home" enctype="multipart/form-data" method="post">
             <div class="account-part">
                 <div class="username">
                     <div>
-                        <label for="" class="col-4">Username</label>
-                        <input type="text" class="col-8" />
+                        <label class="col-4">Username</label>
+                        <input value="@user.Fullname" type="text" class="col-8" />
                     </div>
                 </div>
                 <div class="username email">
                     <div>
-                        <label for="" class="col-4">Your Email</label>
-                        <input type="email" class="col-8" />
+                        <label class="col-4">Your Email</label>
+                        <input value="@user.Email" type="email" class="col-8" />
                     </div>
                 </div>
+
                 <div class="username">
                     <div>
-                        <label for="" class="col-4">Listing Title</label>
-                        <input type="text" class="col-8" />
-                    </div>
-                </div>
-                <div class="username">
-                    <div>
-                        <label for="" class="col-4">Description</label>
-                        <textarea name="" id="" class="col-8"></textarea>
+                        <label asp-for="Description" class="col-4">Description</label>
+                        <textarea asp-for="Description" class="col-8"></textarea>
                     </div>
                 </div>
             </div>
@@ -50,194 +47,191 @@
                 <h2>Car Data</h2>
                 <div class="car-options">
                     <div>
-                        <label for="" class="col-4">Condition</label>
-                        <select name="" id="" class="col-8 sel-example form-control">
-                            <option value="">New</option>
-                            <option value="">Used</option>
+                        <label class="col-4">Car Status</label>
+                        <select asp-for="CarStatusId" class="col-8 ">
+                            <option>Select Make</option>
+                            @foreach (var carStatus in carStatuses)
+                            {
+                                <option value="@carStatus.Id">@carStatus.Name</option>
+                            }
                         </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">Make</label>
-                        <select class="col-8 sel-example form-control" id="sel1">
-                            <option value="0">Select Make</option>
-                            <option value="1">Acura</option>
-                            <option value="2">Audi</option>
-                            <option value="3">BMW</option>
-                            <option value="4">Chevrolet</option>
-                            <option value="5">Hyundai</option>
-                            <option value="6">Kia</option>
-                            <option value="7">Mazda</option>
-                            <option value="8">Mercedes-Benz</option>
-                            <option value="9">Nissan</option>
-                            <option value="10">Toyota</option>
+                        <label class="col-4">Brand</label>
+                        <select asp-for="BrandId" class="brand col-8">
+                            <option>Select Make</option>
+                            @foreach (var brand in brands)
+                            {
+                                <option value="@brand.Id">@brand.Name</option>
+                            }
                         </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">Model</label>
-                        <select class="col-8 sel-example form-control" id="sel2">
-                            <option value="">Select Model</option>
-                            <option data-val="1">CL</option>
-                            <option data-val="1">IlX</option>
-                            <option data-val="1">Ilx Hybrid</option>
-                            <option data-val="1">Integra</option>
-                            <option data-val="2">A3</option>
-                            <option data-val="2">A5</option>
-                            <option data-val="2">A7</option>
-                            <option data-val="2">A8</option>
-                            <option data-val="3">X1</option>
-                            <option data-val="3">X3</option>
-                            <option data-val="3">X5</option>
-                            <option data-val="3">X6</option>
-                            <option data-val="3">X7</option>
-                            <option data-val="3">Z8</option>
-                            <option data-val="4">Cruze</option>
-                            <option data-val="4">Aveo</option>
-                            <option data-val="4">Volt</option>
-                            <option data-val="5">Elantra</option>
-                            <option data-val="5">Sonata</option>
-                            <option data-val="5">Tucson</option>
-                            <option data-val="6">Sorento</option>
-                            <option data-val="6">Optima</option>
-                            <option data-val="6">Cerato</option>
-                            <option data-val="7">CX-3</option>
-                            <option data-val="7">CX-5</option>
-                            <option data-val="7">Mazda5</option>
-                            <option data-val="8">GL</option>
-                            <option data-val="8">Sprinter</option>
-                            <option data-val="8">E220</option>
-                            <option data-val="9">Sunny</option>
-                            <option data-val="9">X-Trail</option>
-                            <option data-val="9">Altima</option>
-                            <option data-val="10">Corolla</option>
-                            <option data-val="10">Prado</option>
-                            <option data-val="10">Land Cruiser</option>
+                        <label class="col-4">Model</label>
+                        <select asp-for="ModelId" class="col-8 modelSelect">
+                            <option>Select first brand</option>
+                            <option selected value="@car?.Model?.Id">@car?.Model?.Name</option>
                         </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">First Registration Date</label>
-                        <input type="date" class="col-8" />
+                        <label asp-for="DateOfProduct" class="col-4">DateOfProduct</label>
+                        <input asp-for="DateOfProduct" class="form-control col-8" placeholder="ProductDate">
+                        <span class="text-danger" asp-validation-for="DateOfProduct"></span>
                     </div>
                     <div>
-                        <label for="" class="col-4">Price <small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label asp-for="Price" class="col-4">Price <small>(optional)</small></label>
+                        <input asp-for="Price" type="text" class="col-8" />
                     </div>
                     <div>
-                        <label for="" class="col-4">Mileage <small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label asp-for="Mileage" class="col-4">Mileage <small>(optional)</small></label>
+                        <input asp-for="Mileage" type="text" class="col-8" />
                     </div>
                     <div>
-                        <label for="" class="col-4">Fuel Type <small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label asp-for="CarColorId" class="col-4">Color <small>(optional)</small></label>
+
+                        <select asp-for="CarColorId" class="col-8">
+                            <option>Select Make</option>
+                            @foreach (var carColor in carColors)
+                            {
+                                <option value="@carColor.Id">@carColor.Name</option>
+                            }
+                        </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">Color <small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label class="col-4">Car Type<small>(optional)</small></label>
+                        <select asp-for="CarTypeId" class="col-8">
+                            <option>Select Make</option>
+                            @foreach (var carType in carTypes)
+                            {
+                                <option value="@carType.Id">@carType.Name</option>
+                            }
+                        </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">Body Style<small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label asp-for="MotorPower" class="col-4">Motor Power<small>(optional)</small></label>
+                        <input asp-for="MotorPower" type="text" class="col-8" />
                     </div>
                     <div>
-                        <label for="" class="col-4">Power kW<small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label asp-for="HorsePower" class="col-4">Horse Power<small>(optional)</small></label>
+                        <input asp-for="HorsePower" type="text" class="col-8" />
                     </div>
                     <div>
-                        <label for="" class="col-4">Power hp<small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label asp-for="DoorCount" class="col-4">Door Count<small>(optional)</small></label>
+                        <input asp-for="DoorCount" type="text" class="col-8" />
                     </div>
                     <div>
-                        <label for="" class="col-4">Doors<small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label class="col-4">Fuel Type<small>(optional)</small></label>
+                        <select asp-for="FuelTypeId" class="col-8">
+                            <option>Select Make</option>
+                            @foreach (var fuelType in fuelTypes)
+                            {
+                                <option value="@fuelType.Id">@fuelType.Name</option>
+                            }
+                        </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">Engine<small>(optional)</small></label>
-                        <input type="text" class="col-8" />
+                        <label class="col-4">Transmission<small>(optional)</small></label>
+                        <select asp-for="TransmissionId" class="col-8 ">
+                            <option>Select Make</option>
+                            @foreach (var transmission in transmissions)
+                            {
+                                <option value="@transmission.Id">@transmission.Name</option>
+                            }
+
+                        </select>
                     </div>
                     <div>
-                        <label for="" class="col-4">Transmission<small>(optional)</small></label>
-                        <select name="" id="" class="col-8 sel-example form-control">
-                            <option value="">Automatic</option>
-                            <option value="">Manual</option>
-                            <option value="">Semi-automatic</option>
+                        <label class="col-4">Gearbox<small>(optional)</small></label>
+                        <select asp-for="GearboxId" class="col-8 ">
+                            <option>Select Make</option>
+                            @foreach (var gearbox in gearboxes)
+                            {
+                                <option value="@gearbox.Id">@gearbox.Name</option>
+                            }
+
                         </select>
                     </div>
                 </div>
             </div>
             <div class="car-features">
-                <h2>Car Features</h2>
-                <div class="car-tags">
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">ABS</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">Air Conditioner</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">AntiLock Braking System</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">Auxiliary heating</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for=""> Bluetooth</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">CD player</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for=""> Central locking</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">Head-up display</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">Leather Seats</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">Navigation system</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for="">Panoramic roof</label>
-                    </div>
-                    <div class="col-3 tag-item">
-                        <input type="checkbox" />
-                        <label for=""> Parking sensors</label>
-                    </div>
+                <label>Car Features</label>
+                <div class="car-tags p-4">
+                    <select asp-for="CarFeatureIds" class="col-8 ">
+
+                        @foreach (var feature in features)
+                        {
+                            <option value="@feature.Id" class="p-3">@feature.Name</option>
+                        }
+                    </select>
                 </div>
             </div>
-            <div class="image-part">
-                <h2>Images</h2>
-                <div class="image">
-                    <h3>Upload New Images</h3>
-                    <strong>Click here to upload your images</strong>
-                    <span>
-                        You can upload multiple images at the same time, the first
-                        image will be your thumbnail.
-                    </span>
-                    <div class="image-preview">
-                        <div class="preview-item col-3">
-                            <img src="~/assets/images/car30.jpg" alt="" />
-                            <a href="">Remove File</a>
-                        </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Car City</label>
+                    <select asp-for="CityId" class="form-control">
+
+                        @foreach (var city in cities)
+                        {
+                            <option value="@city.Id">@city.Name</option>
+                        }
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="d-flex justify-content-between flex-wrap mt-4">
+                <div class="form-row col-12">
+                    <div class="form-group col-6 ">
+                        <label asp-for="PosterImage" style="font-size:14px"> Car Poster Image</label>
+                        <input asp-for="PosterImage" class="form-control" placeholder="PosterFile">
+                        <span class="text-danger" asp-validation-for="PosterImage"></span>
                     </div>
+                    @*<div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                            <input type="hidden" name="PosterImageId" value="@Model.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Id" />
+                            <img style="max-width:150px" src="~/assets/images/@Model.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="Alternate Text" />
+                            <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                                <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                            </span>
+                        </div>*@
+                </div>
+
+
+                <div class="form-row col-12 mt-5">
+                    <div class="form-group col-6 ">
+                        <label asp-for="ImageFiles" style="font-size:14px">Car Images</label>
+                        <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
+                        <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                    </div>
+                    @*<div class="d-flex justify-content-between flex-wrap">
+                            @foreach (var file in Model.Car.CarImages.Where(x => x.IsPoster == false))
+                            {
+                                <div class="col-4">
+                                    <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                                        <input type="hidden" name="ProductImageIds[]" value="@file.Id" />
+                                        <img style="max-width:150px" src="~/assets/images/@file.Image" alt="Alternate Text" />
+                                        <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                                            <i data-id="@file.Id" class="fa fa-times remove_image" style="color: red; font-size: 24px;"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>*@
+
+                </div>
+
+
+
+                <div class="form-group col-6">
+                    <button type="submit" class="btn btn-primary" style="font-size:16px">Create Car</button>
                 </div>
             </div>
-            <div class="submit">
-                <a href="" class="car-preview">Preview Car</a>
-            </div>
+
         </form>
     </section>
+
+
+
 
     <section class="features-section">
         <div class="features d-flex">
@@ -279,6 +273,8 @@
             </div>
         </div>
     </section>
+
+
     <section class="newsletter-section">
         <h5>NEWSLETTER</h5>
         <h4>GET NOTIFIED OF ANY UPDATES!</h4>
@@ -295,5 +291,45 @@
             </form>
         </div>
     </section>
+
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+      $('.brand').on('change', function (e) {
+        $('.modelSelect').empty();
+        e.preventDefault();
+        let url = "@Url.Action("GetModelByBrand", "Home")";
+        var id = $(this).val();
+        let data = {
+            BrandId: id
+        };
+
+
+        $.ajax({
+            type: "post",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            responseType: "json",
+            url: url,
+            data: JSON.stringify(data),
+            success: function (resp) {
+                let modelss = resp.models;
+                $('.modelSelect').append(`<option selected="selected" value="">Sec</option>`);
+                modelss.forEach(function (model) {
+                    $('.modelSelect').append(`<option value="${model.id}">${model.name}</option>`);
+                })
+            }
+        });
+
+    })
+</script>

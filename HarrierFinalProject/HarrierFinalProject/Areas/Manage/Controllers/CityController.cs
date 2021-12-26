@@ -18,9 +18,12 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            List<City> cities = _context.Cities.ToList();  
+            List<City> cities = _context.Cities.Skip((page - 1) * 6).Take(6).ToList();
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Cities.Count() / 6m);
+            ViewBag.SelectedPage = page;
 
             return View(cities);
         }

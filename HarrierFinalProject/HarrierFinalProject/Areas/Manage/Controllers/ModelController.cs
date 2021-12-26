@@ -19,9 +19,14 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            List<Model> models = _context.Models.ToList();
+            List<Model> models = _context.Models.Include(x=>x.Brand).Skip((page - 1) * 8).Take(8).ToList();
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Models.Count() / 8m);
+            ViewBag.SelectedPage = page;
+
+
 
             ModelViewModel modelVM = new ModelViewModel()
             {

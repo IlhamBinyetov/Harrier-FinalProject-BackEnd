@@ -24,9 +24,12 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             _context = context;
             _emailService = emailService;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            List<Order> orders = _context.Orders.OrderByDescending(x => x.CreatedAt).Include(x => x.Car).Include(x => x.AppUser).ToList();
+            List<Order> orders = _context.Orders.OrderByDescending(x => x.CreatedAt).Include(x => x.Car).Include(x => x.AppUser).Skip((page - 1) * 6).Take(6).ToList();
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Orders.Count() / 6m);
+            ViewBag.SelectedPage = page;
 
             OrderViewModel orderVM = new OrderViewModel()
             {

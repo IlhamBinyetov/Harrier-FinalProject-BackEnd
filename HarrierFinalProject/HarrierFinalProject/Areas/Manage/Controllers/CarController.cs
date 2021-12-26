@@ -54,6 +54,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             List<CarStatus> carStatuses = _context.CarStatuses.ToList();
             List<FuelType> fuelTypes = _context.FuelTypes.ToList();
             List<CarType> carTypes = _context.CarTypes.ToList();
+            List<CarImage> carImages = _context.CarImages.ToList();
 
 
             CarViewModel carVM = new CarViewModel()
@@ -67,7 +68,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 Features = features,
                 CarStatuses = carStatuses,
                 FuelTypes = fuelTypes,
-                CarTypes = carTypes
+                CarTypes = carTypes,
+                CarImages = carImages
                 
             };
 
@@ -81,7 +83,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             Car car = new Car()
             {
-                BrandId = carVM.BrandId, 
+                BrandId = carVM.BrandId,
                 ModelId = carVM.ModelId,
                 TransmissionId = carVM.TransmissionId,
                 GearboxId = carVM.GearboxId,
@@ -100,7 +102,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 MotorPower = carVM.MotorPower,
                 HorsePower = carVM.HorsePower,
                 CarImages = new List<CarImage>(),
-                CarFeatures = new List<CarFeature>() 
+                CarFeatures = new List<CarFeature>(),
+                IsAccepted = true
             };
 
             if (car.PosterFile == null)
@@ -206,15 +209,22 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             List<CarStatus> carStatuses = _context.CarStatuses.ToList();
             List<FuelType> fuelTypes = _context.FuelTypes.ToList();
             List<CarType> carTypes = _context.CarTypes.ToList();
+            List<int> carFeaturesIds = new List<int>();
 
-            ViewBag.Features = _context.Features.ToList();
-
-            car.FeatureIds = car.CarFeatures.Select(x => x.FeatureId).ToList();
+            foreach (var item in car.CarFeatures)
+            {
+                carFeaturesIds.Add(item.FeatureId);
+            }
 
             CarViewModel carVM = new CarViewModel()
             {
                 Car = car,
                 Price = car.Price,
+                HorsePower = car.HorsePower,
+                DoorCount = car.DoorCount,
+                Mileage = car.Mileage,
+                MotorPower = car.MotorPower,
+                Description = car.Description,
                 Cities = cities,
                 Models = models,
                 Brands = brands,
@@ -225,7 +235,9 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 CarStatuses = carStatuses,
                 FuelTypes = fuelTypes,
                 CarTypes = carTypes,
-
+                FeatureIds = carFeaturesIds,
+                PosterImage = car.PosterFile,
+                ImageFiles = car.ImageFiles
             };
             return View(carVM);
         }
@@ -284,22 +296,23 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 }
             }
 
-            existCar.CarFeatures.RemoveAll((x => !carVM.CarFeatureIds.Contains(x.FeatureId)));
+            existCar.CarFeatures.RemoveAll((x => !carVM.FeatureIds.Contains(x.FeatureId)));
 
-            if (carVM.CarFeatureIds != null)
+            if (carVM.FeatureIds != null)
             {
-                foreach (var FeatureId in carVM.CarFeatureIds.Where(x => !existCar.CarFeatures.Any(bt => bt.FeatureId == x)))
+                foreach (var FeatureId in carVM.FeatureIds.Where(x => !existCar.CarFeatures.Any(bt => bt.FeatureId == x)))
                 {
                     CarFeature carFeature = new CarFeature
                     {
                         FeatureId = FeatureId,
-                        CarId = carVM.Car.Id
+                        CarId = id
                     };
                     existCar.CarFeatures.Add(carFeature);
                 }
             }
 
-            existCar.CarImages.RemoveAll(x => x.IsPoster == false );
+            
+           // existCar.CarImages.RemoveAll(x => x.IsPoster == false );
 
 
             if (carVM.ImageFiles != null)
@@ -387,6 +400,45 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
 
             return Json(new { models });
+        }
+
+
+        [HttpPost]
+        [Produces("application/json")]
+        public JsonResult DeleteImageByCar([FromBody] CarViewModel viewModel)
+        {
+            bool isDelete = false;
+           var image = _context.CarImages.FirstOrDefault(ci => ci.Id == viewModel.ImageId);
+
+            if(image != null)
+            {
+                _context.CarImages.Remove(image); 
+                _context.SaveChanges(); 
+                isDelete = true;
+            }
+            
+           
+
+            return Json(isDelete);
+        }
+
+
+
+        [HttpPost]
+        [Produces("application/json")]
+        public JsonResult UpdateCarAccept([FromBody] CarViewModel viewModel)
+        {
+            bool isUpdate = false;
+            var car = _context.Cars.FirstOrDefault(c => c.Id == viewModel.CarId);
+
+            if (car != null)
+            {
+                car.IsAccepted = true; 
+                _context.SaveChanges();
+                isUpdate = true;
+            } 
+
+            return Json(new { isUpdate });
         }
     }
 }

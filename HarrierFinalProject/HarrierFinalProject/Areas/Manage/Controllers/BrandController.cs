@@ -17,9 +17,19 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            List<Brand> brands = _context.Brands.ToList();
+            List<Brand> brands = _context.Brands.Skip((page - 1) * 8).Take(8).ToList();
+
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Brands.Count() / 8m);
+            ViewBag.SelectedPage = page;
+
+            //if (page <= 0)
+            //{
+            //    return View();
+            //} 
+
 
             return View(brands);
         }

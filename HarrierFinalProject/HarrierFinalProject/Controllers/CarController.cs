@@ -27,7 +27,7 @@ namespace HarrierFinalProject.Controllers
             List<Car> cars = _context.Cars.Include(c => c.Brand)
                                         .Include(c => c.Model)
                                         .Include(c => c.CarImages)
-                                        .Where(c=>c.CarSituationId ==1)
+                                        .Where(c=>c.CarSituationId ==1 && c.IsAccepted==true)
                                         .ToList();
 
 

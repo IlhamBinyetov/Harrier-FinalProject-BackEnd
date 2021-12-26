@@ -49,7 +49,8 @@ namespace HarrierFinalProject.Areas.Manage.ViewModels
 
         public Brand Brand { get; set; }
         public List<int> FeatureIds { get; set; } = new List<int>();
-
+        public int ImageId { get; set; }
+        public int CarId { get; set; }
 
     }
 }

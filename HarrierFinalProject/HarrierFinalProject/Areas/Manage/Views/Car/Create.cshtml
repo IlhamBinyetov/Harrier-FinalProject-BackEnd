@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Create";
     List<City> cities = Model?.Cities;
-    List<Brand> brands = Model?.Brands; 
+    List<Brand> brands = Model?.Brands;
     List<FuelType> fuelTypes = Model?.FuelTypes;
     List<Transmission> transmissions = Model?.Transmissions;
     List<Gearbox> gearboxes = Model?.Gearboxes;
@@ -11,6 +11,7 @@
     List<CarStatus> carStatuses = Model?.CarStatuses;
     List<CarType> carTypes = Model?.CarTypes;
     List<CarColor> carColors = Model?.CarColors;
+    Car car = Model?.Car;
 }
 
 <div class="container-fluid">
@@ -55,10 +56,10 @@
                 <label>City</label>
                 <select asp-for="CityId" class="form-control">
                     <option>Select Make</option>
-                   @foreach (var city in cities)
-                   {
-                       <option value="@city.Id">@city.Name</option>
-                   }
+                    @foreach (var city in cities)
+                    {
+                        <option value="@city.Id">@city.Name</option>
+                    }
                 </select>
             </div>
             <div class="form-group col-md-3">
@@ -95,7 +96,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label>Brand</label>
-                <select asp-for="BrandId" class="form-control brand" >
+                <select asp-for="BrandId" class="form-control brand">
                     <option>Select Make</option>
                     @foreach (var brand in brands)
                     {
@@ -105,9 +106,9 @@
             </div>
             <div class="form-group col-md-3">
                 <label>Model</label>
-                <select asp-for="ModelId" class="form-control">
+                <select asp-for="ModelId" class="form-control modelSelect">
                     <option>Select first brand</option>
-                    <option value="2">Elantra</option> 
+                    <option selected value="@car?.Model?.Id">@car?.Model?.Name</option>
                 </select>
             </div>
             <div class="form-group col-md-3">
@@ -130,7 +131,28 @@
                     }
                 </select>
             </div>
-            <div class="form-group col-md-3">
+            
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>CarFeatures</label>
+                <select asp-for="CarFeatureIds" class="form-control">
+
+                    @foreach (var feature in features)
+                    {
+                        <option value="@feature.Id">@feature.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="DateOfProduct">DateOfProduct</label>
+                <input asp-for="DateOfProduct" class="form-control" placeholder="ProductDate">
+                <span class="text-danger" asp-validation-for="DateOfProduct"></span>
+            </div>
+            <div class="form-group col-md-4">
                 <label>GearBox</label>
                 <select asp-for="GearboxId" class="form-control">
                     <option>Select Make</option>
@@ -141,45 +163,70 @@
                 </select>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>CarFeatures</label>
-                <select asp-for="CarFeatureIds" class="form-control">
-                   
-                    @foreach (var feature in features)
-                    {
-                        <option value="@feature.Id">@feature.Name</option>
-                    }
-                </select>
-            </div>
-           
-            <div class="form-group col-md-6">
-                <label asp-for="DateOfProduct">DateOfProduct</label>
-                <input asp-for="DateOfProduct" class="form-control" placeholder="ProductDate">
-                <span class="text-danger" asp-validation-for="DateOfProduct"></span>
-            </div>
-            
 
-        </div>
-      
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label asp-for="PosterImage">PosterFile</label>
+
+        <div class=" form-row mt-4">
+
+            <div class="form-group col-6 mt-3 ">
+                <label asp-for="PosterImage" style="font-size:14px"> Car Poster Image</label>
                 <input asp-for="PosterImage" class="form-control" placeholder="PosterFile">
                 <span class="text-danger" asp-validation-for="PosterImage"></span>
             </div>
+
+            <div class="form-group col-6 ">
+            <label asp-for="ImageFiles" style="font-size:14px">Car Images</label>
+            <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
+            <span class="text-danger" asp-validation-for="ImageFiles"></span>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label asp-for="ImageFiles">ImageFiles</label>
-                <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
-                <span class="text-danger" asp-validation-for="ImageFiles"></span>
-            </div>
+
+        
         </div>
-        <div class="form-group">
+
+        
+            
+                
+            
+        
+
+
+        
+        <div class="form-row col-6">
             <button type="submit" class="btn btn-primary">Create</button>
         </div>
 
     </form>
 </div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script>
+      $('.brand').on('change', function (e) {
+        $('.modelSelect').empty();
+        e.preventDefault();
+        let url = "@Url.Action("GetModelByBrand", "Car")";
+        var id = $(this).val();
+        let data = {
+            BrandId: id
+        };
+
+
+        $.ajax({
+            type: "post",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            responseType: "json",
+            url: url,
+            data: JSON.stringify(data),
+            success: function (resp) {
+                let modelss = resp.models;
+                $('.modelSelect').append(`<option selected="selected" value="">Sec</option>`);
+                modelss.forEach(function (model) {
+                    $('.modelSelect').append(`<option value="${model.id}">${model.name}</option>`);
+                })
+            }
+        });
+
+    })
+</script>
