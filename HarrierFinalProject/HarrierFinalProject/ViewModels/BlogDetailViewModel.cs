@@ -10,6 +10,7 @@ namespace HarrierFinalProject.ViewModels
     {
         public Blog BLog { get; set; }
         public List<Advertising> Advertisings { get; set; }
+        public CommentViewModel CommentViewModel { get; set; }
 
     }
 }

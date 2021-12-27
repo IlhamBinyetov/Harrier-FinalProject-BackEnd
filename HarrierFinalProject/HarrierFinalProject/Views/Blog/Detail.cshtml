@@ -1,6 +1,9 @@
-﻿@model BlogDetailViewModel
+﻿@inject UserManager<AppUser> userManager
+@model BlogDetailViewModel
 @{
     ViewData["Title"] = "Detail";
+    var member = userManager.GetUserAsync(User).Result;
+    Blog blog = Model?.BLog;
 }
 
 
@@ -28,11 +31,11 @@
             <div class="comment-header">
                 <h3>@Model.BLog.Comments.Count thoughts on “@Model.BLog.Name”</h3>
             </div>
-            @foreach (var item in Model.BLog.Comments)
+            @foreach (var item in Model?.BLog.Comments)
             {
                 <div class="comment-list">
                     <div class="user-img col-1">
-                        <img src="~/assets/images/@item.AppUser.Image" alt="">
+                            <img src="~/assets/images/@item.AppUser.Image" alt="">
                     </div>
                     <div class="comment-info">
                         <div>
@@ -46,26 +49,25 @@
                 </div>
             }
 
-         
+            @if (member != null)
+            {
+                <div class="reply-part">
+                    <h3>Leave Reply</h3>
+                    
 
-            <div class="reply-part">
-                <h3>Leave Reply</h3>
-                <p>Your email address will not be published. Required fields are marked <span>*</span> </p>
+                    <form asp-action="CreateBlogComment" asp-controller="Blog">
+                        <textarea asp-for="CommentViewModel.Description" placeholder="Comment" required></textarea>
+                        <input value="@member.Fullname" type="text" placeholder="Name *" required>
+                        <input value="@member.Email" type="email" placeholder="Email *" required>
+                        <input asp-for="CommentViewModel.BlogId" type="text" value="@blog.Id" style="visibility:hidden" />
+                        <button type="submit">Post Comment</button>
+                    </form>
 
-                <form asp-action="">
-                    <textarea name="" id="" placeholder="Comment" required></textarea>
-                    <input type="text" placeholder="Name *" required>
-                    <input type="email" placeholder="Email *" required>
-                    <input type="text" placeholder="Website">
-                    <div class="checkbox">
-                        <input type="checkbox"> <label>Save my name, email, and website in this browser for the next time I comment.</label>
+                </div>
+            }
 
-                    </div>
 
-                    <button type="submit">Post Comment</button>
-                </form>
 
-            </div>
         </div>
     </section>
 
@@ -86,7 +88,7 @@
                 </div>
             }
 
-           
+
         </div>
     </section>
 

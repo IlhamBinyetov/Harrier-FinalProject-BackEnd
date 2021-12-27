@@ -12,6 +12,7 @@ namespace HarrierFinalProject.ViewModels
         public List<Comment> Comments { get; set; }
         public int CarId { get; set; }
         public string Description { get; set; }
+        public int BlogId { get; set; }
 
     }
 }

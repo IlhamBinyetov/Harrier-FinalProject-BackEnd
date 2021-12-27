@@ -1,6 +1,7 @@
 ﻿using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
 using HarrierFinalProject.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,10 +14,12 @@ namespace HarrierFinalProject.Controllers
     public class BlogController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public BlogController(AppDbContext context)
+        public BlogController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index(BlogViewModel BlogVM)
         {
@@ -43,6 +46,27 @@ namespace HarrierFinalProject.Controllers
             }; 
 
             return View(detailVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBlogComment(CarViewModel viewModel)
+        {
+            var member = await _userManager.GetUserAsync(User);
+
+            CommentViewModel commentVM = viewModel.CommentViewModel;
+            Comment comment = new Comment
+            {
+                PostDate = DateTime.Now,
+                AppUserId = member.Id,
+                BlogId = commentVM.BlogId,
+                Description = commentVM.Description
+
+            };
+
+            _context.Comments.Add(comment);
+            _context.SaveChanges();
+
+            return RedirectToAction("Detail", "Blog");
         }
     }
 }
