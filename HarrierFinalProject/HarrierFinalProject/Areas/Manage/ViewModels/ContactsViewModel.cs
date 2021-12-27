@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HarrierFinalProject.ViewModels
+namespace HarrierFinalProject.Areas.Manage.ViewModels
 {
-    public class ContactViewModel
+    public class ContactsViewModel
     {
+
         public Contact Contact { get; set; }
         public List<Advertising> Advertisings { get; set; }
         public List<Contact> Contacts { get; set; }

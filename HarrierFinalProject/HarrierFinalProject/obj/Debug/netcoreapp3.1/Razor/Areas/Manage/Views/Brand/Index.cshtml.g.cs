@@ -33,8 +33,15 @@ using HarrierFinalProject.Data.Models.Enums;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Areas\Manage\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"40a28bdddad4992235ad0a9db3fb300a8a80d5f4", @"/Areas/Manage/Views/Brand/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b3737e42c1a81a89048956286ac23bb9dcb77966", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a274e9240ef55a57b54d7f94d89b863944a79e67", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Brand_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Brand>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -83,7 +90,7 @@ using HarrierFinalProject.Data.Models.Enums;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"container\" style=\"width:100%;\">\r\n    <div class=\"d-flex justify-content-between align-items-center pt-5\">\r\n        <div class=\"col-6\">\r\n            <h1>Brands</h1>\r\n\r\n        </div>\r\n        <div class=\"col-2\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f47490", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f47739", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -139,7 +146,7 @@ using HarrierFinalProject.Data.Models.Enums;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                    <td>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f410061", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f410310", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -171,7 +178,7 @@ using HarrierFinalProject.Data.Models.Enums;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f412375", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f412624", async() => {
                 WriteLiteral("Delete");
             }
             );
@@ -222,7 +229,7 @@ WriteAttributeValue(" ", 1416, ViewBag.SelectedPage==1?"disabled":"", 1417, 40, 
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f415737", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f415986", async() => {
                 WriteLiteral("\r\n                        <span aria-hidden=\"true\">&laquo;</span>\r\n                    ");
             }
             );
@@ -275,7 +282,7 @@ WriteAttributeValue(" ", 1824, i==ViewBag.SelectedPage?"active":"", 1825, 38, fa
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f419124", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f419373", async() => {
 #nullable restore
 #line 55 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Areas\Manage\Views\Brand\Index.cshtml"
                                                                                                                                         Write(i);
@@ -333,7 +340,7 @@ WriteAttributeValue(" ", 1997, ViewBag.SelectedPage==ViewBag.TotalPage?"disabled
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f422658", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40a28bdddad4992235ad0a9db3fb300a8a80d5f422907", async() => {
                 WriteLiteral("\r\n                        <span aria-hidden=\"true\">&raquo;</span>\r\n                    ");
             }
             );

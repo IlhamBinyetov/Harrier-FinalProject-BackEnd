@@ -33,7 +33,7 @@ namespace HarrierFinalProject.Controllers
         }
 
 
-        public async Task<IActionResult> CreateContact(ContactViewModel contactVM)
+        public IActionResult CreateContact(ContactViewModel contactVM)
         {   
             Contact contact = new Contact()
             {

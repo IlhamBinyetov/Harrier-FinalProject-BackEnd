@@ -33,8 +33,15 @@ using HarrierFinalProject.Data.Models.Enums;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Areas\Manage\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"575d48b0023a62be5c92b63a7ff1929c6b5fb9df", @"/Areas/Manage/Views/Order/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b3737e42c1a81a89048956286ac23bb9dcb77966", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a274e9240ef55a57b54d7f94d89b863944a79e67", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Order_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<OrderViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +88,7 @@ using HarrierFinalProject.Data.Models.Enums;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"container-fluid\" style=\"font-size:16px\">\r\n        <div class=\"d-flex justify-content-between align-items-center\">\r\n            <h1>Orders</h1>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df7089", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df7338", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -183,7 +190,7 @@ WriteAttributeValue("", 1441, order.Status == OrderStatus.Accepted ? "success" :
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                                </span>\r\n                            </h5>\r\n                        </td>\r\n                        <td>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df12333", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df12582", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -235,7 +242,7 @@ WriteAttributeValue(" ", 2288, ViewBag.SelectedPage == 1 ? "disabled" : "", 2289
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df15842", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df16091", async() => {
                 WriteLiteral("\r\n                            <span aria-hidden=\"true\">&laquo;</span>\r\n                        ");
             }
             );
@@ -288,7 +295,7 @@ WriteAttributeValue(" ", 2732, i == ViewBag.SelectedPage ? "active" : "", 2733, 
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df19265", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df19514", async() => {
 #nullable restore
 #line 59 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Areas\Manage\Views\Order\Index.cshtml"
                                                                                                                                                   Write(i);
@@ -346,7 +353,7 @@ WriteAttributeValue(" ", 2919, ViewBag.SelectedPage == ViewBag.TotalPage ? "disa
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df22837", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "575d48b0023a62be5c92b63a7ff1929c6b5fb9df23086", async() => {
                 WriteLiteral("\r\n                            <span aria-hidden=\"true\">&raquo;</span>\r\n                        ");
             }
             );

@@ -33,8 +33,15 @@ using HarrierFinalProject.Data.Models.Enums;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Areas\Manage\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a71fed8588639e00033216c2920ddbe7b2763d2d", @"/Areas/Manage/Views/Car/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b3737e42c1a81a89048956286ac23bb9dcb77966", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a274e9240ef55a57b54d7f94d89b863944a79e67", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Car_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<CarViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -84,7 +91,7 @@ using HarrierFinalProject.Data.Models.Enums;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"container\" style=\"width:100%;\">\r\n    <div class=\"d-flex justify-content-between align-items-center pt-5\">\r\n        <div class=\"col-6\">\r\n            <h1>Cars</h1>\r\n\r\n        </div>\r\n        <div class=\"col-2\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d8026", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d8275", async() => {
                 WriteLiteral("Create");
             }
             );
@@ -168,7 +175,7 @@ using HarrierFinalProject.Data.Models.Enums;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n                    <td>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a71fed8588639e00033216c2920ddbe7b2763d2d11775", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a71fed8588639e00033216c2920ddbe7b2763d2d12024", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -192,7 +199,7 @@ AddHtmlAttributeValue("", 1434, carItem.CarImages.FirstOrDefault(x=>x.IsPoster==
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</td>\r\n                    <td>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d13501", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d13750", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -224,7 +231,7 @@ AddHtmlAttributeValue("", 1434, carItem.CarImages.FirstOrDefault(x=>x.IsPoster==
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d15815", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d16064", async() => {
                 WriteLiteral("Delete");
             }
             );
@@ -300,7 +307,7 @@ WriteAttributeValue(" ", 2421, ViewBag.SelectedPage==1?"disabled":"", 2422, 40, 
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d20309", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d20558", async() => {
                 WriteLiteral("\r\n                        <span aria-hidden=\"true\">&laquo;</span>\r\n                    ");
             }
             );
@@ -353,7 +360,7 @@ WriteAttributeValue(" ", 2829, i==ViewBag.SelectedPage?"active":"", 2830, 38, fa
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d23690", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d23939", async() => {
 #nullable restore
 #line 70 "C:\Users\binye\Desktop\Harrier-FinalProject-BackEnd\HarrierFinalProject\HarrierFinalProject\Areas\Manage\Views\Car\Index.cshtml"
                                                                                                                                         Write(i);
@@ -411,7 +418,7 @@ WriteAttributeValue(" ", 3002, ViewBag.SelectedPage==ViewBag.TotalPage?"disabled
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d27216", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71fed8588639e00033216c2920ddbe7b2763d2d27465", async() => {
                 WriteLiteral("\r\n                        <span aria-hidden=\"true\">&raquo;</span>\r\n                    ");
             }
             );

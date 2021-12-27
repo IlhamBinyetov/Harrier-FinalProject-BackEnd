@@ -1,0 +1,58 @@
+﻿@inject UserManager<AppUser> userManager
+@model ContactsViewModel
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+   //var member = userManager.GetUserAsync(User).Result;
+    
+    
+}
+
+<div class="container" style="width:100%;">
+    <div class="d-flex justify-content-between align-items-center pt-5">
+        <div class="col-6">
+            <h1>Contact Messages</h1>
+
+        </div>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" style="font-size:14px">#</th>
+                <th scope="col" style="font-size:14px"> User Name</th>
+                <th scope="col" style="font-size:14px"> User Email</th>
+                <th scope="col" style="font-size:14px">Subject</th>
+                <th scope="col" style="font-size:14px">Message</th>
+                
+
+                <th scope="col" style="font-size:14px">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model.Contacts)
+            {
+                order++;
+            <tr>
+                <th scope="row">@order</th>
+               
+                <td>@Model.AppUser.Fullname</td>
+                <td style="font-size:14px">@Model.AppUser.Email</td>
+                <td style="font-size:14px">@contact.Subject</td>
+                <td style="font-size:14px"><textarea class="p-3">@contact.Message</textarea> </td>
+             
+                <td>
+
+                    <a asp-action="deletefetch" asp-route-id="@contact.Id" class="btn btn-danger btn-item-delete" style="font-size:14px">Delete</a>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+</div>
+
