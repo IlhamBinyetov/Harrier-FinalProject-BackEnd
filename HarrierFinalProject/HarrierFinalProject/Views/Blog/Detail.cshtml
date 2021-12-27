@@ -12,34 +12,43 @@
     <section class="blog-detail">
         <div class="detail-item">
             <div class="detail-img">
-                <img src="~/assets/images/@Model.BLog.Image" alt="" data-id="@Model.BLog.Id">
+                <img src="~/assets/images/@Model?.BLog?.Image" alt="" data-id="@Model?.BLog?.Id">
             </div>
             <div class="detail-info">
-                <h2>@Model.BLog.Name</h2>
+                <h2>@Model?.BLog?.Name</h2>
                 <p class="date-content">
                     <i class="far fa-clock"></i>
-                    <span>@Model.BLog.PostDate.ToString("MMMM dd, yyyy")</span>
+                    <span>@Model?.BLog?.PostDate.ToString("MMMM dd, yyyy")</span>
                 </p>
             </div>
             <div class="detail-description">
-                <p>@Model.BLog.Description</p>
+                <p>@Model?.BLog?.Description</p>
             </div>
             <div></div>
         </div>
 
         <div class="detail-comments">
             <div class="comment-header">
-                <h3>@Model.BLog.Comments.Count thoughts on “@Model.BLog.Name”</h3>
+                <h3>@Model?.BLog?.Comments?.Count thoughts on “@Model?.BLog?.Name”</h3>
             </div>
-            @foreach (var item in Model?.BLog.Comments)
+            @foreach (var item in Model?.BLog?.Comments)
             {
                 <div class="comment-list">
+
                     <div class="user-img col-1">
-                            <img src="~/assets/images/@item.AppUser.Image" alt="">
+                        @if (item.AppUser?.Image != null)
+                        {
+                            <img src="~/assets/images/@item.AppUser?.Image" alt="">
+                        }
+                        else
+                        {
+                            <img src="~/assets/images/empty-user.png" alt="">
+                        }
+
                     </div>
                     <div class="comment-info">
                         <div>
-                            <strong>@item.AppUser.Fullname</strong>
+                            <strong>@item.AppUser?.Fullname</strong>
                             <span>- @item.PostDate.ToString("MMM dd, yyyy")</span>
                         </div>
 

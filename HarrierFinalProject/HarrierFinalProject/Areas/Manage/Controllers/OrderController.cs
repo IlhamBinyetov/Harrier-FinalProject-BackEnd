@@ -28,9 +28,19 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             _emailService = emailService;
             _hubContext = hubContext;
         }
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, string search=null)
         {
-            List<Order> orders = _context.Orders.OrderByDescending(x => x.CreatedAt).Include(x => x.Car).Include(x => x.AppUser).Skip((page - 1) * 6).Take(6).ToList();
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            var query = _context.Orders.OrderByDescending(x => x.CreatedAt).Include(x => x.Car).Include(x => x.AppUser).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(x => x.AppUser.Fullname.Contains(search) || x.Car.Brand.Name.Contains(search));
+
+            List<Order> orders = query.Skip((page - 1) * 6).Take(6).ToList();
 
             ViewBag.TotalPage = Math.Ceiling(_context.Orders.Count() / 6m);
             ViewBag.SelectedPage = page;

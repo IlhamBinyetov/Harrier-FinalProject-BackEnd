@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
+    //[Authorize(Roles = "SuperAdmin, Admin")]
     public class CarController : Controller
     {
         private readonly AppDbContext _context;
@@ -26,10 +27,27 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
         public IActionResult Index(int page=1, string search=null)
         {
-            List<Car> cars = _context.Cars.Include(c=>c.Brand).Include(c=>c.Model).Include(c=>c.CarImages).Skip((page-1)*4).Take(4).ToList();
+            if (page <= 0)
+            {
+                page = 1;
+            }
 
-            ViewBag.TotalPage = Math.Ceiling(_context.Cars.Count() / 4m);
+            var query = _context.Cars.Include(x => x.Brand).Include(x => x.Model).Include(c => c.CarImages).AsQueryable();
+
+            ViewBag.CurrenSearch = search;
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(x => x.Brand.Name.Contains(search) || x.Model.Name.Contains(search));
+
+            List<Car> cars = query.Skip((page-1)*4).Take(4).ToList();
+
+            ViewBag.TotalPage = Math.Ceiling(query.Count() / 4m);
             ViewBag.SelectedPage = page;
+
+          
+          
+
+            
 
 
             CarViewModel carVM = new CarViewModel()

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
+    //[Authorize(Roles = "SuperAdmin, Admin")]
     public class CityController : Controller
     {
         private readonly AppDbContext _context;
@@ -18,9 +19,21 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             _context = context;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, string search=null)
         {
-            List<City> cities = _context.Cities.Skip((page - 1) * 6).Take(6).ToList();
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            var query = _context.Cities.AsQueryable();
+
+            ViewBag.CurrenSearch = search;
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(x => x.Name.Contains(search));
+
+            List<City> cities = query.Skip((page - 1) * 6).Take(6).ToList();
 
             ViewBag.TotalPage = Math.Ceiling(_context.Cities.Count() / 6m);
             ViewBag.SelectedPage = page;

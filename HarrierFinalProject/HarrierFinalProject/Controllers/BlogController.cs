@@ -41,7 +41,7 @@ namespace HarrierFinalProject.Controllers
         {
             BlogDetailViewModel detailVM = new BlogDetailViewModel()
             {
-                BLog = _context.Blogs.Include(x=>x.Comments).FirstOrDefault(x=>x.Id == id),
+                BLog = _context.Blogs.Include(x=>x.Comments).ThenInclude(x=>x.AppUser).FirstOrDefault(x=>x.Id == id),
                 Advertisings = _context.Advertisings.ToList()
             }; 
 
@@ -66,7 +66,7 @@ namespace HarrierFinalProject.Controllers
             _context.Comments.Add(comment);
             _context.SaveChanges();
 
-            return RedirectToAction("Detail", "Blog");
+            return RedirectToAction("Detail", "Blog",new { id = commentVM.BlogId});
         }
     }
 }

@@ -18,10 +18,21 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int page=1)
+        public IActionResult Index(int page=1, string search=null)
         {
+            if (page <= 0)
+            {
+                page = 1;
+            }
 
-            List<CarColor> carColors = _context.CarColors.Skip((page - 1) * 8).Take(8).ToList();
+            var query = _context.CarColors.AsQueryable();
+
+            ViewBag.CurrenSearch = search;
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(x => x.Name.Contains(search));
+
+            List<CarColor> carColors = query.Skip((page - 1) * 8).Take(8).ToList();
 
 
             ViewBag.TotalPage = Math.Ceiling(_context.CarColors.Count() / 8m);

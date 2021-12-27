@@ -30,14 +30,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var comment in Model.Comments)
+            @foreach (var comment in Model?.Comments)
             {
                 order++;
             <tr>
                 <th scope="row">@order</th>
 
-                @*<td>@member.Fullname</td>
-                <td style="font-size:14px">@member.Email</td>*@
+                <td>@comment.AppUser?.Fullname</td>
+                <td style="font-size:14px">@comment.AppUser?.Email</td>
                 <td style="font-size:14px">@comment.Description</td>
                 <td style="font-size:14px">@comment.PostDate</td>
 

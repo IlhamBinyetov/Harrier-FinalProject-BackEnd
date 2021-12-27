@@ -24,11 +24,11 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
         public IActionResult Index()
         {
-            List<Comment> Comments = _context.Comments.Include(x=>x.AppUser).ToList();
+            List<Comment> comments = _context.Comments.Include(x=>x.AppUser).ToList();
 
             CommentsViewModel commentVM = new CommentsViewModel()
             {
-                Comments = Comments
+                Comments = comments
             };
 
             return View(commentVM);

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
+    //[Authorize(Roles = "SuperAdmin, Admin")]
     public class ModelController : Controller
     {
         private readonly AppDbContext _context;
@@ -19,9 +20,22 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, string search=null)
         {
-            List<Model> models = _context.Models.Include(x=>x.Brand).Skip((page - 1) * 8).Take(8).ToList();
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            var query = _context.Models.Include(x => x.Brand).AsQueryable();
+
+
+            ViewBag.CurrenSearch = search;
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(x => x.Brand.Name.Contains(search) || x.Name.Contains(search));
+
+            List<Model> models = query.Skip((page - 1) * 8).Take(8).ToList();
 
             ViewBag.TotalPage = Math.Ceiling(_context.Models.Count() / 8m);
             ViewBag.SelectedPage = page;

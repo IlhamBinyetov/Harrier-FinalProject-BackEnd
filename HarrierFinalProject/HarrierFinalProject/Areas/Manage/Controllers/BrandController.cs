@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
+    //[Authorize(Roles = "SuperAdmin, Admin")]
     public class BrandController : Controller
     {
         private readonly AppDbContext _context;
@@ -17,18 +18,27 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int page=1)
+        public IActionResult Index(int page=1, string search=null)
         {
-            List<Brand> brands = _context.Brands.Skip((page - 1) * 8).Take(8).ToList();
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+            var query = _context.Brands.AsQueryable();
+
+            ViewBag.CurrenSearch = search;
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(x => x.Name.Contains(search));
+
+            List<Brand> brands = query.Skip((page - 1) * 8).Take(8).ToList();
 
 
             ViewBag.TotalPage = Math.Ceiling(_context.Brands.Count() / 8m);
             ViewBag.SelectedPage = page;
 
-            //if (page <= 0)
-            //{
-            //    return View();
-            //} 
+           
 
 
             return View(brands);
