@@ -22,13 +22,22 @@ namespace HarrierFinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+
             List<Car> cars = _context.Cars.Include(c => c.Brand)
                                         .Include(c => c.Model)
                                         .Include(c => c.CarImages)
-                                        .Where(c=>c.CarSituationId ==1 && c.IsAccepted==true)
+                                        .Where(c=>c.CarSituationId ==1 && c.IsAccepted==true).Skip((page - 1) * 5).Take(5)
                                         .ToList();
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Cars.Count() / 5m);
+            ViewBag.SelectedPage = page;
 
 
             CarViewModel carVM  = new CarViewModel()

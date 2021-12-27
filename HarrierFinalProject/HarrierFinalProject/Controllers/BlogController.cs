@@ -21,9 +21,19 @@ namespace HarrierFinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(BlogViewModel BlogVM)
+        public IActionResult Index( BlogViewModel BlogVM, int page = 1)
         {
-            List<Blog> blogs = _context.Blogs.ToList();
+            if (page <= 0)
+            {
+                page = 1;
+            }
+
+           
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Blogs.Count() / 2m);
+            ViewBag.SelectedPage = page;
+
+            List<Blog> blogs = _context.Blogs.Skip((page - 1) * 2).Take(2).ToList();
             List<Advertising> advertisings = _context.Advertisings.ToList();
 
             BlogVM = new BlogViewModel()

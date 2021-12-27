@@ -55,21 +55,35 @@
                 </div>
             }
             
-            <div class="pagination">
-                <nav aria-label="Page navigation example ">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    @if (ViewBag.SelectedPage > 1)
+                    {
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.SelectedPage-1)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
-                    </ul>
-                </nav>
-            </div>
+                    }
+
+                    @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                    {
+                        <li class="page-item @(i==ViewBag.SelectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+
+                    }
+                    @if (ViewBag.SelectedPage != ViewBag.TotalPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.SelectedPage+1)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </nav>
+        </div>
         </div>
     </section>
 
