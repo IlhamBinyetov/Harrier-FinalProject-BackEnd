@@ -1,0 +1,56 @@
+﻿
+@model AdminViewModel
+@{
+    ViewData["Title"] = "CreateAdmin";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title-area text-center">
+                <h1 class="section-title">Register <br>Your Account</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="account-login-inner">
+                <form class="ltn__form-box contact-form-box" method="post">
+                    <div class="col-md-12 col-12 mb--15">
+                        <label asp-for="FullName">Full Name</label>
+                        <input asp-for="FullName" class="mb-0 form-control" type="text" id="FullName"
+                               placeholder="Enter your full name">
+                        <span class="text-danger" asp-validation-for="FullName"></span>
+                    </div>
+                    <div class="col-md-12 col-12 mb--15">
+                        <label asp-for="UserName">UserName</label>
+                        <input asp-for="UserName" class="mb-0 form-control" type="text" id="UserName"
+                               placeholder="Enter your full name">
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="col-md-12 col-12 mb--15">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="mb-0 form-control" id="Email" placeholder="Enter Your Email ">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="col-md-12 col-12 mb--15">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" class="mb-0 form-control" id="password" placeholder="Enter your password">
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="col-md-12 col-12 mb--15">
+                        <label asp-for="ConfirmPassword">Repeat Password</label>
+                        <input asp-for="ConfirmPassword" class="mb-0 form-control" id="ConfirmPassword" placeholder="Repeat your password">
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                    <div class="text-center"> 
+                        <button class="btn btn-primary mt-5" type="submit">CREATE Admin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

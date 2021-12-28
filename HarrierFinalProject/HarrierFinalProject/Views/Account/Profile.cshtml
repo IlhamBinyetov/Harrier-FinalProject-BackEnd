@@ -4,7 +4,17 @@
     int index = 0;
 }
 
-
+@if (TempData["Success"] != null)
+{
+    if ((bool)TempData["Success"] == true)
+    {
+        <input type="hidden" id="success" />
+    }
+    else
+    {
+        <input type="hidden" id="error" />
+    }
+}
 <main>
     <section class="account">
         <div class="tabs">
@@ -98,9 +108,9 @@
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="form-items">
 
-                                <div class=" col-10 m-auto account-image" >
+                                <div class=" col-10 m-auto account-image">
                                     <div style="margin-left: 40%; ">
-                                        <label for="browse" style="cursor:pointer"><img style="border-radius: 50%; ";  src="~/assets/images/@Model.Image" alt="Alternate Text" />   @*<img src="~/assets/images/user12.jpeg" alt="Alternate Text" />*@</label>
+                                        <label for="browse" style="cursor:pointer"><img style="border-radius: 50%; " ; src="~/assets/images/@Model.Image" alt="Alternate Text" />   @*<img src="~/assets/images/user12.jpeg" alt="Alternate Text" />*@</label>
                                         <input asp-for="FileImage" type="file" id="browse" style="visibility:hidden;">
                                         <span class="text-danger" asp-validation-for="FileImage"></span>
                                     </div>
@@ -204,22 +214,7 @@
         </div>
     </section>
 
-    <section class="newsletter-section">
-        <h5>NEWSLETTER</h5>
-        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
-        <div class="form-elements">
-            <form action="email">
-                <input type="email"
-                       name="email"
-                       placeholder="Your email address"
-                       id="email" />
-                <button type="submit" class="subs-btn">
-                    <span><i class="bi bi-envelope-fill envelope"></i></span>
-                    Subscribe
-                </button>
-            </form>
-        </div>
-    </section>
+
 
     <section class="scroll-section">
         <button type="button"
@@ -235,7 +230,39 @@
 <script>
 
     $('.account-image').on("click", function () {
-        console.log("salam")
-        $(".input-class").trigger("click"); 
+
+        $(".input-class").trigger("click");
     })
 </script>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "400",
+                "hideDuration": "1000",
+                "timeOut": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            if ($("#success").length) {
+                toastr["success"]("Your profile has been changed successfully!")
+            }
+            else if ($("#error").length) {
+                toastr["error"]("Something went wrong!")
+            }
+        })
+    </script>
+}

@@ -35,7 +35,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             List<City> cities = query.Skip((page - 1) * 6).Take(6).ToList();
 
-            ViewBag.TotalPage = Math.Ceiling(_context.Cities.Count() / 6m);
+            ViewBag.TotalPage = Math.Ceiling(query.Count() / 6m);
             ViewBag.SelectedPage = page;
 
             return View(cities);

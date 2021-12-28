@@ -63,6 +63,7 @@ namespace HarrierFinalProject.Controllers
         [HttpGet]
         public IActionResult SubmitCar()
         {
+          
 
             List<City> cities = _context.Cities.ToList();
             List<Model> models = _context.Models.ToList();
@@ -94,13 +95,15 @@ namespace HarrierFinalProject.Controllers
 
             };
 
-
+          
             return View(submitVM);
         }
 
         [HttpPost]
         public IActionResult SubmitCar(SubmitViewModel submitVM)
         {
+            TempData["Success"] = false;
+
             Car car = new Car()
             {
                 BrandId = submitVM.BrandId,
@@ -203,8 +206,8 @@ namespace HarrierFinalProject.Controllers
             _context.Cars.Add(car);
             _context.SaveChanges();
 
-
-            return RedirectToAction("index");
+            TempData["Success"] = true;
+            return RedirectToAction("Index");
 
 
         }

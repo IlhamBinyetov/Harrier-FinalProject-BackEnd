@@ -201,6 +201,7 @@ namespace HarrierFinalProject.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Profile(ProfileViewModel profileVM)
         {
+            TempData["Success"] = false;
 
             if (!ModelState.IsValid) return View();
 
@@ -282,6 +283,7 @@ namespace HarrierFinalProject.Controllers
                 return View();
             }
 
+            TempData["Success"] = true;
             return RedirectToAction("profile");
         }
 

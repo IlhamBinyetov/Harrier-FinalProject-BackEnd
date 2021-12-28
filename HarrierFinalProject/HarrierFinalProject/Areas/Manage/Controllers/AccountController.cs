@@ -1,5 +1,6 @@
 ﻿using HarrierFinalProject.Areas.Manage.ViewModels;
 using HarrierFinalProject.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -79,6 +80,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             }
 
 
+
+
             return RedirectToAction("index", "dashboard");
         }
 
@@ -88,6 +91,126 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             await _signInManager.SignOutAsync();
 
             return RedirectToAction("login", "account");
+        }
+
+
+
+        public IActionResult IndexAdmin()
+        {
+            var members = _userManager.Users.Where(x => x.IsAdmin == true).ToList();
+
+            List<AdminViewModel> adminList = new List<AdminViewModel>();
+
+
+            foreach (var item in members)
+            {
+                adminList.Add(new AdminViewModel()
+                {
+                    Id = item.Id,
+                    UserName = item.UserName,
+                    FullName = item.Fullname,
+                    Email = item.Email
+                });
+            }
+
+
+            return View(adminList);
+        }
+
+        [HttpGet]
+        //[Authorize(Roles = "SuperAdmin")]
+        public IActionResult CreateAdmin()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> CreateAdmin(AdminViewModel AdminVM)
+        {
+            AppUser admin = await _userManager.FindByNameAsync(AdminVM.UserName);
+            if (admin != null)
+            {
+                ModelState.AddModelError("UserName", "UserName has  already been taken!");
+                return View();
+            }
+
+
+            admin = await _userManager.FindByEmailAsync(AdminVM.Email);
+            if (admin != null)
+            {
+                ModelState.AddModelError("Email", "Email has already been taken!");
+                return View();
+            }
+
+            admin = new AppUser
+            {
+                IsAdmin = true,
+                Fullname = AdminVM.FullName,
+                UserName = AdminVM.UserName,
+                Email = AdminVM.Email
+
+            };
+
+
+            var result = await _userManager.CreateAsync(admin, AdminVM.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View();
+            }
+
+            await _userManager.AddToRoleAsync(admin, "Admin");
+            await _signInManager.SignInAsync(admin, true);
+
+            return RedirectToAction("Index", "Dashboard");
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> EditAdmin(string id)
+        {
+            AppUser admin = await _userManager.FindByIdAsync(id);
+            if (admin == null) return NotFound();
+
+            return View(admin);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> EditAdmin(AdminViewModel AdminVM)
+        {
+
+            if (!ModelState.IsValid) return View();
+
+            AppUser existUser = await _userManager.FindByIdAsync(AdminVM.Id);
+
+            if (existUser == null) return NotFound();
+
+            existUser.Fullname = AdminVM.FullName;
+            existUser.UserName = AdminVM.UserName;
+            existUser.Email = AdminVM.Email;
+
+            await _userManager.UpdateAsync(existUser);
+
+            return RedirectToAction("index");
+        }
+
+        public async Task<IActionResult> Delete(string name)
+        {
+
+            AppUser deleteadmin = _userManager.Users.FirstOrDefault(x => x.UserName == name);
+
+            await _userManager.DeleteAsync(deleteadmin);
+
+
+            return RedirectToAction("IndexAdmin");
         }
     }
 }

@@ -42,7 +42,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             List<Order> orders = query.Skip((page - 1) * 6).Take(6).ToList();
 
-            ViewBag.TotalPage = Math.Ceiling(_context.Orders.Count() / 6m);
+            ViewBag.TotalPage = Math.Ceiling(query.Count() / 6m);
             ViewBag.SelectedPage = page;
 
             OrderViewModel orderVM = new OrderViewModel()

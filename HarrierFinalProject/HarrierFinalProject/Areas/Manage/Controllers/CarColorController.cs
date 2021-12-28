@@ -35,7 +35,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             List<CarColor> carColors = query.Skip((page - 1) * 8).Take(8).ToList();
 
 
-            ViewBag.TotalPage = Math.Ceiling(_context.CarColors.Count() / 8m);
+            ViewBag.TotalPage = Math.Ceiling(query.Count() / 8m);
             ViewBag.SelectedPage = page;
 
             CarColorViewModel CarColorVM = new CarColorViewModel()

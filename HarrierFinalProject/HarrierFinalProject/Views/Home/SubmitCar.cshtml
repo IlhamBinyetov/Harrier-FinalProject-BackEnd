@@ -16,7 +16,17 @@
 }
 
 
-
+@if (TempData["Success"] != null)
+{
+    if ((bool)TempData["Success"] == true)
+    {
+        <input type="hidden" id="success" />
+    }
+    else
+    {
+        <input type="hidden" id="error" />
+    }
+}
 
 <main>
     <section class="car-upload">
@@ -275,22 +285,7 @@
     </section>
 
 
-    <section class="newsletter-section">
-        <h5>NEWSLETTER</h5>
-        <h4>GET NOTIFIED OF ANY UPDATES!</h4>
-        <div class="form-elements">
-            <form action="email">
-                <input type="email"
-                       name="email"
-                       placeholder="Your email address"
-                       id="email" />
-                <button type="submit" class="subs-btn">
-                    <span><i class="bi bi-envelope-fill envelope"></i></span>
-                    Subscribe
-                </button>
-            </form>
-        </div>
-    </section>
+
 
     <section class="scroll-section">
         <button type="button"
@@ -333,3 +328,35 @@
 
     })
 </script>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "400",
+                "hideDuration": "1000",
+                "timeOut": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            if ($("#success").length) {
+                toastr["success"]("Your car has been send to the DataBase successfully!")
+            }
+            else if ($("#error").length) {
+                toastr["error"]("Something went wrong!")
+            }
+        })
+    </script>
+}

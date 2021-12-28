@@ -30,9 +30,9 @@
         <form asp-action="CreateContact" asp-controller="Contact">
             <div class="d-flex justify-content-between mb-4">
                 <div class="col-5">
-                    
+
                     <label asp-for="Name">Your Name(required)</label>
-                    <input asp-for="Name"  value="@(member != null ? member.Fullname:"")" type="text" />
+                    <input asp-for="Name" value="@(member != null ? member.Fullname:"")" type="text" />
                     <span asp-validation-for="Name"></span>
                 </div>
                 <div class="col-5">
@@ -71,24 +71,15 @@
             </div>
 
         }
-        
+
     </div>
 </section>
 
-<section class="newsletter-section">
-    <h5>NEWSLETTER</h5>
-    <h4>GET NOTIFIED OF ANY UPDATES!</h4>
-    <div class="form-elements">
-        <form action="email">
-            <input type="email"
-                   name="email"
-                   placeholder="Your email address"
-                   id="email" />
-            <button type="submit" class="subs-btn">
-                <span><i class="bi bi-envelope-fill envelope"></i></span>
-                Subscribe
-            </button>
-        </form>
-    </div>
+<section class="scroll-section">
+    <button type="button"
+            class="btn btn-danger btn-floating btn-lg"
+            id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 </section>
 
