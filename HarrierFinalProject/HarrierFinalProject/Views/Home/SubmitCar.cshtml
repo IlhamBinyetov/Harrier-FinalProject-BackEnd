@@ -319,7 +319,7 @@
             data: JSON.stringify(data),
             success: function (resp) {
                 let modelss = resp.models;
-                $('.modelSelect').append(`<option selected="selected" value="">Sec</option>`);
+                $('.modelSelect').append(`<option selected="selected" value="">Choose Model</option>`);
                 modelss.forEach(function (model) {
                     $('.modelSelect').append(`<option value="${model.id}">${model.name}</option>`);
                 })

@@ -7,7 +7,20 @@
 
     List<BasketViewModel> favitems = service.GetFavorites();
 
-    
+
+    List<City> cities = Model?.Cities;
+    List<Brand> brands = Model?.Brands;
+    List<FuelType> fuelTypes = Model?.FuelTypes;
+    List<Transmission> transmissions = Model?.Transmissions;
+    List<Gearbox> gearboxes = Model?.Gearboxes;
+    List<Feature> features = Model?.Features;
+    List<CarStatus> carStatuses = Model?.CarStatuses;
+    List<CarType> carTypes = Model?.CarTypes;
+    List<CarColor> carColors = Model?.CarColors;
+    List<Slider> sliders = Model?.Sliders;
+    List<Model> models = Model?.Models;
+    Car carItem = Model?.Car;
+
 }
 
 
@@ -34,7 +47,7 @@
                          style="width: 100%" />
                 </div>
             }
-            
+
 
         </div>
 
@@ -50,90 +63,42 @@
     </div>
 
     <div class="filter-part">
-        <form action="">
+        <form asp-action="Index" asp-controller="Car">
             <label for="">FIND YOUR RIGHT CAR</label>
             <br />
             <br />
 
-            <select class="sel-example form-control" id="sel1">
-                <option value="0">Select Make</option>
-                <option value="1">Acura</option>
-                <option value="2">Audi</option>
-                <option value="3">BMW</option>
-                <option value="4">Chevrolet</option>
-                <option value="5">Hyundai</option>
-                <option value="6">Kia</option>
-                <option value="7">Mazda</option>
-                <option value="8">Mercedes-Benz</option>
-                <option value="9">Nissan</option>
-                <option value="10">Toyota</option>
+            <select asp-for="FilterVM.BrandId" class="form-control brand">
+                <option>Select Brand</option>
+                @if (brands != null)
+                {
+                    @foreach (var brand in brands)
+                    {
+                        <option value="@brand.Id">@brand.Name</option>
+                    }
+                }
+
             </select>
 
-            <select name="" id="sel2" class="sel-example form-control">
-                <option value="">Select Model</option>
-                <option data-val="1">CL</option>
-                <option data-val="1">IlX</option>
-                <option data-val="1">Ilx Hybrid</option>
-                <option data-val="1">Integra</option>
-                <option data-val="2">A3</option>
-                <option data-val="2">A5</option>
-                <option data-val="2">A7</option>
-                <option data-val="2">A8</option>
-                <option data-val="3">X1</option>
-                <option data-val="3">X3</option>
-                <option data-val="3">X5</option>
-                <option data-val="3">X6</option>
-                <option data-val="3">X7</option>
-                <option data-val="3">Z8</option>
-                <option data-val="4">Cruze</option>
-                <option data-val="4">Aveo</option>
-                <option data-val="4">Volt</option>
-                <option data-val="5">Elantra</option>
-                <option data-val="5">Sonata</option>
-                <option data-val="5">Tucson</option>
-                <option data-val="6">Sorento</option>
-                <option data-val="6">Optima</option>
-                <option data-val="6">Cerato</option>
-                <option data-val="7">CX-3</option>
-                <option data-val="7">CX-5</option>
-                <option data-val="7">Mazda5</option>
-                <option data-val="8">GL</option>
-                <option data-val="8">Sprinter</option>
-                <option data-val="8">E220</option>
-                <option data-val="9">Sunny</option>
-                <option data-val="9">X-Trail</option>
-                <option data-val="9">Altima</option>
-                <option data-val="10">Corolla</option>
-                <option data-val="10">Prado</option>
-                <option data-val="10">Land Cruiser</option>
+            <select asp-for="FilterVM.ModelId" class="sel-example form-control modelSelect">
+                <option>Select first brand</option>
+
             </select>
 
-            <select name="" class="sel-example form-control">
-                <option value="0">Select Max Price</option>
-                <option value="1">$500</option>
-                <option value="2">$1000</option>
-                <option value="3">$2000</option>
-                <option value="4">$3000</option>
-                <option value="5">$10000</option>
-            </select>
+            <div class="d-flex justify-content-between mt-3">
+                <label asp-for="FilterVM.Price" class="col-5">Maximum Price</label>
+                <input asp-for="FilterVM.Price" type="text" class="col-5" style="outline:none" />
+            </div>
 
-            <select name="" class="sel-example form-control">
-                <option value="0">Select Min Year</option>
-                <option value="1">2021</option>
-                <option value="2">2020</option>
-                <option value="3">2019</option>
-                <option value="4">2018</option>
-                <option value="5">2017</option>
-            </select>
+            <div class="d-flex justify-content-between mt-3">
+                <label asp-for="FilterVM.DateOfProduct" class="col-5">Minimum Year</label>
+                <input asp-for="FilterVM.DateOfProduct" type="text" class="col-5" style="outline:none" />
+            </div>
 
-            <select name="" class="sel-example form-control">
-                <option value="0">Select Max Mileage</option>
-                <option value="1">2500 miles</option>
-                <option value="2">5000 miles</option>
-                <option value="3">7500 miles</option>
-                <option value="4">10000 miles</option>
-                <option value="5">15000 miles</option>
-            </select>
+            <div class="d-flex justify-content-between mt-3">
+                <label asp-for="FilterVM.Mileage" class="col-5">Maximum Mileage(km)</label>
+                <input asp-for="FilterVM.Mileage" type="text" class="col-5" style="outline:none" />
+            </div>
 
             <button type="submit" class="btn btn-primary button">
                 Search Vehicle
@@ -164,7 +129,7 @@
                 </div>
             }
 
-    
+
         </div>
     </div>
 
@@ -175,8 +140,8 @@
         <div class=" col-5">
             <img src="~/assets/images/960.jpg" alt="" />
         </div>
-        
-        
+
+
     </div>
 
     <div class="deals">
@@ -212,55 +177,55 @@
         <div class="deals-footer">
             @foreach (var car in cars)
             {
-            <div class="car-item col-3 @(car.CarSituationId == 0 ? "sold-car": "")">
-                <div class="item-info">
-                    <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" />
-                    <span>@car.CarStatus?.Name</span>
-                    <p><a href="">@car.Brand?.Name @car.Model?.Name</a></p>
-                </div>
-                <div class="seperator"></div>
-                <div class="item-price">
-                    <p>$ @car.Price.ToString("0.##")</p>
-                </div>
+                <div class="car-item col-3 @(car.CarSituationId == 0 ? "sold-car": "")">
+                    <div class="item-info">
+                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" />
+                        <span>@car.CarStatus?.Name</span>
+                        <p><a href="">@car.Brand?.Name @car.Model?.Name</a></p>
+                    </div>
+                    <div class="seperator"></div>
+                    <div class="item-price">
+                        <p>$ @car.Price.ToString("0.##")</p>
+                    </div>
 
-                <div class="other-info d-flex justify-content-evenly">
-                    <div class="infos">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>@car.Mileage</p>
-                    </div>
-                    <div class="infos">
-                        <i class="bi bi-gear-fill"></i>
-                        <p>@car.Gearbox.Name</p>
-                    </div>
-                    <div class="infos">
-                        <div><i class="bi bi-calendar3"></i></div>
-                        <p>@car.DateOfProduct.Year</p>
-                    </div>
-                   
-                </div>
-                <div class="hover-items">
-                    <div class="rhombus col-6">
-                        <div>
-                            <a asp-action="detail" asp-controller="car" asp-route-id="@car.Id" ><i class="bi bi-link"></i></a>
+                    <div class="other-info d-flex justify-content-evenly">
+                        <div class="infos">
+                            <i class="bi bi-speedometer2"></i>
+                            <p>@car.Mileage</p>
                         </div>
-                    </div>
-                    <div class="rhombus col-6">
-                        <div>
-                            <a  data-id="@car.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@car.Id" class="favorite"><i class="fas fa-shopping-cart "></i></a>
+                        <div class="infos">
+                            <i class="bi bi-gear-fill"></i>
+                            <p>@car.Gearbox.Name</p>
                         </div>
-                    </div>
-                    
-                </div>
-                @if(car.CarSituationId == 0)
-                {
-                    <div class="sold-pic">
-                        <img src="~/assets/images/sold.png" alt="" />
-                    </div>
-                }
+                        <div class="infos">
+                            <div><i class="bi bi-calendar3"></i></div>
+                            <p>@car.DateOfProduct.Year</p>
+                        </div>
 
-            </div>
+                    </div>
+                    <div class="hover-items">
+                        <div class="rhombus col-6">
+                            <div>
+                                <a asp-action="detail" asp-controller="car" asp-route-id="@car.Id"><i class="bi bi-link"></i></a>
+                            </div>
+                        </div>
+                        <div class="rhombus col-6">
+                            <div>
+                                <a data-id="@car.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@car.Id" class="favorite"><i class="fas fa-shopping-cart "></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    @if (car.CarSituationId == 0)
+                    {
+                        <div class="sold-pic">
+                            <img src="~/assets/images/sold.png" alt="" />
+                        </div>
+                    }
+
+                </div>
             }
-       
+
 
         </div>
     </div>
@@ -279,7 +244,7 @@
                 </p>
                 <p class="author"><span>@comment.AppUser?.Fullname</span></p>
             </div>
-        } 
+        }
 
         <div class="dot-container">
             <span class="dot active" onclick="currentSlide(1)"></span>
@@ -336,12 +301,12 @@
                                 <a data-id="@car.Id" asp-action="AddToBasket" asp-controller="Home" asp-route-id="@car.Id" class="favorite"><i class="fas fa-shopping-cart"></i></a>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             }
 
-         
+
         </div>
     </div>
 </section>
@@ -372,13 +337,13 @@
                         <a href="">@blog.Name</a>
                     </h3>
                     <p>
-                        @blog.Description   
+                        @blog.Description
                     </p>
                 </div>
             </div>
         }
 
-       
+
     </div>
 </section>
 
@@ -428,3 +393,36 @@
     </button>
 </section>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $('.brand').on('change', function (e) {
+        console.log("salam");
+        $('.modelSelect').empty();
+        e.preventDefault();
+        let url = "@Url.Action("GetModelByBrand", "Home")";
+        var id = $(this).val();
+        let data = {
+            BrandId: id
+        };
+
+
+        $.ajax({
+            type: "post",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            responseType: "json",
+            url: url,
+            data: JSON.stringify(data),
+            success: function (resp) {
+                let modelss = resp.models;
+                $('.modelSelect').append(`<option selected="selected" value="">Choose Model</option>`);
+                modelss.forEach(function (model) {
+                    $('.modelSelect').append(`<option value="${model.id}">${model.name}</option>`);
+                })
+            }
+        });
+
+    })
+</script>

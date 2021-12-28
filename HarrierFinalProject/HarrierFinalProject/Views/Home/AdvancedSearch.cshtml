@@ -1,242 +1,211 @@
-﻿
+﻿@model HomeViewModel 
 @{
     ViewData["Title"] = "AdvancedSearch";
+
+
+    List<City> cities = Model?.Cities;
+    List<Brand> brands = Model?.Brands;
+    List<FuelType> fuelTypes = Model?.FuelTypes;
+    List<Transmission> transmissions = Model?.Transmissions;
+    List<Gearbox> gearboxes = Model?.Gearboxes;
+    List<Feature> features = Model?.Features;
+    List<CarStatus> carStatuses = Model?.CarStatuses;
+    List<CarType> carTypes = Model?.CarTypes;
+    List<CarColor> carColors = Model?.CarColors;
+    List<Slider> sliders = Model?.Sliders;
+    List<Model> models = Model?.Models;
+    Car carItem = Model?.Car;
 }
 
 
 <main>
     <section class="advanced-search">
         <h3>Advanced Search</h3>
-        <form action="">
+        <form asp-action="Index" asp-controller="Car">
             <div class="search-product">
                 <div class="left-side col-5">
-                    <label for="" class="col-4">Marka</label>
-                    <select class="sel-example form-control col-8" id="sel1">
-                        <option value="0">Butun Markalar</option>
-                        <option value="1">Acura</option>
-                        <option value="2">Audi</option>
-                        <option value="3">BMW</option>
-                        <option value="4">Chevrolet</option>
-                        <option value="5">Hyundai</option>
-                        <option value="6">Kia</option>
-                        <option value="7">Mazda</option>
-                        <option value="8">Mercedes-Benz</option>
-                        <option value="9">Nissan</option>
-                        <option value="10">Toyota</option>
+                    <label class="col-4 brand">Brand</label>
+                    <select asp-for="FilterVM.BrandId" class=" form-control col-6 brand" style="width:66%">
+                        <option>Select Brand</option>
+                        @if (brands != null)
+                        {
+                            @foreach (var brand in brands)
+                            {
+                                <option value="@brand.Id">@brand.Name</option>
+                            }
+                        }
                     </select>
                 </div>
                 <div class="right-side col-5">
-                    <label for="" class="col-4">City</label>
-                    <select name="" id="" class="col-8 sel-example form-control">
-                        <option value="">Baku</option>
-                        <option value="">Sumqayit</option>
-                        <option value="">Quba</option>
-                        <option value="">Lenkeran</option>
-                        <option value="">Siyezen</option>
-                        <option value="">Kurdemir</option>
-                        <option value="">Seki</option>
+                    <label class="col-4">City</label>
+                    <select asp-for="FilterVM.CityId" class="col-8 sel-example form-control">
+                        <option>Select City</option>
+                        @if (cities != null)
+                        {
+                            @foreach (var city in cities)
+                            {
+                                <option value="@city.Id">@city.Name</option>
+                            }
+                        }
                     </select>
                 </div>
             </div>
             <div class="search-product">
                 <div class="left-side col-5">
                     <label for="" class="col-4">Model</label>
-                    <select name="" id="sel2" class="sel-example form-control col-8">
-                        <option value="">Butun Modeller</option>
-                        <option data-val="1">CL</option>
-                        <option data-val="1">IlX</option>
-                        <option data-val="1">Ilx Hybrid</option>
-                        <option data-val="1">Integra</option>
-                        <option data-val="2">A3</option>
-                        <option data-val="2">A5</option>
-                        <option data-val="2">A7</option>
-                        <option data-val="2">A8</option>
-                        <option data-val="3">X1</option>
-                        <option data-val="3">X3</option>
-                        <option data-val="3">X5</option>
-                        <option data-val="3">X6</option>
-                        <option data-val="3">X7</option>
-                        <option data-val="3">Z8</option>
-                        <option data-val="4">Cruze</option>
-                        <option data-val="4">Aveo</option>
-                        <option data-val="4">Volt</option>
-                        <option data-val="5">Elantra</option>
-                        <option data-val="5">Sonata</option>
-                        <option data-val="5">Tucson</option>
-                        <option data-val="6">Sorento</option>
-                        <option data-val="6">Optima</option>
-                        <option data-val="6">Cerato</option>
-                        <option data-val="7">CX-3</option>
-                        <option data-val="7">CX-5</option>
-                        <option data-val="7">Mazda5</option>
-                        <option data-val="8">GL</option>
-                        <option data-val="8">Sprinter</option>
-                        <option data-val="8">E220</option>
-                        <option data-val="9">Sunny</option>
-                        <option data-val="9">X-Trail</option>
-                        <option data-val="9">Altima</option>
-                        <option data-val="10">Corolla</option>
-                        <option data-val="10">Prado</option>
-                        <option data-val="10">Land Cruiser</option>
+                    <select asp-for="FilterVM.ModelId" class="sel-example form-control col-8 modelSelect">
+                        <option>Select first brand</option>
                     </select>
                 </div>
                 <div class="right-side col-5">
-                    <label for="" class="col-4">Yanacaq Novu</label>
-                    <select name="" id="" class="col-8 sel-example form-control">
-                        <option value="">Dizel</option>
-                        <option value="">Benzin</option>
-                        <option value="">Qaz</option>
-                        <option value="">Elektro</option>
-                        <option value="">Hibrid</option>
+                    <label class="col-4">FuelType</label>
+                    <select asp-for="FilterVM.FuelTypeId" class="col-8 sel-example form-control">
+                        <option>Select FuelType</option>
+                        @if (fuelTypes != null)
+                        {
+                            @foreach (var fuelType in fuelTypes)
+                            {
+                                <option value="@fuelType.Id">@fuelType.Name</option>
+                            }
+                        }
                     </select>
                 </div>
             </div>
             <div class="search-product">
                 <div class="left-side col-5">
-                    <label for="" class="col-4">Ban Novu</label>
-                    <select name="" class="sel-example form-control col-8">
-                        <option value="">Butun tipler</option>
-                        <option value="">Furqon</option>
-                        <option value="">Hetcbek/Liftbek</option>
-                        <option value="">Sedan</option>
-                        <option value="">Universal</option>
-                        <option value="">Yuk masini</option>
-                        <option value="">Pikap</option>
+                    <label class="col-4">Car Type</label>
+                    <select asp-for="FilterVM.CarTypeId" class="sel-example form-control col-8">
+                        <option>Select Car Type</option>
+                        @if (carTypes != null)
+                        {
+                            @foreach (var carType in carTypes)
+                            {
+                                <option value="@carType.Id">@carType.Name</option>
+                            }
+                        }
                     </select>
                 </div>
                 <div class="right-side col-5">
-                    <label for="" class="col-4">Oturucu</label>
-                    <select name="" id="" class="col-8 sel-example form-control">
-                        <option value="">Butun tipler</option>
-                        <option value="">Arxa</option>
-                        <option value="">On</option>
-                        <option value="">Tam</option>
-                    </select>
-                </div>
-            </div>
-            <div class="search-product">
-                <div class="left-side col-5">
-                    <label for="" class="col-4">Reng</label>
-                    <select name="" class="sel-example form-control col-8">
-                        <option value="">Butun</option>
-                        <option value="">Qara</option>
-                        <option value="">Ag</option>
-                        <option value="">Yas Asfalt</option>
-                        <option value="">Qirmizi</option>
-                        <option value="">Bej</option>
-                        <option value="">Gumusu</option>
-                    </select>
-                </div>
-                <div class="right-side col-5">
-                    <label for="" class="col-4">Suretler Qutusu</label>
-                    <select name="" id="" class="col-8 sel-example form-control">
-                        <option value="">Butun</option>
-                        <option value="">Mexaniki</option>
-                        <option value="">Avtomat</option>
-                        <option value="">Robot</option>
-                        <option value="">Variator</option>
+                    <label class="col-4">Transmission</label>
+                    <select asp-for="FilterVM.TransmissionId" class="col-8 sel-example form-control">
+                        <option>Select Transmission</option>
+                        @if (transmissions != null)
+                        {
+                            @foreach (var transmission in transmissions)
+                            {
+                                <option value="@transmission.Id">@transmission.Name</option>
+                            }
+                        }
                     </select>
                 </div>
             </div>
             <div class="search-product">
                 <div class="left-side col-5">
-                    <label for="" class="col-4">Yurus</label>
+                    <label class="col-4">CarColor</label>
+                    <select asp-for="FilterVM.CarColorId" class="sel-example form-control col-8">
+                        <option>Select Car Color</option>
+                        @if (carColors != null)
+                        {
+                            @foreach (var carColor in carColors)
+                            {
+                                <option value="@carColor.Id">@carColor.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="right-side col-5">
+                    <label class="col-4">GearBox</label>
+                    <select asp-for="FilterVM.GearboxId" class="col-8 sel-example form-control">
+                        <option>Select Gearbox</option>
+                        @if (gearboxes != null)
+                        {
+                            @foreach (var gearbox in gearboxes)
+                            {
+                                <option value="@gearbox.Id">@gearbox.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="search-product">
+                <div class="left-side col-5">
+                    <label for="" class="col-4">Mileage</label>
                     <div class="range col-8">
                         <label for="" class="col-2">min.</label>
-                        <input type="text" class="col-4" />
+                        <input  asp-for="FilterVM.MileageFrom" type="text" class="col-4" />
                         <label for="" class="col-2">maks.</label>
-                        <input type="text" class="col-4" />
+                        <input asp-for="FilterVM.MileageTo" type="text" class="col-4" />
                     </div>
                 </div>
                 <div class="right-side col-5">
-                    <label for="" class="col-4">Buraxilis ili </label>
+                    <label for="" class="col-4">Date Of Product </label>
                     <div class="range col-8">
-                        <label for="" class="col-2">min.</label>
-                        <input type="text" class="col-4" />
-                        <label for="" class="col-2">maks.</label>
-                        <input type="text" class="col-4" />
+                        <label asp-for="FilterVM.DateOfProductFrom" class="col-2">min.</label>
+                        <input type="number" class="col-4" />
+                        <label asp-for="FilterVM.DateOfProductTo" class="col-2">maks.</label>
+                        <input type="number" class="col-4" />
                     </div>
                 </div>
             </div>
             <div class="search-product">
                 <div class="left-side col-5">
-                    <label for="" class="col-4">Qiymet</label>
+                    <label for="" class="col-4">Price</label>
                     <div class="range col-8">
-                        <label for="" class="col-2">min.</label>
+                        <label asp-for="FilterVM.PriceFrom" class="col-2">min.</label>
                         <input type="text" class="col-4" />
-                        <label for="" class="col-2">maks.</label>
+                        <label asp-for="FilterVM.PriceTo" class="col-2">maks.</label>
                         <input type="text" class="col-4" />
                     </div>
                 </div>
                 <div class="right-side col-5">
-                    <label for="" class="col-4">Muherrikin hecmi, sm3 </label>
+                    <label for="" class="col-4">Motor Power, sm3 </label>
                     <div class="range col-8">
-                        <label for="" class="col-2">min.</label>
+                        <label asp-for="FilterVM.MotorPowerFrom" class="col-2">min.</label>
                         <input type="text" class="col-4" />
-                        <label for="" class="col-2">maks.</label>
+                        <label asp-for="FilterVM.MotorPowerTo" class="col-2">maks.</label>
                         <input type="text" class="col-4" />
                     </div>
                 </div>
             </div>
-            <h4>Avtomobilin techizati</h4>
+            <h4>Car Features</h4>
             <div class="car-tags">
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Yungul lehimli diskler</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">ABS</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Lyuk</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Yagis sensoru</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Merkezi Qapanma</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Park radar</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Kondisioner</label>
-                </div>
-                <div class="tag-item col-3">
-                    <input type="checkbox" class="col-2" />
-                    <label for="" class="col-6">Deri salon</label>
-                </div>
-            </div>
-            <h4>Axtarisin neticeleri</h4>
-            <div class="search-result">
-                <div class="d-flex col-5">
-                    <label for="" class="col-4">Cesidleme</label>
-                    <select name="" id="" class="sel-example form-control col-6">
-                        <option value="">Tarixe gore</option>
-                        <option value="">Evvel Ucuz</option>
-                        <option value="">Evvel bahali</option>
-                        <option value="">Yurus</option>
-                        <option value="">Buraxilis ili</option>
-                    </select>
-                </div>
-                <div class="d-flex col-5">
-                    <label for="" class="col-4">Avtomobilleri goster</label>
-                    <select name="" id="" class="sel-example form-control col-6">
-                        <option value="">Butun</option>
-                        <option value="">Islenmis</option>
-                        <option value="">Yeni</option>
-                    </select>
-                </div>
-            </div>
+                @if (features != null)
+                {
+                    @foreach (var feature in features)
+                    {
+                        <div class="tag-item col-3">
+                            <input type="checkbox"  class="col-2" />
+                            <label for="" class="col-6">@feature.Name</label>
+                        </div>
 
-            <button type="submit" class="search-btn">Elanlari goster</button>
-        </form>
+                    }
+                }
+            </div>
+            
+                <h4>Axtarisin neticeleri</h4>
+                <div class="search-result">
+                    <div class="d-flex col-5">
+                        <label for="" class="col-4">Cesidleme</label>
+                        <select name="" id="" class="sel-example form-control col-6">
+                            <option value="">Tarixe gore</option>
+                            <option value="">Evvel Ucuz</option>
+                            <option value="">Evvel bahali</option>
+                            <option value="">Yurus</option>
+                            <option value="">Buraxilis ili</option>
+                        </select>
+                    </div>
+                    <div class="d-flex col-5">
+                        <label for="" class="col-4">Avtomobilleri goster</label>
+                        <select name="" id="" class="sel-example form-control col-6">
+                            <option value="">Butun</option>
+                            <option value="">Islenmis</option>
+                            <option value="">Yeni</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="search-btn">Elanlari goster</button>
+</form>
     </section>
 
     <section class="features-section">
@@ -281,7 +250,37 @@
     </section>
 
 
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $('.brand').on('change', function (e) {
+        console.log("salam");
+        $('.modelSelect').empty();
+        e.preventDefault();
+        let url = "@Url.Action("GetModelByBrand", "Home")";
+        var id = $(this).val();
+        let data = {
+            BrandId: id
+        };
+
+
+        $.ajax({
+            type: "post",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            responseType: "json",
+            url: url,
+            data: JSON.stringify(data),
+            success: function (resp) {
+                let modelss = resp.models;
+                $('.modelSelect').append(`<option selected="selected" value="">Choose Model</option>`);
+                modelss.forEach(function (model) {
+                    $('.modelSelect').append(`<option value="${model.id}">${model.name}</option>`);
+                })
+            }
+        });
+
+    })
+    </script>
 
 
 </main>

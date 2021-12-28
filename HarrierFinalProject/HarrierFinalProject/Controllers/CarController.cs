@@ -22,23 +22,78 @@ namespace HarrierFinalProject.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int page=1)
+        public IActionResult Index(FilterViewModel filterVM, int page=1)
         {
             if (page <= 0)
             {
                 page = 1;
             }
 
+            var query = _context.Cars.Include(x => x.Brand).Include(x => x.Model).Include(c => c.CarImages).Where(c=>c.CarSituationId==1 && c.IsAccepted==true).AsQueryable();
+            List<Car> cars = query.ToList();
 
-            List<Car> cars = _context.Cars.Include(c => c.Brand)
-                                        .Include(c => c.Model)
-                                        .Include(c => c.CarImages)
-                                        .Where(c=>c.CarSituationId ==1 && c.IsAccepted==true).Skip((page - 1) * 5).Take(5)
-                                        .ToList();
 
-            ViewBag.TotalPage = Math.Ceiling(_context.Cars.Count() / 5m);
+
+
+            if (filterVM != null)
+            {
+                if (filterVM.BrandId != null)
+                {
+                    cars =  cars.Where(x => x.BrandId == filterVM.BrandId).ToList();
+                }
+                if (filterVM.ModelId != null)
+                {
+                    cars = cars.Where(x => x.ModelId == filterVM.ModelId).ToList();
+                }
+                if(filterVM.Mileage != null)
+                {
+                    cars = cars.Where(x => Int32.Parse(x.Mileage) <= Int32.Parse(filterVM.Mileage)).ToList();
+                }
+                if(filterVM.Price != null)
+                {
+                    cars = cars.Where(x => x.Price <= filterVM.Price).ToList();
+                }
+                if(filterVM.DateOfProduct != null)
+                {
+                    cars = cars.Where(x => x.DateOfProduct >= filterVM.DateOfProduct).ToList();
+                }
+                if (filterVM.CityId != null)
+                {
+                    cars = cars.Where(x => x.CityId == filterVM.CityId).ToList();
+                }
+                if (filterVM.FuelTypeId != null)
+                {
+                    cars = cars.Where(x => x.FuelTypeId == filterVM.FuelTypeId).ToList();
+                }
+                if (filterVM.TransmissionId != null)
+                {
+                    cars = cars.Where(x => x.TransmissionId == filterVM.TransmissionId).ToList();
+                }
+                if (filterVM.GearboxId != null)
+                {
+                    cars = cars.Where(x => x.GearboxId == filterVM.GearboxId).ToList();
+                }
+                if (filterVM.CarColorId != null)
+                {
+                    cars = cars.Where(x => x.CarColorId == filterVM.CarColorId).ToList();
+                }
+                if (filterVM.CarTypeId != null)
+                {
+                    cars = cars.Where(x => x.CarTypeId == filterVM.CarTypeId).ToList();
+                }
+                if (filterVM.MileageFrom != null)
+                {
+                    cars = cars.Where(x => Int32.Parse(x.Mileage) >= Int32.Parse(filterVM.MileageFrom)).ToList();
+                }
+                if (filterVM.MileageTo != null)
+                {
+                    cars = cars.Where(x => Int32.Parse(x.Mileage) <= Int32.Parse(filterVM.MileageTo)).ToList();
+                }
+            } 
+
+            ViewBag.TotalPage = Math.Ceiling(cars.Count() / 5m);
             ViewBag.SelectedPage = page;
-
+            cars = cars.Skip((page - 1) * 5).Take(5).ToList();
 
             CarViewModel carVM  = new CarViewModel()
             {

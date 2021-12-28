@@ -39,6 +39,8 @@ namespace HarrierFinalProject.Controllers
                                           .Include(c => c.Transmission)
                                           .Include(c=>c.CarStatus) 
                                           .ToList();
+
+
             var comments = _context.Comments.Include(x => x.AppUser).OrderByDescending(x => x.PostDate).Take(3).ToList();
             homeVM = new HomeViewModel()
             {
@@ -48,16 +50,34 @@ namespace HarrierFinalProject.Controllers
                 Cars = cars,
                 Partners = _context.Partners.ToList(),
                 Blogs = _context.Blogs.ToList(), 
-                Advertisings = _context.Advertisings.ToList()
-            
+                Advertisings = _context.Advertisings.ToList(),
+                Brands = _context.Brands.ToList()
+                
             };
 
             return View(homeVM);
         }
 
-        public IActionResult AdvancedSearch()
+        public IActionResult AdvancedSearch(HomeViewModel homeVM)
         {
-            return View();
+
+            homeVM = new HomeViewModel()
+            {
+
+                CarTypes = _context.CarTypes.ToList(),
+                FuelTypes = _context.FuelTypes.ToList(),
+                Brands = _context.Brands.ToList(),
+                Models = _context.Models.ToList(),
+                Gearboxes = _context.Gearboxes.ToList(),
+                Cities = _context.Cities.ToList(),
+                CarColors = _context.CarColors.ToList(),
+                CarFeatures = _context.CarFeatures.ToList(),
+                Transmissions = _context.Transmissions.ToList(),
+                Features = _context.Features.ToList()
+
+
+            };
+            return View(homeVM);
         }
 
         [HttpGet]
@@ -256,6 +276,10 @@ namespace HarrierFinalProject.Controllers
 
 
         }
+
+
+
+
 
         [HttpPost]
         [Produces("application/json")]
