@@ -56,5 +56,8 @@ namespace HarrierFinalProject.Data.Models
         [NotMapped]
         public List<int> FeatureIds { get; set; } = new List<int>();
 
+        public AppUser AppUser { get; set; }
+        public int? AppUserId { get; set; }
+
     }
 }

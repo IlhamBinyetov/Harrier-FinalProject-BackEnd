@@ -71,9 +71,10 @@
                         <div class="brand-name col-8">
                             <p>@car.Brand.Name @car.Model.Name </p>
                             <div>
-                                <a href=""><i class="bi bi-telephone"></i><span>+@member.PhoneNumber</span></a>
+                                <a href=""><i class="bi bi-telephone"></i><span>+@car?.AppUser?.PhoneNumber</span></a>
+                               
                                 <a href="">
-                                    <i class="bi bi-envelope"></i><span>@member.Email</span>
+                                    <i class="bi bi-envelope"></i><span>@car?.AppUser?.Email</span>
                                 </a>
 
                                 <p class="description">

@@ -20,5 +20,7 @@ namespace HarrierFinalProject.Data.Models
         [NotMapped]
         public IFormFile ImageFile { get; set; }
 
+        public List<Car> Cars { get; set; }
+
     }
 }

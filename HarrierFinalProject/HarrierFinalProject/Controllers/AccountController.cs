@@ -293,7 +293,7 @@ namespace HarrierFinalProject.Controllers
         {
             return View();
         }
-
+         
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel forgotVM) 
@@ -322,6 +322,44 @@ namespace HarrierFinalProject.Controllers
             _emailService.Send(user.Email, "Reset Password", body);
 
                 return RedirectToAction("login");
+        }
+
+
+
+        public async Task<IActionResult>  ResetPassword(string token, string email)
+        {
+            ResetPasswordViewModel resetPasswordVM = new ResetPasswordViewModel
+            {
+                Token = token,
+                Email = email
+            };
+
+            return View(resetPasswordVM);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordVM)
+        {
+            if (!ModelState.IsValid) return View(resetPasswordVM);
+
+            AppUser user = await _userManager.FindByEmailAsync(resetPasswordVM.Email);
+
+            if (user == null) return NotFound();
+
+            var resetResult = await _userManager.ResetPasswordAsync(user, resetPasswordVM.Token, resetPasswordVM.Password);
+
+            if (!resetResult.Succeeded)
+            {
+                foreach (var item in resetResult.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View();
+            }
+
+            return RedirectToAction("login");
         }
     }
 }
