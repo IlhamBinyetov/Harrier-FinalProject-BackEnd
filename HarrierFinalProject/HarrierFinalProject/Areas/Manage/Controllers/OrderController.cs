@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
-    //[Authorize(Roles = "Admin,SuperAdmin")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     [Area("manage")]
     public class OrderController : Controller
     {

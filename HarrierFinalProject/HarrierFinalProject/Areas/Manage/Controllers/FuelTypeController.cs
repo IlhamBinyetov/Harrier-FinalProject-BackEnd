@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = "SuperAdmin, Admin")]
     public class FuelTypeController : Controller
     {
         private readonly AppDbContext _context;
