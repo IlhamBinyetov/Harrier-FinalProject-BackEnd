@@ -176,10 +176,15 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> EditAdmin(string id)
         {
+           
+
             AppUser admin = await _userManager.FindByIdAsync(id);
             if (admin == null) return NotFound();
-
-            return View(admin);
+            AdminViewModel adminVM = new AdminViewModel()
+            {
+                AppUser = admin
+            };
+            return View(adminVM);
         }
 
         [HttpPost]

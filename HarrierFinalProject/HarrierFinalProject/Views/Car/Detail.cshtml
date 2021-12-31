@@ -64,35 +64,35 @@
                             <tbody>
                                 <tr class="col-6">
                                     <th>Condition</th>
-                                    <td><span>@Model?.Car.CarStatus.Name</span></td>
+                                    <td><span>@Model?.Car?.CarStatus?.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Mileage</th>
-                                    <td><span>@Model?.Car.Mileage</span></td>
+                                    <td><span>@Model?.Car?.Mileage</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Year</th>
-                                    <td><span>@Model?.Car.DateOfProduct.ToString("yyyy")</span></td>
+                                    <td><span>@Model?.Car?.DateOfProduct.ToString("yyyy")</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Engine</th>
-                                    <td><span>@Model?.Car.MotorPower</span></td>
+                                    <td><span>@Model?.Car?.MotorPower</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Fuel</th>
-                                    <td><span>@Model?.Car.FuelType.Name</span></td>
+                                    <td><span>@Model?.Car?.FuelType?.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Transmission</th>
-                                    <td><span>@Model?.Car.Gearbox.Name</span></td>
+                                    <td><span>@Model?.Car?.Gearbox?.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Color</th>
-                                    <td><span>@Model?.Car.CarColor.Name</span></td>
+                                    <td><span>@Model?.Car?.CarColor?.Name</span></td>
                                 </tr>
                                 <tr class="col-6">
                                     <th>Doors</th>
-                                    <td><span>@Model?.Car.DoorCount</span></td>
+                                    <td><span>@Model?.Car?.DoorCount</span></td>
                                 </tr>
 
 
@@ -270,7 +270,7 @@
                             </div>
                             <div class="infos">
                                 <i class="bi bi-gear-fill"></i>
-                                <p>@relatedCar.Gearbox.Name</p>
+                                <p>@relatedCar?.Gearbox?.Name</p>
                             </div>
                             <div class="infos">
                                 <div><i class="bi bi-calendar3"></i></div>

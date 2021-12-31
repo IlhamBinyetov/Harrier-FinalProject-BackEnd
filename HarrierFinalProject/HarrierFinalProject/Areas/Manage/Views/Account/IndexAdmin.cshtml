@@ -30,9 +30,9 @@
                     <p style="font-size:14px">@item.Email</p>
                 </td>
                 <td style="font-size:12px">
-                    @Html.ActionLink("Edit", "editadmin", new { name = item.UserName }) |
+                    @Html.ActionLink("Edit", "EditAdmin", new { id = item.Id })
                     @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                    @Html.ActionLink("Delete", "delete", new { name = item.UserName })
+                    @Html.ActionLink("Delete", "Delete", new { name = item.UserName })
                     
                 </td>
             </tr>

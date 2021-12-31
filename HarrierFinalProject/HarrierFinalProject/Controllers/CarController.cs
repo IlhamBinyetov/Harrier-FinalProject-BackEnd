@@ -29,7 +29,7 @@ namespace HarrierFinalProject.Controllers
                 page = 1;
             }
 
-            var query = _context.Cars.Include(x => x.Brand).Include(x => x.Model).Include(c => c.CarImages).Where(c=>c.CarSituationId==1 && c.IsAccepted==true).AsQueryable();
+            var query = _context.Cars.Include(x=>x.AppUser).Include(x => x.Brand).Include(x => x.Model).Include(c => c.CarImages).Where(c=>c.CarSituationId==1 && c.IsAccepted==true).AsQueryable();
             List<Car> cars = query.ToList();
 
 
@@ -89,6 +89,63 @@ namespace HarrierFinalProject.Controllers
                 {
                     cars = cars.Where(x => Int32.Parse(x.Mileage) <= Int32.Parse(filterVM.MileageTo)).ToList();
                 }
+                if (filterVM.DateOfProductFrom != null)
+                {
+                    cars = cars.Where(x =>x.DateOfProduct >= filterVM.DateOfProductFrom).ToList();
+                }
+                if (filterVM.DateOfProductTo != null)
+                {
+                    cars = cars.Where(x =>x.DateOfProduct <= filterVM.DateOfProductTo).ToList();
+                }
+                if (filterVM.PriceFrom != null)
+                {
+                    cars = cars.Where(x => x.Price >= filterVM.PriceFrom).ToList();
+                }
+                if (filterVM.PriceTo != null)
+                {
+                    cars = cars.Where(x => x.Price <= filterVM.PriceTo).ToList();
+                }
+                if (filterVM.MotorPowerFrom != null)
+                {
+                    cars = cars.Where(x => Int32.Parse(x.MotorPower) >= Int32.Parse(filterVM.MotorPowerFrom)).ToList();
+                }
+                if (filterVM.MotorPowerTo != null)
+                {
+                    cars = cars.Where(x => Int32.Parse(x.MotorPower) <= Int32.Parse(filterVM.MotorPowerTo)).ToList();
+                }
+
+                if (filterVM.SortId != null)
+                {
+                    if (filterVM.SortId==0)
+                    {
+                        cars = cars.OrderByDescending(x => x.DateOfProduct).ToList();
+                    }
+                    if (filterVM.SortId == 1)
+                    {
+                        cars = cars.OrderBy(x => x.Price).ToList();
+                    }
+                    if (filterVM.SortId == 2)
+                    {
+                        cars = cars.OrderByDescending(x => x.Price).ToList();
+                    }
+                }
+                if (filterVM.CarSituationId != null)
+                {
+                    if (filterVM.CarSituationId == 1)
+                    {
+                        cars = cars.Where(x => x.CarStatusId == 2).ToList();
+                    }
+                    if (filterVM.CarSituationId == 2)
+                    {
+                        cars = cars.Where(x => x.CarStatusId == 1).ToList();
+                    }
+                }
+                if (filterVM.FeatureIds != null)
+                {
+                    
+                    
+                }
+
             } 
 
             ViewBag.TotalPage = Math.Ceiling(cars.Count() / 5m);

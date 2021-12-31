@@ -26,12 +26,12 @@
                     <ul>
                         @foreach (var item in Model.CarTypes)
                         {
-                            <li>
-                                <a asp-action="Index" asp-controller="Car" class="col-4">@item.Name</a>
-                                <img src="~/assets/images/@item.Image"
-                                     alt=""
-                                     class="col-8" />
-                            </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Car" asp-route-filterVM.CarTypeId="@item.Id" class="col-4">@item.Name</a> 
+                            <img src="~/assets/images/@item.Image"
+                                 alt=""
+                                 class="col-8" />
+                        </li>
                         }
                     </ul>
                 </div>

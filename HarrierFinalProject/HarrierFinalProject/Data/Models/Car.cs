@@ -57,7 +57,7 @@ namespace HarrierFinalProject.Data.Models
         public List<int> FeatureIds { get; set; } = new List<int>();
 
         public AppUser AppUser { get; set; }
-        public int? AppUserId { get; set; }
+        public string AppUserId { get; set; }
 
     }
 }

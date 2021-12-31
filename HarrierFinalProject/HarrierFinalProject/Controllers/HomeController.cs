@@ -42,6 +42,8 @@ namespace HarrierFinalProject.Controllers
 
 
             var comments = _context.Comments.Include(x => x.AppUser).OrderByDescending(x => x.PostDate).Take(3).ToList();
+            var blogs = _context.Blogs.OrderByDescending(x=>x.PostDate).Take(3).ToList();
+            var expensiveCars = _context.Cars.OrderByDescending(x => x.Price).Take(4).ToList();
             homeVM = new HomeViewModel()
             {
                 Sliders = _context.Sliders.ToList(),
@@ -49,9 +51,12 @@ namespace HarrierFinalProject.Controllers
                 Comments = comments,
                 Cars = cars,
                 Partners = _context.Partners.ToList(),
-                Blogs = _context.Blogs.ToList(), 
+                Blogs = blogs,
                 Advertisings = _context.Advertisings.ToList(),
-                Brands = _context.Brands.ToList()
+                Brands = _context.Brands.ToList(),
+                Gearboxes = _context.Gearboxes.ToList(),
+                ExpensiveCars  = expensiveCars
+                
                 
             };
 
@@ -124,6 +129,8 @@ namespace HarrierFinalProject.Controllers
         {
             TempData["Success"] = false;
 
+            var member = _userManager.GetUserAsync(User).Result;
+
             Car car = new Car()
             {
                 BrandId = submitVM.BrandId,
@@ -146,7 +153,8 @@ namespace HarrierFinalProject.Controllers
                 HorsePower = submitVM.HorsePower,
                 CarImages = new List<CarImage>(),
                 CarFeatures = new List<CarFeature>(),
-                IsAccepted = false
+                IsAccepted = false,
+                AppUserId = member.Id
             };
 
 
@@ -227,7 +235,46 @@ namespace HarrierFinalProject.Controllers
             _context.SaveChanges();
 
             TempData["Success"] = true;
-            return RedirectToAction("Index");
+
+
+
+            List<City> cities = _context.Cities.ToList();
+            List<Model> models = _context.Models.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<Transmission> transmissions = _context.Transmissions.ToList();
+            List<Gearbox> gearboxes = _context.Gearboxes.ToList();
+            List<CarColor> carColors = _context.CarColors.ToList();
+            List<Feature> features = _context.Features.ToList();
+            List<CarStatus> carStatuses = _context.CarStatuses.ToList();
+            List<FuelType> fuelTypes = _context.FuelTypes.ToList();
+            List<CarType> carTypes = _context.CarTypes.ToList();
+            List<CarImage> carImages = _context.CarImages.ToList();
+
+
+
+            submitVM = new SubmitViewModel()
+            {
+                Cities = cities,
+                Models = models,
+                Brands = brands,
+                Transmissions = transmissions,
+                Gearboxes = gearboxes,
+                CarColors = carColors,
+                Features = features,
+                CarStatuses = carStatuses,
+                FuelTypes = fuelTypes,
+                CarTypes = carTypes,
+                CarImages = carImages
+
+            };
+
+
+
+
+
+
+
+            return View(submitVM);
 
 
         }

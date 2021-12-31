@@ -7,7 +7,7 @@
     //double totalCount = 0;
     //totalCount = favitems.Sum(x => x.CarPrice * x.);
 
-    AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
+    AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name) : null;
 }
 
 <!DOCTYPE html>
@@ -172,7 +172,7 @@
                             <p>@service.GetSetting().Address</p>
                         </li>
                         <li>+@service.GetSetting().Phone</li>
-                        <li><a href="">@service.GetSetting().Email</a></li>
+                        <li><a asp-action="Index" asp-controller="Contact">@service.GetSetting().Email</a></li>
                         <li>Mon – Fri : 09am to 06pm</li>
                     </ul>
                 </div>
@@ -182,29 +182,29 @@
                         <li><a href="">FAQs</a></li>
                         <li><a href="">Payment</a></li>
                         <li><a href="">Shipment</a></li>
-                        <li><a href="">Where is my order?</a></li>
+                        <li><a asp-action="Profile" asp-controller="Account">Where is my order?</a></li>
                         <li><a href="">Return Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-3">
                     <h4>STYLE ADVISOR</h4>
                     <ul>
-                        <li><a href="">My account</a></li>
+                        <li><a asp-action="Profile" asp-controller="Account">My account</a></li>
                         <li><a href=""> Information</a></li>
                         <li><a href=""> Addresses</a></li>
                         <li><a href=""> Discount</a></li>
-                        <li><a href=""> Orders History</a></li>
+                        <li><a asp-action="Profile" asp-controller="Account"> Orders History</a></li>
                         <li><a href=""> Additional Information</a></li>
                     </ul>
                 </div>
                 <div class="col-3">
                     <h4>INFORMATION</h4>
                     <ul>
-                        <li><a href="">Site Map</a></li>
-                        <li><a href="">Search Terms</a></li>
-                        <li><a href="">Advanced Search</a></li>
+                        <li><a asp-action="Index" asp-controller="Contact">Site Map</a></li>
+                        
+                        <li><a asp-action="AdvancedSearch" asp-controller="Home">Advanced Search</a></li>
                         <li><a href="">About Us</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a asp-action="Index" asp-controller="Contact">Contact Us</a></li>
                         <li><a href="">Suppliers</a></li>
                     </ul>
                 </div>

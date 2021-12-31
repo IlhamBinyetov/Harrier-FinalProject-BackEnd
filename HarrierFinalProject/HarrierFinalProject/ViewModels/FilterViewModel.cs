@@ -28,6 +28,11 @@ namespace HarrierFinalProject.ViewModels
         public decimal? PriceTo { get; set; }
         public string MotorPowerFrom { get; set; }
         public string MotorPowerTo { get; set; }
+        public List<Car> Cars { get; set; }
+        public int? SortId { get; set; }
+
+        public int? CarSituationId { get; set; }
+        public List<int> FeatureIds { get; set; } = new List<int>();
 
     }
 }

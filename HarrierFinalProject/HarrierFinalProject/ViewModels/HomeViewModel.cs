@@ -17,6 +17,7 @@ namespace HarrierFinalProject.ViewModels
         public List<Blog> Blogs { get; set; }
         public List<Advertising> Advertisings { get; set; }
         public List<CarFeature> CarFeatures { get; set; }
+       public List<Car> ExpensiveCars { get; set; }
 
         public FilterViewModel FilterVM { get; set; }
 
@@ -33,6 +34,7 @@ namespace HarrierFinalProject.ViewModels
         public int DoorCount { get; set; }
         public string Mileage { get; set; }
         public decimal Price { get; set; }
+       
 
 
 

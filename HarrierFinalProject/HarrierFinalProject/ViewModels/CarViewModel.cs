@@ -34,5 +34,7 @@ namespace HarrierFinalProject.ViewModels
         public bool isOrder { get; set; } = false;
         public CommentViewModel CommentViewModel { get; set; }
 
+        public FilterViewModel FilterViewModel { get; set; }
+
     }
 }

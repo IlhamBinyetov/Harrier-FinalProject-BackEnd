@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarrierFinalProject.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -41,5 +42,7 @@ namespace HarrierFinalProject.Areas.Manage.ViewModels
         [StringLength(maximumLength: 100, MinimumLength = 6)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        public AppUser AppUser { get; set; }
     }
 }

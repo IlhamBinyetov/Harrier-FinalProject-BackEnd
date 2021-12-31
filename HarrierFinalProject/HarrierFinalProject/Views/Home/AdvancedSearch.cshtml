@@ -15,6 +15,7 @@
     List<Slider> sliders = Model?.Sliders;
     List<Model> models = Model?.Models;
     Car carItem = Model?.Car;
+    List<Car> cars = Model?.Cars;
 }
 
 
@@ -140,10 +141,10 @@
                 <div class="right-side col-5">
                     <label for="" class="col-4">Date Of Product </label>
                     <div class="range col-8">
-                        <label asp-for="FilterVM.DateOfProductFrom" class="col-2">min.</label>
-                        <input type="number" class="col-4" />
-                        <label asp-for="FilterVM.DateOfProductTo" class="col-2">maks.</label>
-                        <input type="number" class="col-4" />
+                        <label  class="col-2">min.</label>
+                        <input asp-for="FilterVM.DateOfProductFrom" class="col-4" />
+                        <label  class="col-2">maks.</label>
+                        <input asp-for="FilterVM.DateOfProductTo" class="col-4" />
                     </div>
                 </div>
             </div>
@@ -151,19 +152,19 @@
                 <div class="left-side col-5">
                     <label for="" class="col-4">Price</label>
                     <div class="range col-8">
-                        <label asp-for="FilterVM.PriceFrom" class="col-2">min.</label>
-                        <input type="text" class="col-4" />
-                        <label asp-for="FilterVM.PriceTo" class="col-2">maks.</label>
-                        <input type="text" class="col-4" />
+                        <label  class="col-2">min.</label>
+                        <input asp-for="FilterVM.PriceFrom"class="col-4" />
+                        <label  class="col-2">maks.</label>
+                        <input asp-for="FilterVM.PriceTo" type="text" class="col-4" />
                     </div>
                 </div>
                 <div class="right-side col-5">
                     <label for="" class="col-4">Motor Power, sm3 </label>
                     <div class="range col-8">
-                        <label asp-for="FilterVM.MotorPowerFrom" class="col-2">min.</label>
-                        <input type="text" class="col-4" />
-                        <label asp-for="FilterVM.MotorPowerTo" class="col-2">maks.</label>
-                        <input type="text" class="col-4" />
+                        <label  class="col-2">min.</label>
+                        <input asp-for="FilterVM.MotorPowerFrom" class="col-4" />
+                        <label  class="col-2">maks.</label>
+                        <input asp-for="FilterVM.MotorPowerTo" class="col-4" />
                     </div>
                 </div>
             </div>
@@ -175,7 +176,7 @@
                     {
                         <div class="tag-item col-3">
                             <input type="checkbox"  class="col-2" />
-                            <label for="" class="col-6">@feature.Name</label>
+                            <label asp-for="FilterVM.FeatureIds" class="col-6">@feature.Name</label>
                         </div>
 
                     }
@@ -186,20 +187,19 @@
                 <div class="search-result">
                     <div class="d-flex col-5">
                         <label for="" class="col-4">Cesidleme</label>
-                        <select name="" id="" class="sel-example form-control col-6">
-                            <option value="">Tarixe gore</option>
-                            <option value="">Evvel Ucuz</option>
-                            <option value="">Evvel bahali</option>
-                            <option value="">Yurus</option>
-                            <option value="">Buraxilis ili</option>
+                        <select asp-for="FilterVM.SortId" class="sel-example form-control col-6">
+                            <option value="">Select Make</option>
+                            <option value="0">Tarixe gore</option>
+                            <option value="1">Evvel Ucuz</option>
+                            <option value="2">Evvel bahali</option>
                         </select>
                     </div>
                     <div class="d-flex col-5">
                         <label for="" class="col-4">Avtomobilleri goster</label>
-                        <select name="" id="" class="sel-example form-control col-6">
-                            <option value="">Butun</option>
-                            <option value="">Islenmis</option>
-                            <option value="">Yeni</option>
+                        <select asp-for="FilterVM.CarSituationId" class="sel-example form-control col-6">
+                            <option value="0">Butun</option>
+                            <option value="1">Islenmis</option>
+                            <option value="2">Yeni</option>
                         </select>
                     </div>
                 </div>
