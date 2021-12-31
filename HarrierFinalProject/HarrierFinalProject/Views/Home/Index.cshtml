@@ -5,6 +5,7 @@
     List<Car> cars = Model?.Cars;
     Setting setting = service.GetSetting();
     List<Car> expensiveCars = Model?.ExpensiveCars;
+    List<Car> cheapestCars = Model?.CheapestCars;
 
     List<BasketViewModel> favitems = service.GetFavorites();
 
@@ -149,7 +150,7 @@
     <div class="deals">
         <div class="deals-header">
             <div class="col-4 first-element">
-                <h2>Deals of the Week</h2>
+                <h2>Cheapest Cars</h2>
             </div>
 
             <div class="timer col-3">
@@ -177,11 +178,11 @@
             </div>
         </div>
         <div class="deals-footer">
-            @foreach (var car in cars)
+            @foreach (var car in cheapestCars)
             {
                 <div class="car-item col-3 @(car.CarSituationId == 0 ? "sold-car": "")">
                     <div class="item-info">
-                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" alt="" />
+                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true).Image" style="height:180px" alt="" />
                         <span>@car.CarStatus?.Name</span>
                         <p><a href="">@car.Brand?.Name @car.Model?.Name</a></p>
                     </div>

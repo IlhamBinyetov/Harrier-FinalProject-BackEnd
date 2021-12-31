@@ -18,6 +18,7 @@ namespace HarrierFinalProject.ViewModels
         public List<Advertising> Advertisings { get; set; }
         public List<CarFeature> CarFeatures { get; set; }
        public List<Car> ExpensiveCars { get; set; }
+       public List<Car> CheapestCars { get; set; }
 
         public FilterViewModel FilterVM { get; set; }
 
