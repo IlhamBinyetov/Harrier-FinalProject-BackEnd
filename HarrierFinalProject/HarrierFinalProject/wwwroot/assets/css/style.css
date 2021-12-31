@@ -7423,7 +7423,7 @@ a {
               padding-bottom: 3%; } }
       .header .navbar .header-nav .header-main {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         background-color: white; }
         @media screen and (min-width: 768px) {
           .header .navbar .header-nav .header-main .custom-hamburger {
@@ -9469,8 +9469,7 @@ main {
             width: 30%;
             outline: none; }
     main .advanced-search form .car-tags {
-      display: flex;
-      justify-content: space-between;
+      display: flex; 
       flex-wrap: wrap;
       margin-top: 3%s; }
     main .advanced-search form .search-result {

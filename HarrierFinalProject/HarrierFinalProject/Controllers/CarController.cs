@@ -29,7 +29,7 @@ namespace HarrierFinalProject.Controllers
                 page = 1;
             }
 
-            var query = _context.Cars.Include(x=>x.AppUser).Include(x => x.Brand).Include(x => x.Model).Include(c => c.CarImages).Where(c=>c.CarSituationId==1 && c.IsAccepted==true).AsQueryable();
+            var query = _context.Cars.Include(c=>c.CarFeatures).Include(x=>x.AppUser).Include(x => x.Brand).Include(x => x.Model).Include(c => c.CarImages).Where(c=>c.CarSituationId==1 && c.IsAccepted==true).AsQueryable();
             List<Car> cars = query.ToList();
 
 
@@ -142,8 +142,10 @@ namespace HarrierFinalProject.Controllers
                 }
                 if (filterVM.FeatureIds != null)
                 {
-                    
-                    
+                    foreach (var featureId in filterVM.FeatureIds)
+                    {
+                        cars = cars.Where(c => c.CarFeatures.Any(f => f.FeatureId == featureId)).ToList();
+                    }
                 }
 
             } 
@@ -173,14 +175,6 @@ namespace HarrierFinalProject.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-
-
-            ViewBag.RelatedCars = _context.Cars.Include(c => c.Brand)
-                                        .Include(c => c.Model)
-                                        .Include(c => c.CarImages)
-                                        .Take(4)
-                                        .ToList();
-
             ViewBag.Advertisements = _context.Advertisings.ToList();
             CarViewModel carVM = new CarViewModel();
 
@@ -203,6 +197,8 @@ namespace HarrierFinalProject.Controllers
                                    .FirstOrDefault(x => x.Id == id);
 
             carVM.Car = car;
+
+
             if (member != null)
             {
                 var userOrder = _context.Orders.FirstOrDefault(o => o.AppUserId == member.Id && o.CarId == car.Id);
@@ -211,8 +207,10 @@ namespace HarrierFinalProject.Controllers
                     carVM.isOrder = true;
                 }
             }
-          
 
+            var relatedCars = _context.Cars.Include(x=>x.Gearbox).Include(x=>x.CarImages).Include(x=>x.Model).Where(x => x.BrandId == car.BrandId).Take(4).ToList();
+
+            carVM.RelatedCars = relatedCars;
 
             return View(carVM);
         }

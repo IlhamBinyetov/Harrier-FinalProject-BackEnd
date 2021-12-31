@@ -2,7 +2,7 @@
 @model CarViewModel 
 @{
     ViewData["Title"] = "Detail";
-    List<Car> RelatedCars = ViewBag.RelatedCars;
+    List<Car> relatedCars = Model.RelatedCars;
     List<Advertising> advertisings = ViewBag.Advertisements;
     var member = userManager.GetUserAsync(User).Result;
     Car car = Model?.Car;
@@ -250,7 +250,7 @@
                 </div>
             </div>
             <div class="cars-footer">
-                @foreach (var relatedCar in RelatedCars)
+                @foreach (var relatedCar in relatedCars)
                 {
                     <div class="car-item col-3">
                         <div class="item-info">

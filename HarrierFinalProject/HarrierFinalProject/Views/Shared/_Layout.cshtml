@@ -46,7 +46,7 @@
         <div class="container-fluid p-0">
             <div class="navbar">
                 <div class="logo col-12 col-sm-12 col-md-3 col-lg-3">
-                    <a href="#">
+                    <a asp-action="Index" asp-controller="Home">
                         <img src="~/assets/images/@service.GetSetting().HeaderLogo" alt="logo" />
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="header-main">
-                        <div class="header-menu col-md-6 col-lg-6">
+                        <div class="header-menu col-md-6 col-lg-5">
                             <ul>
                                 <li><a asp-action="index" asp-controller="Home">HOME</a></li>
                                 <li><a asp-action="index" asp-controller="Car">VEHICLES</a></li>
@@ -101,8 +101,8 @@
                             </div>
                         </nav>
 
-                        <div class="header-right col-8 col-sm-8 col-md-6 col-lg-6 pt-2">
-                            <div class="search-section col-md-7 col-lg-7">
+                        <div class="header-right col-8 col-sm-8 col-md-6 col-lg-2 pt-2 ">
+                            @*<div class="search-section col-md-7 col-lg-7">
                                 <form action=""
                                       method="get"
                                       class="d-flex justify-content-between">
@@ -116,8 +116,8 @@
                             </div>
                             <div class="col-md-1 col-lg-1">
                                 <i class="bi bi-search search-button"></i>
-                            </div>
-                            <div class="basket-section col-md-1 col-lg-1">
+                            </div>*@
+                            <div class="basket-section col-md-1 col-lg-2">
                                 <a href="" class="basket">
                                     <i class="bi bi-cart"></i>
                                     <span class="basket-number">@service.GetFavorites().Count</span>
@@ -127,7 +127,7 @@
                                 @await Html.PartialAsync("_BasketPartial", favitems)
                             </div>
 
-                            <div class="hamburger-section col-md-1 col-lg-1">
+                            <div class="hamburger-section col-md-1 col-lg-2">
                                 <a href=""><i class="bi bi-list"></i></a>
 
                                 <!-- User Menu START -->

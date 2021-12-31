@@ -24,7 +24,7 @@ namespace HarrierFinalProject.ViewModels
         public List<Model> Models   { get; set; }
         public List<Feature> Features { get; set; }
 
-
+        public List<Car> RelatedCars { get; set; }
 
 
         public int CityId { get; set; }

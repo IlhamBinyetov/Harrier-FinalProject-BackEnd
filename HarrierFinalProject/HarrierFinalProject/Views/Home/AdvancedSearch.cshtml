@@ -22,7 +22,7 @@
 <main>
     <section class="advanced-search">
         <h3>Advanced Search</h3>
-        <form asp-action="Index" asp-controller="Car">
+        <form asp-action="Index" asp-controller="Car" class="feature-form">
             <div class="search-product">
                 <div class="left-side col-5">
                     <label class="col-4 brand">Brand</label>
@@ -133,7 +133,7 @@
                     <label for="" class="col-4">Mileage</label>
                     <div class="range col-8">
                         <label for="" class="col-2">min.</label>
-                        <input  asp-for="FilterVM.MileageFrom" type="text" class="col-4" />
+                        <input asp-for="FilterVM.MileageFrom" type="text" class="col-4" />
                         <label for="" class="col-2">maks.</label>
                         <input asp-for="FilterVM.MileageTo" type="text" class="col-4" />
                     </div>
@@ -141,9 +141,9 @@
                 <div class="right-side col-5">
                     <label for="" class="col-4">Date Of Product </label>
                     <div class="range col-8">
-                        <label  class="col-2">min.</label>
+                        <label class="col-2">min.</label>
                         <input asp-for="FilterVM.DateOfProductFrom" class="col-4" />
-                        <label  class="col-2">maks.</label>
+                        <label class="col-2">maks.</label>
                         <input asp-for="FilterVM.DateOfProductTo" class="col-4" />
                     </div>
                 </div>
@@ -152,18 +152,18 @@
                 <div class="left-side col-5">
                     <label for="" class="col-4">Price</label>
                     <div class="range col-8">
-                        <label  class="col-2">min.</label>
-                        <input asp-for="FilterVM.PriceFrom"class="col-4" />
-                        <label  class="col-2">maks.</label>
+                        <label class="col-2">min.</label>
+                        <input asp-for="FilterVM.PriceFrom" class="col-4" />
+                        <label class="col-2">maks.</label>
                         <input asp-for="FilterVM.PriceTo" type="text" class="col-4" />
                     </div>
                 </div>
                 <div class="right-side col-5">
                     <label for="" class="col-4">Motor Power, sm3 </label>
                     <div class="range col-8">
-                        <label  class="col-2">min.</label>
+                        <label class="col-2">min.</label>
                         <input asp-for="FilterVM.MotorPowerFrom" class="col-4" />
-                        <label  class="col-2">maks.</label>
+                        <label class="col-2">maks.</label>
                         <input asp-for="FilterVM.MotorPowerTo" class="col-4" />
                     </div>
                 </div>
@@ -175,37 +175,37 @@
                     @foreach (var feature in features)
                     {
                         <div class="tag-item col-3">
-                            <input type="checkbox"  class="col-2" />
-                            <label asp-for="FilterVM.FeatureIds" class="col-6">@feature.Name</label>
+                            <input value="@feature.Id" type="checkbox" class="col-2" />
+                            <label class="col-6">@feature.Name</label>
                         </div>
-
                     }
                 }
+                <div class="features_hidden_input" style="display:none;"></div>
             </div>
-            
-                <h4>Axtarisin neticeleri</h4>
-                <div class="search-result">
-                    <div class="d-flex col-5">
-                        <label for="" class="col-4">Cesidleme</label>
-                        <select asp-for="FilterVM.SortId" class="sel-example form-control col-6">
-                            <option value="">Select Make</option>
-                            <option value="0">Tarixe gore</option>
-                            <option value="1">Evvel Ucuz</option>
-                            <option value="2">Evvel bahali</option>
-                        </select>
-                    </div>
-                    <div class="d-flex col-5">
-                        <label for="" class="col-4">Avtomobilleri goster</label>
-                        <select asp-for="FilterVM.CarSituationId" class="sel-example form-control col-6">
-                            <option value="0">Butun</option>
-                            <option value="1">Islenmis</option>
-                            <option value="2">Yeni</option>
-                        </select>
-                    </div>
-                </div>
 
-                <button type="submit" class="search-btn">Elanlari goster</button>
-</form>
+            <h4>Axtarisin neticeleri</h4>
+            <div class="search-result">
+                <div class="d-flex col-5">
+                    <label for="" class="col-4">Cesidleme</label>
+                    <select asp-for="FilterVM.SortId" class="sel-example form-control col-6">
+                        <option value="">Select Make</option>
+                        <option value="0">Tarixe gore</option>
+                        <option value="1">Evvel Ucuz</option>
+                        <option value="2">Evvel bahali</option>
+                    </select>
+                </div>
+                <div class="d-flex col-5">
+                    <label for="" class="col-4">Avtomobilleri goster</label>
+                    <select asp-for="FilterVM.CarSituationId" class="sel-example form-control col-6">
+                        <option value="0">Butun</option>
+                        <option value="1">Islenmis</option>
+                        <option value="2">Yeni</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="search-btn">Elanlari goster</button>
+        </form>
     </section>
 
     <section class="features-section">
@@ -249,6 +249,14 @@
         </div>
     </section>
 
+    <section class="scroll-section">
+        <button type="button"
+                class="btn btn-danger btn-floating btn-lg"
+                id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -280,6 +288,24 @@
         });
 
     })
+
+        $('.search-btn').on("click", function (e) {
+            e.preventDefault();
+            let checkedFeatures = $('.car-tags input:checked');
+
+            let hiddenDiv = $('.features_hidden_input');
+            let count = 0;
+            for (let f of checkedFeatures) {
+                let input = `<input name="FilterVM.FeatureIds[${count}]" value="${f.value}"/>`
+                hiddenDiv.append(input);
+                count++;
+            }
+
+            $('.feature-form').submit();
+
+        })
+
+
     </script>
 
 
