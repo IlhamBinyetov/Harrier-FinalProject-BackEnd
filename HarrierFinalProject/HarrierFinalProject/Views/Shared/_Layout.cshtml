@@ -36,7 +36,7 @@
           referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/assets/css/style.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
-
+   
     <title>Home</title>
 </head>
 <body>
@@ -103,20 +103,20 @@
 
                         <div class="header-right col-8 col-sm-8 col-md-6 col-lg-2 pt-2 ">
                             @*<div class="search-section col-md-7 col-lg-7">
-                                <form action=""
-                                      method="get"
-                                      class="d-flex justify-content-between">
-                                    <input type="text"
-                                           placeholder="Search here..."
-                                           class="search-box" />
-                                    <button type="submit">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="col-md-1 col-lg-1">
-                                <i class="bi bi-search search-button"></i>
-                            </div>*@
+                                    <form action=""
+                                          method="get"
+                                          class="d-flex justify-content-between">
+                                        <input type="text"
+                                               placeholder="Search here..."
+                                               class="search-box" />
+                                        <button type="submit">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-md-1 col-lg-1">
+                                    <i class="bi bi-search search-button"></i>
+                                </div>*@
                             <div class="basket-section col-md-1 col-lg-2">
                                 <a href="" class="basket">
                                     <i class="bi bi-cart"></i>
@@ -201,7 +201,7 @@
                     <h4>INFORMATION</h4>
                     <ul>
                         <li><a asp-action="Index" asp-controller="Contact">Site Map</a></li>
-                        
+
                         <li><a asp-action="AdvancedSearch" asp-controller="Home">Advanced Search</a></li>
                         <li><a href="">About Us</a></li>
                         <li><a asp-action="Index" asp-controller="Contact">Contact Us</a></li>
@@ -252,6 +252,7 @@
     <script src="https://kit.fontawesome.com/3a622e44f0.js"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="~/assets/js/main.js"></script>
     @RenderSection("Scripts", required: false)
 </body>

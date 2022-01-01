@@ -1,6 +1,7 @@
 ﻿using HarrierFinalProject.Areas.Manage.ViewModels;
 using HarrierFinalProject.Data;
 using HarrierFinalProject.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
-    [Authorize(Roles = "SuperAdmin, Admin")]
+    //[Authorize(Roles = "SuperAdmin, Admin")]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
