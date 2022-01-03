@@ -268,7 +268,7 @@
             @foreach (var car in expensiveCars)
             {
 
-                <div class="car-item col-3">
+                <div class="car-item col-3  @(car.CarSituationId == 0 ? "sold-car": "")">
                     <div class="item-info">
                         <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" />
                         <span>@car.CarStatus.Name</span>

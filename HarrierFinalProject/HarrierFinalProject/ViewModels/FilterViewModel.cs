@@ -25,7 +25,9 @@ namespace HarrierFinalProject.ViewModels
         public int? GearboxId { get; set; }
         public string MileageFrom { get; set; }
         public string MileageTo { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? DateOfProductFrom { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? DateOfProductTo { get; set; }
         public decimal? PriceFrom { get; set; }
         public decimal? PriceTo { get; set; }

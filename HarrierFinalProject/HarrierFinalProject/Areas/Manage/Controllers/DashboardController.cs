@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using HarrierFinalProject.Areas.Manage.ViewModels;
+using HarrierFinalProject.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,23 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
     [Authorize(Roles = "SuperAdmin, Admin")]
     public class DashboardController : Controller
     {
+        private readonly AppDbContext _context;
+
+        public DashboardController(AppDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+
+            var cars = _context.Cars.ToList();
+
+            DashViewModel dashVM = new DashViewModel()
+            {
+                Cars = cars
+            };
+
+            return View(dashVM);
         }
     }
 }

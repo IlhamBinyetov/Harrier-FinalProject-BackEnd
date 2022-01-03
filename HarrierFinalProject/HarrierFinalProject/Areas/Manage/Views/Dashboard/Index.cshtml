@@ -1,4 +1,20 @@
-﻿
+﻿@model DashViewModel
+
+@{ 
+    double soldCars = Model.Cars.Where(x => x.CarSituationId == 0).Count();
+    double generalCars = Model.Cars.Count();
+    double sellingCars = Model.Cars.Where(x => x.CarSituationId == 1).Count();
+
+    double soldCarsRatio = Math.Ceiling(soldCars / generalCars * 100);
+    double sellingCarsRatio = Math.Ceiling(100 - soldCarsRatio);
+
+
+    double cheapestCars = Model.Cars.Where(x => x.Price < 30000).Count();
+    double expensiveCars = Model.Cars.Where(x => x.Price > 30000).Count();
+
+    double cheapCarRatio = Math.Ceiling(cheapestCars / generalCars * 100);
+    double expensiveCarRatio = Math.Ceiling(100 - cheapCarRatio);
+ }
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
@@ -52,16 +68,16 @@
                     <div class="col-md-4 col-sm-4 mb">
                         <div class="grey-panel pn donut-chart">
                             <div class="grey-header">
-                                <h5>SERVER LOAD</h5>
+                                <h5>Order LOAD</h5>
                             </div>
                             <canvas id="serverstatus01" height="120" width="120"></canvas>
                             <script>
                     var doughnutData = [{
-                        value: 70,
-                        color: "#FF6B6B"
+                        value:  @soldCarsRatio,
+                       color: "#FF6B6B"
                       },
                       {
-                        value: 30,
+                        value:  @sellingCarsRatio,
                         color: "#fdfdfd"
                       }
                     ];
@@ -69,10 +85,10 @@
                             </script>
                             <div class="row">
                                 <div class="col-sm-6 col-xs-6 goleft">
-                                    <p>Usage<br />Increase:</p>
+                                    <p>Selling<br />Increase:</p>
                                 </div>
                                 <div class="col-sm-6 col-xs-6">
-                                    <h2>21%</h2>
+                                    <h2 class="mt-4" style="font-size:30px">@soldCarsRatio %</h2>
                                 </div>
                             </div>
                         </div>
@@ -144,31 +160,25 @@
                 <div class="col-md-4 col-sm-4 col-lg-4 mb">
                     <div class="green-panel pn">
                         <div class="green-header">
-                            <h5>DISK SPACE</h5>
+                            <h5 style="color: #fffffd">Qiymeti 30000-den asagi olan masinlar</h5>
                         </div>
                         <canvas id="serverstatus03" height="120" width="120"></canvas>
                         <script>
                             var doughnutData = [{
-                                value: 60,
+                                value:  @expensiveCarRatio  ,
                                 color: "#2b2b2b"
                             },
                             {
-                                value: 40,
+                                value: @cheapCarRatio,
                                 color: "#fffffd"
                             }
                             ];
                             var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
                         </script>
-                        <h3>60% USED</h3>
+                        <h3>@cheapCarRatio % Cheapest Cars</h3>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-lg-4 mb">
-                    <div class="weather pn">
-                        <i class="fa fa-cloud fa-4x"></i>
-                        <h2>11º C</h2>
-                        <h4>BUDAPEST</h4>
-                    </div>
-                </div>
+            
                 <!-- /col-md-4 -->
             </div>
             <!-- /row -->
@@ -180,20 +190,21 @@
         <div class="ds d-flex justify-content-between">
             <!--COMPLETED ACTIONS DONUTS CHART-->
             <div class="donut-main col-4">
-                <h4>COMPLETED ACTIONS & PROGRESS</h4>
+                <h4>Qiymeti 30000-den cox olan masinlar</h4>
                 <canvas id="newchart" height="130" width="130"></canvas>
                 <script>
                 var doughnutData = [{
-                    value: 70,
+                    value: @cheapCarRatio ,
                     color: "#4ECDC4"
                   },
                   {
-                    value: 30,
+                    value: @expensiveCarRatio,
                     color: "#fdfdfd"
                   }
                 ];
                 var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
                 </script>
+                <h3>@expensiveCarRatio % Expensive Cars</h3>
             </div>
             <!--NEW EARNING STATS -->
             <div class="mb-0 panel terques-chart col-4" style="background-color:#797979">

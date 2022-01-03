@@ -1,31 +1,33 @@
 ﻿@inject UserManager<AppUser> userManager
-@model CarViewModel 
+@model CarViewModel
 @{
     ViewData["Title"] = "Detail";
     List<Car> relatedCars = Model.RelatedCars;
     List<Advertising> advertisings = ViewBag.Advertisements;
     var member = userManager.GetUserAsync(User).Result;
+    
     Car car = Model?.Car;
 }
+
 <main>
 
 
     <section class="car-detail">
         <div class="car-info">
             <div class="col-4 car-images">
-                <div class="poster-image" >
-                    <img src="~/assets/images/@Model?.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" style="width:100%" />
+                <div class="poster-image easyzoom">
+                    <img  class="poster_src" src="~/assets/images/@Model?.Car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" style="width:100%" />
                 </div>
                 <div class="car-pics-slide">
                     @foreach (var item in Model?.Car.CarImages)
                     {
-                        <div>
-                            <a href=""><img src="~/assets/images/@item.Image" alt="" /></a>
+                        <div class="other_imgs">
+                            <img src="~/assets/images/@item.Image" alt="" class="car-other-imgs"/>
                         </div>
                     }
                 </div>
 
-                <a href="" class="email-us">
+                <a asp-action="Index" asp-controller="Contact" class="email-us">
                     <i class="bi bi-envelope-fill"></i>
                     <span>Email Us</span>
                 </a>
@@ -38,11 +40,11 @@
                 <div class="product-contact">
                     <a href="">
                         <i class="bi bi-telephone-fill"></i>
-                        <span> +@member.PhoneNumber</span>
+                        <span> +@car?.AppUser?.PhoneNumber</span>
                     </a>
                     <a href="" class="email-icon">
                         <i class="bi bi-envelope-fill"></i>
-                        <span> @member.Email</span>
+                        <span> @car?.AppUser?.Email</span>
                     </a>
                 </div>
                 <div class="price-block ">
@@ -191,7 +193,7 @@
                                 <td><i class="bi bi-check-circle-fill"></i></td>
                             </tr>
                         }
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -202,12 +204,12 @@
                 {
                     <div class="comment-block">
                         <div class="comment-img">
-                            <img src="~/assets/images/@item.AppUser.Image" alt="">
+                            <img src="~/assets/images/@item?.AppUser?.Image" alt="">
                         </div>
                         <div class="comment-info">
                             <div><a href="">Reply</a></div>
-                            <b>@item.AppUser.Fullname</b> - <span>@item.PostDate.ToString("yyyy dd, MMMM")</span>
-                            <p>@item.Description</p>
+                            <b>@item.AppUser?.Fullname</b> - <span>@item.PostDate.ToString("yyyy dd, MMMM")</span>
+                            <p>@item?.Description</p>
                         </div>
                     </div>
                 }
@@ -221,11 +223,11 @@
 
                         <form asp-action="CreateComment" asp-controller="Comment">
                             <div class="form-first">
-                                <textarea asp-for="CommentViewModel.Description"  placeholder="Comment"></textarea>
+                                <textarea asp-for="CommentViewModel.Description" placeholder="Comment"></textarea>
 
-                                <input value="@member.Fullname"  type="text" placeholder="Name *">
+                                <input value="@member.Fullname" type="text" placeholder="Name *">
                                 <input value="@member.Email" type="email" placeholder="Email *">
-                                <input asp-for="CommentViewModel.CarId" type="text"  value="@car.Id" style="visibility:hidden" />
+                                <input asp-for="CommentViewModel.CarId" type="text" value="@car.Id" style="visibility:hidden" />
                             </div>
 
 
@@ -238,7 +240,7 @@
 
             </div>
         </div>
-       
+
     </section>
 
 
@@ -292,7 +294,7 @@
                     </div>
                 }
 
-               
+
 
             </div>
         </div>
@@ -313,11 +315,11 @@
                 </div>
             }
 
-            
+
         </div>
     </section>
 
-    
+
 
 
     <section class="scroll-section">
@@ -330,3 +332,15 @@
 
 
 </main>
+
+@section Scripts{
+    <script>
+
+    $(document).ready(function(){
+    $('.easyzoom').zoom();
+    });
+
+
+   
+    </script>>
+}

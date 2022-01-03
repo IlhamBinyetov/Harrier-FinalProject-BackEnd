@@ -326,6 +326,16 @@ function showSlides(n) {
 }
 
 
+//$(".car-other-imgs").on("click", function (e) {
+//    e.preventDefault();
+//    console.log("grdi");
+//    var currentImgSrc = $(this).attr('src'); 
+//    var posterImgSrc = $(".poster_src").attr('src');
+//    var a = posterImgSrc;
+//    currentImgSrc.replace(posterImgSrc);
+
+  
+//});
 
 //----------------------------------------//
 

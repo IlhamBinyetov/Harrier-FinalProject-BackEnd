@@ -194,6 +194,7 @@ namespace HarrierFinalProject.Controllers
                                    .Include(c => c.City)
                                    .Include(c => c.FuelType)
                                    .Include(c=> c.Comments)
+                                   .Include(x=>x.AppUser)
                                    .FirstOrDefault(x => x.Id == id);
 
             carVM.Car = car;
@@ -208,7 +209,7 @@ namespace HarrierFinalProject.Controllers
                 }
             }
 
-            var relatedCars = _context.Cars.Include(x=>x.Gearbox).Include(x=>x.CarImages).Include(x=>x.Model).Where(x => x.BrandId == car.BrandId).Take(4).ToList();
+                var relatedCars = _context.Cars.Include(x=>x.Gearbox).Include(x=>x.CarImages).Include(x=>x.Model).Where(x => x.BrandId == car.BrandId).Take(4).ToList();
 
             carVM.RelatedCars = relatedCars;
 

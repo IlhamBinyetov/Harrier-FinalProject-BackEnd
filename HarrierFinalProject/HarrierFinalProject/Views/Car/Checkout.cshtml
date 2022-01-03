@@ -18,7 +18,7 @@
                 </div> 
                 <div class="col-5 items-detail">
                     <p>Select Your City</p>
-                    <select asp-for="CityId"  class="sel-example form-control">
+                    <select asp-for="CityId"  class="sel-example form-control" required>
                         <option value="">Select City</option>
                         @foreach (var item in Model.Cities)
                         {

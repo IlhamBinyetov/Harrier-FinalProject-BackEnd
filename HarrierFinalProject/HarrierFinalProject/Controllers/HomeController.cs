@@ -43,8 +43,8 @@ namespace HarrierFinalProject.Controllers
 
             var comments = _context.Comments.Include(x => x.AppUser).OrderByDescending(x => x.PostDate).Take(3).ToList();
             var blogs = _context.Blogs.OrderByDescending(x=>x.PostDate).Take(3).ToList();
-            var expensiveCars = _context.Cars.OrderByDescending(x => x.Price).Take(4).ToList();
-            var cheapestCars = _context.Cars.OrderBy(x => x.Price).Take(4).ToList();
+            var expensiveCars = _context.Cars.OrderByDescending(x => x.Price).Take(5).ToList();
+            var cheapestCars = _context.Cars.OrderBy(x => x.Price).Take(5).ToList();
             homeVM = new HomeViewModel()
             {
                 Sliders = _context.Sliders.ToList(),
