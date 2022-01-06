@@ -57,7 +57,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         public IActionResult Edit(string name)
         {
             IdentityRole role = _roleManager.Roles.FirstOrDefault(x => x.Name == name);
-            if (role == null) return NotFound();
+            if (role == null) return RedirectToAction("index", "Error");
             TempData["name"] = name;
 
             return View(role);
@@ -71,7 +71,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             var name = TempData["name"];
             IdentityRole existRole = _roleManager.Roles.FirstOrDefault(x => x.Name == name.ToString());
-            if (existRole == null) return NotFound();
+            if (existRole == null) return RedirectToAction("index", "Error");
             existRole.Name = identityRole.Name;
 
             await _roleManager.UpdateAsync(existRole);

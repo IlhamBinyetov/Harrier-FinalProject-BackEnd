@@ -124,7 +124,7 @@ $(document).ready(function () {
 
 
     // Set the date we're counting down to
-    var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+    var countDownDate = new Date("Jan 20, 2022 15:37:25").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function () {
@@ -320,8 +320,8 @@ function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
 
     }
-    //slides[slideIndex - 1].style.display = "block";
-    //dots[slideIndex - 1].className += " active";
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 
 }
 

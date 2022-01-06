@@ -80,7 +80,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             };
 
-            if (fuelType == null) return NotFound();
+            if (fuelType == null) return RedirectToAction("index", "Error");
 
             return View(fuelTypeVM);
         }
@@ -92,7 +92,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             FuelType existFuelType = _context.FuelTypes.FirstOrDefault(x => x.Id == id);
 
-            if (existFuelType == null) return NotFound();
+            if (existFuelType == null) return RedirectToAction("index", "Error");
 
 
             existFuelType.Name = fuelTypeVM.Name;

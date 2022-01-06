@@ -17,6 +17,7 @@ namespace HarrierFinalProject.Data.Configurations
             builder.Property(x => x.Mileage).HasMaxLength(50);
             builder.Property(x => x.MotorPower).HasMaxLength(50);
             builder.Property(x=>x.DateOfProduct).HasDefaultValueSql("GETUTCDATE()");
+           
         }
     }
 }

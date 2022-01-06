@@ -197,8 +197,8 @@ namespace HarrierFinalProject.Controllers
 
 
         [HttpPost]
-        //[Authorize(Roles = "Member")]
-        //[ValidateAntiForgeryToken]
+        [Authorize(Roles = "Member")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Profile(ProfileViewModel profileVM)
         {
             TempData["Success"] = false;
@@ -346,7 +346,7 @@ namespace HarrierFinalProject.Controllers
 
             AppUser user = await _userManager.FindByEmailAsync(resetPasswordVM.Email);
 
-            if (user == null) return NotFound();
+            if (user == null) return RedirectToAction("index","Error");
 
             var resetResult = await _userManager.ResetPasswordAsync(user, resetPasswordVM.Token, resetPasswordVM.Password);
 

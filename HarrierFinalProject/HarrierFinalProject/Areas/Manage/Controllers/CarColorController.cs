@@ -99,7 +99,10 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             };
 
-            if (carColor == null) return NotFound();
+            if (carColor == null) 
+            {
+                return RedirectToAction("index", "Error");
+            } 
 
             return View(carColorVM);
         }
@@ -113,7 +116,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             CarColor existCarColor = _context.CarColors.FirstOrDefault(x => x.Id == id);
 
-            if (existCarColor == null) return NotFound();
+            if (existCarColor == null) return RedirectToAction("index", "Error");
 
 
             existCarColor.Name = carColorVM.Name;

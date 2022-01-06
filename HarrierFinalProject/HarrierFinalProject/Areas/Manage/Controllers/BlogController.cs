@@ -26,6 +26,10 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
         public IActionResult Index(int page=1)
         {
+            if (page <= 0)
+            {
+                return RedirectToAction("index", "Error");
+            }
             List<Blog> blogs = _context.Blogs.Skip((page - 1) * 4).Take(4).ToList();
 
             ViewBag.TotalPage = Math.Ceiling(_context.Blogs.Count() / 4m);
@@ -113,7 +117,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         public IActionResult Edit(int id)
         {
             Blog blog = _context.Blogs.FirstOrDefault(c => c.Id == id);
-            if (blog == null) return NotFound();
+            if (blog == null) return RedirectToAction("index", "Error");
 
             BlogViewModel blogVM = new BlogViewModel
             {
@@ -134,7 +138,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             Blog existBlog = _context.Blogs.FirstOrDefault(x => x.Id == id);
 
-            if (existBlog == null) return NotFound();
+            if (existBlog == null) return RedirectToAction("index", "Error");
 
 
             string newFileName = null;

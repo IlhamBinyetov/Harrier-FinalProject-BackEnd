@@ -99,7 +99,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 
             };
 
-            if (model == null) return NotFound();
+            if (model == null) return RedirectToAction("index", "Error");
 
             return View(modelVM);
         }
@@ -111,7 +111,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             Model existModel = _context.Models.FirstOrDefault(x => x.Id ==id);
 
-            if (existModel == null) return NotFound();
+            if (existModel == null) return RedirectToAction("index", "Error");
 
 
             existModel.Name = modelVM.Model.Name;

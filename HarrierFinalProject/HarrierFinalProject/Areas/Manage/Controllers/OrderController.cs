@@ -58,7 +58,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             Order order = _context.Orders.Include(x => x.Car).Include(x => x.AppUser).FirstOrDefault(x => x.Id == id);
 
-            if (order == null) return NotFound();
+            if (order == null) return RedirectToAction("index", "Error");
 
             OrderViewModel orderVM = new OrderViewModel()
             {
@@ -71,7 +71,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         public async Task<IActionResult> Accept(int id)
         {
             Order order = _context.Orders.Include(x=>x.AppUser).Include(x=>x.Car).FirstOrDefault(x => x.Id == id);
-            if (order == null) return NotFound();
+            if (order == null) return RedirectToAction("index", "Error");
 
             order.Status = Data.Models.Enums.OrderStatus.Accepted;
             _context.SaveChanges();
@@ -114,7 +114,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         public IActionResult Reject(int id)
         {
             Order order = _context.Orders.FirstOrDefault(x => x.Id == id);
-            if (order == null) return NotFound();
+            if (order == null) return RedirectToAction("index", "Error");
 
             order.Status = Data.Models.Enums.OrderStatus.Rejected;
             _context.SaveChanges();

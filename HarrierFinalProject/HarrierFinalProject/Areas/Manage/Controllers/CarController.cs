@@ -206,6 +206,11 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            if (id <= 0)
+            {
+                return RedirectToAction("Index", "Error");
+            }
+
             Car car = _context.Cars.Include(c=>c.Model).Include(c => c.Brand)
                                                        .Include(c => c.Gearbox)
                                                        .Include(c => c.Transmission)
@@ -276,8 +281,9 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                                                                                               .Include(c => c.Model)
                                                                                               .Include(c => c.City).FirstOrDefault(x => x.Id == id );
 
-            if (existCar == null) return NotFound();
+            if (existCar == null) return RedirectToAction("index", "Error");
 
+            string newFileName = null;
 
             if (carVM.PosterImage != null)
             {
@@ -295,7 +301,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
 
                 CarImage poster = existCar.CarImages.FirstOrDefault(x => x.IsPoster == true);
-                string newFileName = SaveImg.SaveImage(_env.WebRootPath, "assets/images", carVM.PosterImage);
+                newFileName = SaveImg.SaveImage(_env.WebRootPath, "assets/images", carVM.PosterImage);
 
                 if (poster == null)
                 {
@@ -314,6 +320,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                     poster.Image = newFileName;
                 }
             }
+
 
             existCar.CarFeatures.RemoveAll((x => !carVM.FeatureIds.Contains(x.FeatureId)));
 
@@ -340,12 +347,14 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                 {
                     if (file.ContentType != "image/png" && file.ContentType != "image/jpeg")
                     {
-                        continue;
+                        ModelState.AddModelError("file", "File type can be only jpeg,jpg or png!");
+                        return View();
                     }
 
                     if (file.Length > 2097152)
                     {
-                        continue;
+                        ModelState.AddModelError("file", "File size can not be more than 2MB!");
+                        return View();
                     }
 
                     CarImage image = new CarImage
@@ -357,6 +366,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
                     existCar.CarImages.Add(image);
                 }
             }
+
+           
 
 
             existCar.BrandId = carVM.BrandId;
@@ -375,6 +386,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
             existCar.CarStatusId = carVM.CarStatusId;
             existCar.CarTypeId = carVM.CarTypeId;
             existCar.FuelTypeId = carVM.FuelTypeId;
+
 
             _context.SaveChanges();
 

@@ -223,16 +223,20 @@ namespace HarrierFinalProject.Controllers
                 }
             }
 
-
-            foreach (var featureId in submitVM.CarFeatureIds)
+            if (submitVM.CarFeatureIds != null)
             {
-                CarFeature carFeature = new CarFeature
+                foreach (var featureId in submitVM.CarFeatureIds)
                 {
-                    Car = car,
-                    FeatureId = featureId
-                };
-                car.CarFeatures.Add(carFeature);
+                    CarFeature carFeature = new CarFeature
+                    {
+                        Car = car,
+                        FeatureId = featureId
+                    };
+                    car.CarFeatures.Add(carFeature);
+                }
             }
+
+           
 
             _context.Cars.Add(car);
             _context.SaveChanges();

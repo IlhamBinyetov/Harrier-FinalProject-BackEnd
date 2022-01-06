@@ -52,6 +52,8 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         [HttpPost]
         public IActionResult Create(City city)
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -69,7 +71,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             City city = _context.Cities.FirstOrDefault(c => c.Id == id);
 
-            if (city == null) return NotFound();
+            if (city == null) return RedirectToAction("index", "Error");
 
             return View(city);
         }
@@ -81,7 +83,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             City existCity = _context.Cities.FirstOrDefault(x => x.Id == city.Id);
 
-            if (existCity == null) return NotFound();
+            if (existCity == null) return RedirectToAction("index", "Error");
 
 
             existCity.Name = city.Name;

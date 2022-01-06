@@ -71,7 +71,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             Brand brand = _context.Brands.FirstOrDefault(c => c.Id == id);
 
-            if (brand == null) return NotFound();
+            if (brand == null) return RedirectToAction("index", "Error");
 
             return View(brand);
         }
@@ -83,7 +83,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             Brand existBrand = _context.Brands.FirstOrDefault(x => x.Id == brand.Id);
 
-            if (existBrand == null) return NotFound();
+            if (existBrand == null) return RedirectToAction("index", "Error");
 
 
             existBrand.Name = brand.Name;

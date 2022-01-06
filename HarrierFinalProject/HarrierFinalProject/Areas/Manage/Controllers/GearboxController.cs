@@ -82,7 +82,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
 
 
-            if (gearbox == null) return NotFound();
+            if (gearbox == null) return RedirectToAction("index", "Error");
 
             return View(gearboxVM);
         }
@@ -97,7 +97,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             Gearbox existGearbox = _context.Gearboxes.FirstOrDefault(x => x.Id == id);
 
-            if (existGearbox == null) return NotFound();
+            if (existGearbox == null) return RedirectToAction("index", "Error");
 
 
             existGearbox.Name = gearBoxVM.Name;

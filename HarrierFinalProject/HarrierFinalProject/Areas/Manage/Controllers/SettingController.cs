@@ -42,7 +42,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         {
             Setting setting = _context.Settings.FirstOrDefault(s=>s.Id==id);
 
-            if (setting == null) return NotFound();
+            if (setting == null) return RedirectToAction("index", "Error");
 
             SettingViewModel settingVM = new SettingViewModel()
             {
@@ -61,7 +61,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             Setting existSetting = _context.Settings.FirstOrDefault(s => s.Id == id);
 
-            if (existSetting == null) return NotFound();
+            if (existSetting == null) return RedirectToAction("index", "Error");
 
 
             string newFileName = null;

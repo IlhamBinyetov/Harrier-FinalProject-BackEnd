@@ -7,7 +7,14 @@
     var member = userManager.GetUserAsync(User).Result;
     
     Car car = Model?.Car;
+    int imgOrder = 0;
 }
+
+<style>
+    .slick-slide { 
+        margin-left: 10px !important;
+    }
+</style>
 
 <main>
 
@@ -20,11 +27,12 @@
                 </div>
                 <div class="car-pics-slide">
                     @foreach (var item in Model?.Car.CarImages)
-                    {
-                        <div class="other_imgs">
-                            <img src="~/assets/images/@item.Image" alt="" class="car-other-imgs"/>
-                        </div>
-                    }
+                            {
+                                imgOrder++;
+                                 <div class="other_imgs" >
+                                        <img src="~/assets/images/@item.Image" alt="" class="car-other-imgs" data-id="@imgOrder"  style="height:70px" />
+                                 </div>
+                            }
                 </div>
 
                 <a asp-action="Index" asp-controller="Contact" class="email-us">

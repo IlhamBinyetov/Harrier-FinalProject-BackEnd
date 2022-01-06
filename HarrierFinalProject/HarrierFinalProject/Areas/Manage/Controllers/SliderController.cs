@@ -120,7 +120,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             };
 
-            if (slider == null) return NotFound();
+            if (slider == null) return RedirectToAction("index", "Error");
 
             return View(sliderVM);
 
@@ -137,9 +137,9 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             Slider existSlider = _context.Sliders.FirstOrDefault(x => x.Id == id);
 
-            if (existSlider == null) return NotFound();
+            if (existSlider == null) return RedirectToAction("index", "Error");
 
-           
+
 
             string newFileName = null;
             if (sliderVM.ImageFile != null)

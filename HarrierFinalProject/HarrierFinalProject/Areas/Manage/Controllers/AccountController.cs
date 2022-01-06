@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace HarrierFinalProject.Areas.Manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin, Admin")]
+    [Authorize(Roles = "SuperAdmin, Admin")]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -119,7 +119,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult CreateAdmin()
         {
             return View();
@@ -130,6 +130,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> CreateAdmin(AdminViewModel AdminVM)
         {
+
             AppUser admin = await _userManager.FindByNameAsync(AdminVM.UserName);
             if (admin != null)
             {
@@ -180,7 +181,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
            
 
             AppUser admin = await _userManager.FindByIdAsync(id);
-            if (admin == null) return NotFound();
+            if (admin == null) return RedirectToAction("index", "Error");
             AdminViewModel adminVM = new AdminViewModel()
             {
                 AppUser = admin
@@ -197,7 +198,7 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             AppUser existUser = await _userManager.FindByIdAsync(AdminVM.Id);
 
-            if (existUser == null) return NotFound();
+            if (existUser == null) return RedirectToAction("index", "Error");
 
             existUser.Fullname = AdminVM.FullName;
             existUser.UserName = AdminVM.UserName;

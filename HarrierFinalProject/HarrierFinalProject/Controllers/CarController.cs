@@ -107,11 +107,11 @@ namespace HarrierFinalProject.Controllers
                 }
                 if (filterVM.MotorPowerFrom != null)
                 {
-                    cars = cars.Where(x => Int32.Parse(x.MotorPower) >= Int32.Parse(filterVM.MotorPowerFrom)).ToList();
+                    cars = cars.Where(x => Double.Parse(x.MotorPower) >= Double.Parse(filterVM.MotorPowerFrom)).ToList();
                 }
                 if (filterVM.MotorPowerTo != null)
                 {
-                    cars = cars.Where(x => Int32.Parse(x.MotorPower) <= Int32.Parse(filterVM.MotorPowerTo)).ToList();
+                    cars = cars.Where(x => Double.Parse(x.MotorPower) <= Double.Parse(filterVM.MotorPowerTo)).ToList();
                 }
 
                 if (filterVM.SortId != null)
@@ -166,6 +166,7 @@ namespace HarrierFinalProject.Controllers
             ViewBag.PopularCars = _context.Cars.Include(c => c.Brand)
                                         .Include(c => c.Model)
                                         .Include(c => c.CarImages)
+                                        .Where(x=>x.BrandId==1)
                                         .Take(5)
                                         .ToList();
 
@@ -222,7 +223,7 @@ namespace HarrierFinalProject.Controllers
             Car car = _context.Cars.Include(x => x.CarImages).Include(x=>x.Brand).FirstOrDefault(x => x.Id == id);
             BasketViewModel favoriteItem = null;
 
-            if (car == null) return NotFound();
+            if (car == null) return RedirectToAction("index", "Error");
 
             AppUser member = null;
 

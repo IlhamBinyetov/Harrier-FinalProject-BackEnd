@@ -238,7 +238,7 @@
     <div class="slideshow-container">
         @foreach (var comment in Model?.Comments)
         {
-            <div class="mySlides">
+            <div class="mySlides" >
                 <div>
                     <img src="~/assets/images/@comment.AppUser?.Image" alt="" />
                 </div>
@@ -270,7 +270,7 @@
 
                 <div class="car-item col-3  @(car.CarSituationId == 0 ? "sold-car": "")">
                     <div class="item-info">
-                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" alt="" />
+                        <img src="~/assets/images/@car.CarImages.FirstOrDefault(x=>x.IsPoster==true)?.Image" style="height:180px" alt="" />
                         <span>@car.CarStatus.Name</span>
                         <p><a href="">@car.Brand.Name @car.Model.Name</a></p>
                     </div>

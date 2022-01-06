@@ -43,7 +43,7 @@ namespace HarrierFinalProject.Controllers
             _context.Comments.Add(comment);
             _context.SaveChanges();
 
-            return RedirectToAction("Detail","Car");
+            return RedirectToAction("Detail","Car", new { id = commentVM.CarId});
         }
     }
 }

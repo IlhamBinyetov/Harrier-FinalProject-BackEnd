@@ -111,7 +111,7 @@
                                 <div class=" col-10 m-auto account-image">
                                     <div style="margin-left: 40%; ">
                                         <label for="browse" style="cursor:pointer"><img style="border-radius: 50%; " ; src="~/assets/images/@Model.Image" alt="Alternate Text" />   @*<img src="~/assets/images/user12.jpeg" alt="Alternate Text" />*@</label>
-                                        <input asp-for="FileImage" type="file" id="browse" style="visibility:hidden;">
+                                        <input asp-for="FileImage" type="file" accept="image/png, image/gif, image/jpeg" id="browse" style="visibility:hidden;">
                                         <span class="text-danger" asp-validation-for="FileImage"></span>
                                     </div>
                                 </div>

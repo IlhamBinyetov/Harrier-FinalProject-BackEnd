@@ -49,7 +49,7 @@
                 <div class="username">
                     <div>
                         <label asp-for="Description" class="col-4">Description</label>
-                        <textarea asp-for="Description" class="col-8"></textarea>
+                        <textarea asp-for="Description" class="col-8" required></textarea>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                 <div class="car-options">
                     <div>
                         <label class="col-4">Car Status</label>
-                        <select asp-for="CarStatusId" class="col-8 ">
+                        <select asp-for="CarStatusId" class="col-8 " required >
                             <option>Select Make</option>
                             @foreach (var carStatus in carStatuses)
                             {
@@ -68,7 +68,7 @@
                     </div>
                     <div>
                         <label class="col-4">Brand</label>
-                        <select asp-for="BrandId" class="brand col-8">
+                        <select asp-for="BrandId" class="brand col-8" required>
                             <option>Select Make</option>
                             @foreach (var brand in brands)
                             {
@@ -78,28 +78,28 @@
                     </div>
                     <div>
                         <label class="col-4">Model</label>
-                        <select asp-for="ModelId" class="col-8 modelSelect">
+                        <select asp-for="ModelId" class="col-8 modelSelect" required>
                             <option>Select first brand</option>
                             <option selected value="@car?.Model?.Id">@car?.Model?.Name</option>
                         </select>
                     </div>
                     <div>
                         <label asp-for="DateOfProduct" class="col-4">DateOfProduct</label>
-                        <input asp-for="DateOfProduct" class="form-control col-8" placeholder="ProductDate">
+                        <input asp-for="DateOfProduct" class="form-control col-8" placeholder="ProductDate" required>
                         <span class="text-danger" asp-validation-for="DateOfProduct"></span>
                     </div>
                     <div>
                         <label asp-for="Price" class="col-4">Price <small>(optional)</small></label>
-                        <input asp-for="Price" type="text" class="col-8" />
+                        <input asp-for="Price" type="text" class="col-8" required />
                     </div>
                     <div>
                         <label asp-for="Mileage" class="col-4">Mileage <small>(optional)</small></label>
-                        <input asp-for="Mileage" type="text" class="col-8" />
+                        <input asp-for="Mileage" type="text" class="col-8" required />
                     </div>
                     <div>
                         <label asp-for="CarColorId" class="col-4">Color <small>(optional)</small></label>
 
-                        <select asp-for="CarColorId" class="col-8">
+                        <select asp-for="CarColorId" class="col-8" required>
                             <option>Select Make</option>
                             @foreach (var carColor in carColors)
                             {
@@ -109,7 +109,7 @@
                     </div>
                     <div>
                         <label class="col-4">Car Type<small>(optional)</small></label>
-                        <select asp-for="CarTypeId" class="col-8">
+                        <select asp-for="CarTypeId" class="col-8" required>
                             <option>Select Make</option>
                             @foreach (var carType in carTypes)
                             {
@@ -119,19 +119,19 @@
                     </div>
                     <div>
                         <label asp-for="MotorPower" class="col-4">Motor Power<small>(optional)</small></label>
-                        <input asp-for="MotorPower" type="text" class="col-8" />
+                        <input asp-for="MotorPower" type="text" class="col-8" required/>
                     </div>
                     <div>
                         <label asp-for="HorsePower" class="col-4">Horse Power<small>(optional)</small></label>
-                        <input asp-for="HorsePower" type="text" class="col-8" />
+                        <input asp-for="HorsePower" type="text" class="col-8" required />
                     </div>
                     <div>
                         <label asp-for="DoorCount" class="col-4">Door Count<small>(optional)</small></label>
-                        <input asp-for="DoorCount" type="text" class="col-8" />
+                        <input asp-for="DoorCount" type="text" class="col-8" required />
                     </div>
                     <div>
                         <label class="col-4">Fuel Type<small>(optional)</small></label>
-                        <select asp-for="FuelTypeId" class="col-8">
+                        <select asp-for="FuelTypeId" class="col-8" required>
                             <option>Select Make</option>
                             @foreach (var fuelType in fuelTypes)
                             {
@@ -141,7 +141,7 @@
                     </div>
                     <div>
                         <label class="col-4">Transmission<small>(optional)</small></label>
-                        <select asp-for="TransmissionId" class="col-8 ">
+                        <select asp-for="TransmissionId" class="col-8 " required>
                             <option>Select Make</option>
                             @foreach (var transmission in transmissions)
                             {
@@ -152,11 +152,11 @@
                     </div>
                     <div>
                         <label class="col-4">Gearbox<small>(optional)</small></label>
-                        <select asp-for="GearboxId" class="col-8 ">
+                        <select asp-for="GearboxId" class="col-8 " required>
                             <option>Select Make</option>
                             @foreach (var gearbox in gearboxes)
                             {
-                                <option value="@gearbox.Id">@gearbox.Name</option>
+                                <option value="@gearbox.Id" >@gearbox.Name</option>
                             }
 
                         </select>
@@ -166,7 +166,7 @@
             <div class="car-features">
                 <label>Car Features</label>
                 <div class="car-tags p-4">
-                    <select asp-for="CarFeatureIds" class="col-8 ">
+                    <select asp-for="CarFeatureIds" class="col-8 " required>
 
                         @foreach (var feature in features)
                         {
@@ -178,7 +178,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Car City</label>
-                    <select asp-for="CityId" class="form-control">
+                    <select asp-for="CityId" class="form-control" required>
 
                         @foreach (var city in cities)
                         {
@@ -193,7 +193,7 @@
                 <div class="form-row col-12">
                     <div class="form-group col-6 ">
                         <label asp-for="PosterImage" style="font-size:14px"> Car Poster Image</label>
-                        <input asp-for="PosterImage" class="form-control" placeholder="PosterFile">
+                        <input asp-for="PosterImage" accept="image/png, image/gif, image/jpeg" class="form-control" placeholder="PosterFile" required>
                         <span class="text-danger" asp-validation-for="PosterImage"></span>
                     </div>
                     @*<div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
@@ -209,7 +209,7 @@
                 <div class="form-row col-12 mt-5">
                     <div class="form-group col-6 ">
                         <label asp-for="ImageFiles" style="font-size:14px">Car Images</label>
-                        <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
+                        <input asp-for="ImageFiles" accept="image/png, image/gif, image/jpeg" class="form-control" placeholder="ImageFiles" required>
                         <span class="text-danger" asp-validation-for="ImageFiles"></span>
                     </div>
                     @*<div class="d-flex justify-content-between flex-wrap">
