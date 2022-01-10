@@ -11,5 +11,6 @@ namespace HarrierFinalProject.Areas.Manage.ViewModels
         public List<Car> Cars { get; set; }
         public Car Car { get; set; }
         public  List<Order> Orders { get; set; }
+        public List<Order> PendingOrders { get; set; }
     }
 }

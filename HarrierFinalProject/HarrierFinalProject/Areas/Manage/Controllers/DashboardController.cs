@@ -26,8 +26,10 @@ namespace HarrierFinalProject.Areas.Manage.Controllers
 
             DashViewModel dashVM = new DashViewModel()
             {
-                Cars = cars
+                Cars = cars,
+                PendingOrders = _context.Orders.Where(x => x.Status == Data.Models.Enums.OrderStatus.Pending).ToList()
             };
+
 
             return View(dashVM);
         }

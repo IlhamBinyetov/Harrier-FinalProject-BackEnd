@@ -149,7 +149,7 @@ namespace HarrierFinalProject.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            AppUser member = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == memberLoginVM.UserName && !x.IsAdmin);
+            AppUser member = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == memberLoginVM.UserName );
 
             if (member == null)
             {
@@ -165,7 +165,20 @@ namespace HarrierFinalProject.Controllers
                 return View();
             }
 
-            return RedirectToAction("index", "home");
+            AppUser admin = null;
+
+            admin = _userManager.Users.FirstOrDefault(x => x.UserName == memberLoginVM.UserName && x.IsAdmin);
+
+            if (admin != null)
+            {
+                return RedirectToAction("index", "dashboard", new { area = "manage" });
+            }
+            else
+            {
+                return RedirectToAction("index", "home");
+            }
+
+            
         }
 
         public async Task<IActionResult> Logout()

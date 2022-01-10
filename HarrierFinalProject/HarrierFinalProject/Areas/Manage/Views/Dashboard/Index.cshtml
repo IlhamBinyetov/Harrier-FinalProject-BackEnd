@@ -145,19 +145,27 @@
             </div>
             <!-- /row -->
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                    <div class="product-panel-2 pn">
-                        <div class="badge badge-hot">HOT</div>
-                        <img src="img/product.jpg" width="200" alt="">
-                        <h5 class="mt">Flat Pack Heritage</h5>
-                        <h6>TOTAL SALES: 1388</h6>
-                        <button class="btn btn-small btn-theme04">FULL REPORT</button>
+                <div class="col-xl-4 col-lg-4 col-md-4 mb-4" style="height:300px!important">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Pending Requests
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.PendingOrders.Count()</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /col-md-4 -->
                 <!--  PROFILE 02 PANEL -->
                 <!--/ col-md-4 -->
-                <div class="col-md-4 col-sm-4 col-lg-4 mb">
+                <div class="col-md-4 col-sm-4 col-lg-4 mb" style="height:300px">
                     <div class="green-panel pn">
                         <div class="green-header">
                             <h5 style="color: #fffffd">Qiymeti 30000 AZN-den asagi olan masinlar</h5>
@@ -178,21 +186,10 @@
                         <h3>@cheapCarRatio % Cheapest Cars</h3>
                     </div>
                 </div>
-            
-                <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /col-lg-9 END SECTION MIDDLE -->
-        <!-- **********************************************************************************************************************************************************
-            RIGHT SIDEBAR CONTENT
-            *********************************************************************************************************************************************************** -->
-        <div class="ds d-flex justify-content-between">
-            <!--COMPLETED ACTIONS DONUTS CHART-->
-            <div class="donut-main col-4">
-                <h4>Qiymeti 30000 AZN-den cox olan masinlar</h4>
-                <canvas id="newchart" height="130" width="130"></canvas>
-                <script>
+                <div class="donut-main col-4" style="background-color:darkgray; height:300px">
+                    <h4>Qiymeti 30000 AZN-den cox olan masinlar</h4>
+                    <canvas id="newchart" height="130" width="130"></canvas>
+                    <script>
                 var doughnutData = [{
                     value: @cheapCarRatio ,
                     color: "#4ECDC4"
@@ -203,40 +200,18 @@
                   }
                 ];
                 var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
-                </script>
-                <h3>@expensiveCarRatio % Expensive Cars</h3>
-            </div>
-            <!--NEW EARNING STATS -->
-            <div class="mb-0 panel terques-chart col-4" style="background-color:#797979">
-                <div class="panel-body">
-                    <div class="chart">
-                        <div class="centered">
-                            <span style="color:white">TODAY EARNINGS</span>
-                            <strong style="color:white">$ 890,00 | 15%</strong>
-                        </div>
-                        <br>
-                        <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                    </div>
+                    </script>
+                    <h3>@expensiveCarRatio % Expensive Cars</h3>
                 </div>
+
+                <!-- /col-md-4 -->
             </div>
-            <!--new earning end-->
-        
-          
-            <!-- CALENDAR-->
-            <div id="calendar" class="mb-0 col-4">
-                <div class="panel green-panel no-margin">
-                    <div class="panel-body">
-                        <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                            <div class="arrow"></div>
-                            <h3 class="popover-title" style="disadding: none;"></h3>
-                            <div id="date-popover-content" class="popover-content"></div>
-                        </div>
-                        <div id="my-calendar"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- / calendar -->
+            <!-- /row -->
         </div>
+        <!-- /col-lg-9 END SECTION MIDDLE -->
+        <!-- **********************************************************************************************************************************************************
+            RIGHT SIDEBAR CONTENT
+            *********************************************************************************************************************************************************** -->
         <!-- /col-lg-3 -->
     </div>
     <!-- /row -->
